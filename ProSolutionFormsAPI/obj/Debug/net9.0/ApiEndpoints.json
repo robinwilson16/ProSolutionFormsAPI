@@ -1,0 +1,360 @@
+[
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "GetAll",
+    "RelativePath": "CriminalConviction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "Create",
+    "RelativePath": "CriminalConviction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "criminalConviction",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "Get",
+    "RelativePath": "CriminalConviction/{criminalConvictionID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "criminalConvictionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "Update",
+    "RelativePath": "CriminalConviction/{criminalConvictionID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "criminalConvictionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "criminalConviction",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "Delete",
+    "RelativePath": "CriminalConviction/{criminalConvictionID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "criminalConvictionID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "GetByStudentDetailID",
+    "RelativePath": "CriminalConviction/StudentDetailID/{criminalConvictionID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "criminalConvictionID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "GetByStudentRef",
+    "RelativePath": "CriminalConviction/StudentRef/{academicYearID}/{studentRef}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentRef",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentController",
+    "Method": "GetAll",
+    "RelativePath": "Student",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.Student, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentController",
+    "Method": "Get",
+    "RelativePath": "Student/{academicYearID}/{studentGUID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.Student",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentController",
+    "Method": "Get",
+    "RelativePath": "Student/{studentGUID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.Student",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentUniqueReferenceController",
+    "Method": "GetAll",
+    "RelativePath": "StudentUniqueReference",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.StudentUniqueReference, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentUniqueReferenceController",
+    "Method": "Create",
+    "RelativePath": "StudentUniqueReference",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentUniqueReference",
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentUniqueReferenceController",
+    "Method": "Get",
+    "RelativePath": "StudentUniqueReference/{studentRef}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentRef",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentUniqueReferenceController",
+    "Method": "Delete",
+    "RelativePath": "StudentUniqueReference/{studentRef}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentRef",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.StudentUniqueReferenceController",
+    "Method": "Update",
+    "RelativePath": "StudentUniqueReference/{studentUniqueReferenceID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentUniqueReferenceID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentUniqueReference",
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ProSolutionFormsAPI.WeatherForecast, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

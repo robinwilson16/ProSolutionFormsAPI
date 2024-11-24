@@ -1,0 +1,25 @@
+CREATE PROCEDURE [dbo].[SPR_GetStudentByGUID]
+	@AcademicYear NVARCHAR(5),
+	@StudentGUID UNIQUEIDENTIFIER
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
+	--DECLARE @StudentGUID UNIQUEIDENTIFIER = '374CD499-8A5F-4622-9EC5-001DC809261A'
+
+	SELECT
+		StudentID = SD.StudentID,
+		StudentDetailID = SD.StudentDetailID,
+		StudentRef = RTRIM ( SD.RefNo ),
+		Surname = SD.Surname,
+		Forename = SD.FirstForename,
+		DateOfBirth = SD.DateOfBirth,
+		StudentGUID = S.StudentGUID
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Student S
+		ON S.StudentID = SD.StudentID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND S.StudentGUID = COALESCE ( @StudentGUID, S.StudentGUID )
+END
