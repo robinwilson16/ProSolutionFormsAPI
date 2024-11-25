@@ -2,10 +2,11 @@
 
 namespace ProSolutionFormsAPI.Models
 {
-    public class CriminalConviction
+    public class CriminalConvictionModel
     {
+        [Key]
         public int CriminalConvictionID { get; set; }
-        public string? DateOfOffence { get; set; }
+        public DateTime? DateOfOffence { get; set; }
         public string? Offence { get; set; }
         public string? Penalty { get; set; }
         public string? Comments { get; set; }

@@ -16,11 +16,11 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Student>?> GetAll() =>
+        public ActionResult<List<StudentModel>?> GetAll() =>
             _studentService.GetAll();
 
         [HttpGet("{studentGUID}")]
-        public ActionResult<Student> Get(Guid studentGUID)
+        public ActionResult<StudentModel> Get(Guid studentGUID)
         {
             var student = _studentService.Get(studentGUID);
 
@@ -31,7 +31,7 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpGet("{academicYearID}/{studentGUID}")]
-        public ActionResult<Student> Get(string academicYearID, Guid studentGUID)
+        public ActionResult<StudentModel> Get(string academicYearID, Guid studentGUID)
         {
             var student = _studentService.Get(academicYearID, studentGUID);
 

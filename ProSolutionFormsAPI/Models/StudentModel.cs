@@ -1,7 +1,10 @@
-﻿namespace ProSolutionFormsAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProSolutionFormsAPI.Models
 {
-    public class Student
+    public class StudentModel
     {
+        [Key]
         public int StudentID { get; set; }
         public int? StudentDetailID { get; set; }
         public string? StudentRef { get; set; }

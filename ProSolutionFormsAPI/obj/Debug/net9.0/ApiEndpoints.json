@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,7 +29,7 @@
     "Parameters": [
       {
         "Name": "criminalConviction",
-        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "IsRequired": true
       }
     ],
@@ -51,7 +51,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -76,7 +76,7 @@
       },
       {
         "Name": "criminalConviction",
-        "Type": "ProSolutionFormsAPI.Models.CriminalConviction",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "IsRequired": true
       }
     ],
@@ -119,7 +119,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -150,7 +150,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConviction, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -170,7 +170,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.Student, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.StudentModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -201,7 +201,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ProSolutionFormsAPI.Models.Student",
+        "Type": "ProSolutionFormsAPI.Models.StudentModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -227,7 +227,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ProSolutionFormsAPI.Models.Student",
+        "Type": "ProSolutionFormsAPI.Models.StudentModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -247,7 +247,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.StudentUniqueReference, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.StudentUniqueReferenceModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -267,7 +267,7 @@
     "Parameters": [
       {
         "Name": "studentUniqueReference",
-        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReferenceModel",
         "IsRequired": true
       }
     ],
@@ -289,7 +289,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReferenceModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -330,7 +330,7 @@
       },
       {
         "Name": "studentUniqueReference",
-        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReference",
+        "Type": "ProSolutionFormsAPI.Models.StudentUniqueReferenceModel",
         "IsRequired": true
       }
     ],

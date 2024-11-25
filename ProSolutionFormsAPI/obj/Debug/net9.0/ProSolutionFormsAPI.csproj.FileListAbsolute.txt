@@ -155,3 +155,6 @@ C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Debug\net9.0\ProSolutionFormsAPI.genruntimeconfig.cache
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Debug\net9.0\ref\ProSolutionFormsAPI.dll
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Scalar.AspNetCore.dll
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Debug\net9.0\ProSolutionFormsAPI.sourcelink.json
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\appsettings - Default.Development.json
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\appsettings - Default.json

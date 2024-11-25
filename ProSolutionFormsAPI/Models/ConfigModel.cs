@@ -5,7 +5,7 @@ namespace ProSolutionFormsAPI.Models
 {
     [Keyless]
     [Index(nameof(ConfigID), IsUnique = true)]
-    public class Config
+    public class ConfigModel
     {
         [MaxLength(50)]
         public required string ConfigID { get; set; }

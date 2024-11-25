@@ -7,8 +7,9 @@ namespace ProSolutionFormsAPI.Models
 {
     //[PrimaryKey("StudentUniqueReferenceID")]
     [Index(nameof(StudentRef), IsUnique = true)]
-    public class StudentUniqueReference
+    public class StudentUniqueReferenceModel
     {
+        [Key]
         public Guid StudentUniqueReferenceID { get; set; }
 
         [MaxLength(12)]

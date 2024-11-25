@@ -91,6 +91,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(origins); //Enable cors access using URLs above
+
 app.UseAuthorization();
 
 app.MapControllers();

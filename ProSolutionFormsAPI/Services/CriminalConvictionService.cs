@@ -9,7 +9,7 @@ namespace ProSolutionFormsAPI.Services
         private readonly ApplicationDbContext _context;
 
 
-        public List<CriminalConviction>? CriminalConvictions { get; }
+        public List<CriminalConvictionModel>? CriminalConvictions { get; }
 
         public CriminalConvictionService(ApplicationDbContext context)
         {
@@ -19,28 +19,28 @@ namespace ProSolutionFormsAPI.Services
                 .ToList();
         }
 
-        public List<CriminalConviction>? GetAll() => CriminalConvictions;
+        public List<CriminalConvictionModel>? GetAll() => CriminalConvictions;
 
-        public CriminalConviction? Get(int criminalConvictionID) => CriminalConvictions?.FirstOrDefault(c => c.CriminalConvictionID == criminalConvictionID);
+        public CriminalConvictionModel? Get(int criminalConvictionID) => CriminalConvictions?.FirstOrDefault(c => c.CriminalConvictionID == criminalConvictionID);
 
-        public List<CriminalConviction>? GetByStudentRef(string academicYear, string studentRef) => CriminalConvictions?
+        public List<CriminalConvictionModel>? GetByStudentRef(string academicYear, string studentRef) => CriminalConvictions?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentRef == studentRef)
             .ToList();
 
-        public List<CriminalConviction>? GetByStudentDetailID(int studentDetailID) => CriminalConvictions?
+        public List<CriminalConvictionModel>? GetByStudentDetailID(int studentDetailID) => CriminalConvictions?
             .Where(c => c.StudentDetailID == studentDetailID)
             .ToList();
 
-        public async Task Add(CriminalConviction studentDetailID)
+        public async Task Add(CriminalConvictionModel studentDetailID)
         {
             _context.CriminalConviction?.Add(studentDetailID);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(CriminalConviction? criminalConviction)
+        public async Task Update(CriminalConvictionModel? criminalConviction)
         {
-            CriminalConviction? criminalConvictionDB = _context.CriminalConviction!
+            CriminalConvictionModel? criminalConvictionDB = _context.CriminalConviction!
                 .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction!.CriminalConvictionID);
 
             if (_context.CriminalConviction == null)

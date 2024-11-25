@@ -9,7 +9,7 @@ namespace ProSolutionFormsAPI.Services
         private readonly ApplicationDbContext _context;
 
 
-        public List<StudentUniqueReference>? StudentUniqueReferences { get; }
+        public List<StudentUniqueReferenceModel>? StudentUniqueReferences { get; }
 
         public StudentUniqueReferenceService(ApplicationDbContext context)
         {
@@ -19,21 +19,21 @@ namespace ProSolutionFormsAPI.Services
                 .ToList();
         }
 
-        public List<StudentUniqueReference>? GetAll() => StudentUniqueReferences;
+        public List<StudentUniqueReferenceModel>? GetAll() => StudentUniqueReferences;
 
-        public StudentUniqueReference? Get(string studentRef) => StudentUniqueReferences?.FirstOrDefault(s => s.StudentRef == studentRef);
+        public StudentUniqueReferenceModel? Get(string studentRef) => StudentUniqueReferences?.FirstOrDefault(s => s.StudentRef == studentRef);
 
-        public StudentUniqueReference? GetByID(Guid studentUniqueReferenceID) => StudentUniqueReferences?.FirstOrDefault(s => s.StudentUniqueReferenceID == studentUniqueReferenceID);
+        public StudentUniqueReferenceModel? GetByID(Guid studentUniqueReferenceID) => StudentUniqueReferences?.FirstOrDefault(s => s.StudentUniqueReferenceID == studentUniqueReferenceID);
 
-        public async Task Add(StudentUniqueReference studentUniqueReference)
+        public async Task Add(StudentUniqueReferenceModel studentUniqueReference)
         {
             _context.StudentUniqueReference?.Add(studentUniqueReference);
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(StudentUniqueReference? studentUniqueReference)
+        public async Task Update(StudentUniqueReferenceModel? studentUniqueReference)
         {
-            StudentUniqueReference? studentUniqueReferenceDB = _context.StudentUniqueReference!
+            StudentUniqueReferenceModel? studentUniqueReferenceDB = _context.StudentUniqueReference!
                 .FirstOrDefault(s => s.StudentUniqueReferenceID == studentUniqueReference!.StudentUniqueReferenceID);
 
             if (_context.StudentUniqueReference == null)

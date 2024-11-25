@@ -9,15 +9,15 @@ namespace ProSolutionFormsAPI.Data
     {
         public IConfiguration configuration { get; } = _configuration;
 
-        public DbSet<Config>? Config { get; set; }
-        public DbSet<CriminalConviction>? CriminalConviction { get; set; }
-        public DbSet<Student>? Student { get; set; }
-        public DbSet<StudentUniqueReference>? StudentUniqueReference { get; set; }
+        public DbSet<ConfigModel>? Config { get; set; }
+        public DbSet<CriminalConvictionModel>? CriminalConviction { get; set; }
+        public DbSet<StudentModel>? Student { get; set; }
+        public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Student>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<StudentModel>().ToTable(t => t.ExcludeFromMigrations());
 
             //Unique value
             //modelBuilder.Entity<StudentUniqueReference>().HasIndex(s => s.StudentRef).IsUnique();

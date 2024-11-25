@@ -16,11 +16,11 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<StudentUniqueReference>?> GetAll() =>
+        public ActionResult<List<StudentUniqueReferenceModel>?> GetAll() =>
             _studentUniqueReferenceService.GetAll();
 
         [HttpGet("{studentRef}")]
-        public ActionResult<StudentUniqueReference> Get(string studentRef)
+        public ActionResult<StudentUniqueReferenceModel> Get(string studentRef)
         {
             var studentUniqueReference = _studentUniqueReferenceService.Get(studentRef);
 
@@ -31,7 +31,7 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(StudentUniqueReference studentUniqueReference)
+        public async Task<IActionResult> Create(StudentUniqueReferenceModel studentUniqueReference)
         {
             //Check this record is not already existing
             var studentUniqueReferenceExisting = _studentUniqueReferenceService.Get(studentUniqueReference.StudentRef ?? "");
@@ -45,7 +45,7 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPut("{studentUniqueReferenceID}")]
-        public async Task<IActionResult> Update(Guid studentUniqueReferenceID, StudentUniqueReference studentUniqueReference)
+        public async Task<IActionResult> Update(Guid studentUniqueReferenceID, StudentUniqueReferenceModel studentUniqueReference)
         {
             if (studentUniqueReferenceID != studentUniqueReference.StudentUniqueReferenceID)
                 return BadRequest();

@@ -9,7 +9,7 @@ namespace ProSolutionFormsAPI.Services
         private readonly ApplicationDbContext _context;
         private readonly IConfiguration _configuration;
 
-        public List<Student>? Students { get; }
+        public List<StudentModel>? Students { get; }
         public string AcademicYear { get; }
 
         public StudentService(ApplicationDbContext context, IConfiguration configuration)
@@ -25,13 +25,13 @@ namespace ProSolutionFormsAPI.Services
         }
 
         //public List<Student>? GetAll() => Students;
-        public List<Student>? GetAll() => _context.Student!
+        public List<StudentModel>? GetAll() => _context.Student!
             .FromSqlInterpolated($"EXEC SPR_GetStudentByGUID @AcademicYear = {AcademicYear}, @StudentGUID = {null}")
             .ToList();
-        public Student? Get(Guid studentGUID) => (_context.Student!
+        public StudentModel? Get(Guid studentGUID) => (_context.Student!
             .FromSqlInterpolated($"EXEC SPR_GetStudentByGUID @AcademicYear = {AcademicYear}, @StudentGUID = {studentGUID}").ToList())
             .FirstOrDefault();
-        public Student? Get(string academicYearID, Guid studentGUID) => (_context.Student!
+        public StudentModel? Get(string academicYearID, Guid studentGUID) => (_context.Student!
             .FromSqlInterpolated($"EXEC SPR_GetStudentByGUID @AcademicYear = {academicYearID}, @StudentGUID = {studentGUID}").ToList())
             .FirstOrDefault();
     }
