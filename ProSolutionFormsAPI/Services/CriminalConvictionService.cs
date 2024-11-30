@@ -38,6 +38,12 @@ namespace ProSolutionFormsAPI.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task AddMany(List<CriminalConvictionModel> studentDetailID)
+        {
+            await _context.CriminalConviction?.AddRangeAsync(studentDetailID)!;
+            await _context.SaveChangesAsync();
+        }
+
         public async Task Update(CriminalConvictionModel? criminalConviction)
         {
             CriminalConvictionModel? criminalConvictionDB = _context.CriminalConviction!

@@ -100,6 +100,22 @@
   },
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "CreateMany",
+    "RelativePath": "CriminalConviction/Many",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "criminalConvictions",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
     "Method": "GetByStudentDetailID",
     "RelativePath": "CriminalConviction/StudentDetailID/{criminalConvictionID}",
     "HttpMethod": "GET",

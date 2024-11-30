@@ -66,6 +66,14 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { criminalConvictionID = criminalConviction.CriminalConvictionID }, criminalConviction);
         }
 
+        [HttpPost("Many")]
+        public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> criminalConvictions)
+        {
+            await _criminalConvictionService.AddMany(criminalConvictions);
+
+            return CreatedAtAction(nameof(Create), new { criminalConvictionID = criminalConvictions[0].CriminalConvictionID }, criminalConvictions);
+        }
+
         [HttpPut("{criminalConvictionID}")]
         public async Task<IActionResult> Update(int criminalConvictionID, CriminalConvictionModel criminalConviction)
         {
