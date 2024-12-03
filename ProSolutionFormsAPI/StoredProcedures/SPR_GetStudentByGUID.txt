@@ -6,7 +6,86 @@ BEGIN
 	SET XACT_ABORT, NOCOUNT ON;
 
 	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
-	--DECLARE @StudentGUID UNIQUEIDENTIFIER = '374CD499-8A5F-4622-9EC5-001DC809261A'
+	--DECLARE @StudentGUID UNIQUEIDENTIFIER = '05a13fa1-22a3-457e-86be-389806731e3f'
+
+
+
+	--Main Aims
+	DROP TABLE IF EXISTS #MainAims
+	SELECT
+		SD.AcademicYearID,
+		SD.StudentDetailID,
+		ENR.EnrolmentID,
+		RowNum = 
+			ROW_NUMBER () OVER ( 
+				PARTITION BY
+					SD.StudentDetailID
+				ORDER BY
+					ENR.IncludeInReturn DESC,
+					CASE
+						WHEN CRS.QualID IS NOT NULL THEN 1
+						ELSE 2
+					END,
+					ENR.CompletionStatusID,
+					CASE
+						--In case learners in gateway so only parent active but have started something else
+						WHEN CRS.QualID = 'ZPROG001' THEN 2
+						ELSE 1
+					END,
+					COALESCE ( POT.ProgrammeTypeID, '99' ),
+					CASE
+						WHEN ENR.AimTypeID = 1 THEN 1 --Programme Aim
+						WHEN ENR.AimTypeID = 5 THEN 2 --Core Aim
+						ELSE 3
+					END,
+					CASE
+						WHEN AIM.LEARNING_AIM_TYPE_CODE IN (
+							'0003', --GCSE
+							'1439' --Functional Skills
+						) THEN 2
+						ELSE 1
+					END,
+					CASE WHEN AIM.NVQLevelID_v2 = 'E' THEN ' E' WHEN AIM.NVQLevelID_v2 = 'X' THEN ' X' ELSE AIM.NVQLevelID_v2 END DESC,
+					COALESCE ( ENR.PlannedLearningHours, 0 ) + COALESCE ( ENR.PlannedEEPHours, 0 ) DESC,
+					DATEDIFF ( DAY, ENR.StartDate, COALESCE ( ENR.ActualEndDate, ENR.ExpectedEndDate ) ) DESC,
+					ENR.StartDate,
+					ENR.EnrolmentID
+			)
+		INTO #MainAims
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Enrolment ENR
+		ON ENR.StudentDetailID = SD.StudentDetailID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = ENR.OfferingID
+	LEFT JOIN ProSolution.dbo.WBLPeriodOFTraining POT
+		ON POT.WBLPeriodOfTrainingID = ENR.WBLPeriodOfTrainingID
+	LEFT JOIN ProSolution.dbo.Learning_Aim AIM
+		ON AIM.LEARNING_AIM_REF = CRS.QualID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND ENR.CompletionStatusID IN ( '1', '2', '3' )
+
+	ALTER TABLE #MainAims
+	ALTER COLUMN EnrolmentID INT NOT NULL
+	ALTER TABLE #MainAims
+	ALTER COLUMN RowNum INT NOT NULL
+	ALTER TABLE #MainAims
+	ADD PRIMARY KEY (EnrolmentID, RowNum);
+
+
+	--Existing Criminal Convictions
+	DROP TABLE IF EXISTS #Convictions
+	SELECT
+		StudentDetailID = CRI.StudentDetailID,
+		NumDeclaredConvictions = COUNT ( CRI.CriminalConvictionID )
+		INTO #Convictions
+	FROM CriminalConviction CRI
+	WHERE
+		CRI.AcademicYearID = @AcademicYear
+	GROUP BY
+		CRI.StudentDetailID
+
+
 
 	SELECT
 		StudentID = SD.StudentID,
@@ -15,10 +94,35 @@ BEGIN
 		Surname = SD.Surname,
 		Forename = SD.FirstForename,
 		DateOfBirth = SD.DateOfBirth,
-		StudentGUID = S.StudentGUID
+		Email = SD.Email,
+		StudentGUID = S.StudentGUID,
+		AcademicYearID = SD.AcademicYearID,
+		TeamCode = RTRIM ( TEAM.Code ),
+		TeamName = TEAM.Name,
+		CourseCode = CRS.Code,
+		CourseTitle = CRS.Name,
+		CompletionStatusCode = ENR.CompletionStatusID,
+		CompletionStatusName = CMP.Description,
+		StartDate = ENR.StartDate,
+		ExpEndDate = ENR.ExpectedEndDate,
+		ActEndDate = ENR.ActualEndDate,
+		NumConvictions = COALESCE ( CON.NumDeclaredConvictions, 0 )
 	FROM ProSolution.dbo.StudentDetail SD
 	INNER JOIN ProSolution.dbo.Student S
 		ON S.StudentID = SD.StudentID
+	INNER JOIN #MainAims MA
+		ON MA.StudentDetailID = SD.StudentDetailID
+		AND MA.RowNum = 1
+	INNER JOIN ProSolution.dbo.Enrolment ENR
+		ON ENR.EnrolmentID = MA.EnrolmentID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = ENR.OfferingID
+	INNER JOIN ProSolution.dbo.CollegeLevel TEAM
+		ON TEAM.SID = CRS.SID
+	INNER JOIN ProSolution.dbo.CompletionStatus CMP
+		ON CMP.CompletionStatusID = ENR.CompletionStatusID
+	LEFT JOIN #Convictions CON
+		ON CON.StudentDetailID = SD.StudentDetailID
 	WHERE
 		SD.AcademicYearID = @AcademicYear
 		AND S.StudentGUID = COALESCE ( @StudentGUID, S.StudentGUID )
