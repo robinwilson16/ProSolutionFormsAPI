@@ -77,6 +77,7 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Offence")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Penalty")
@@ -94,6 +95,267 @@ namespace ProSolutionFormsAPI.Migrations
                     b.ToTable("CriminalConviction");
                 });
 
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDisabilityDifficultyModel", b =>
+                {
+                    b.Property<int>("MedicalInformationDisabilityDifficultyID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationDisabilityDifficultyID"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DisabilityID")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsPrimary")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicalInformationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedicalInformationDisabilityDifficultyID");
+
+                    b.HasIndex("MedicalInformationID");
+
+                    b.ToTable("MedicalInformationDisabilityDifficulty");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationEmergencyContactModel", b =>
+                {
+                    b.Property<int>("MedicalInformationEmergencyContactID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationEmergencyContactID"));
+
+                    b.Property<string>("Address1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Address4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ContactOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Forename")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicalInformationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostCodeIn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostCodeOut")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RelationshipToStudent")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelHome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelMobile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelWork")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedicalInformationEmergencyContactID");
+
+                    b.HasIndex("MedicalInformationID");
+
+                    b.ToTable("MedicalInformationEmergencyContact");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationMedicalConditionModel", b =>
+                {
+                    b.Property<int>("MedicalInformationMedicalConditionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationMedicalConditionID"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicalInformationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MedicationDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MedicationSchedule")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedicalInformationMedicalConditionID");
+
+                    b.HasIndex("MedicalInformationID");
+
+                    b.ToTable("MedicalInformationMedicalCondition");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationModel", b =>
+                {
+                    b.Property<int>("MedicalInformationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationID"));
+
+                    b.Property<string>("AcademicYearID")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<string>("AccessRequirementDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("AgreeInfoIsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("CanContactPriorSchoolOrCollege")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("CanShareInformationWithPotentialEmployers")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CriminalConvictionDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("HasAccessArrangements")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasBeenHospitalisedInLastYear")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasCriminalConvictions")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasEHCP")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasFSM")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasGivenPhotographicImagesConsent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasGivenTripConsentParentCarer")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasGivenTripConsentStudent")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("HospitalisationNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsCareLeaver")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsFromMilitaryServiceFamily")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsLAC")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool?>("RequiresLearningSupport")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("RequiresRiskAssesment")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SignedParentCarer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SignedParentCarerDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SignedStudent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SignedStudentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentRef")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("SupportInPlaceAtPriorSchoolOrCollege")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedicalInformationID");
+
+                    b.ToTable("MedicalInformation");
+                });
+
             modelBuilder.Entity("ProSolutionFormsAPI.Models.StudentModel", b =>
                 {
                     b.Property<int>("StudentID")
@@ -102,11 +364,41 @@ namespace ProSolutionFormsAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentID"));
 
+                    b.Property<string>("AcademicYearID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ActEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CompletionStatusCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompletionStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseTitle")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ExpEndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Forename")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("NumConvictions")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("StudentDetailID")
                         .HasColumnType("int");
@@ -118,6 +410,12 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StudentID");
@@ -145,6 +443,42 @@ namespace ProSolutionFormsAPI.Migrations
                         .IsUnique();
 
                     b.ToTable("StudentUniqueReference");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDisabilityDifficultyModel", b =>
+                {
+                    b.HasOne("ProSolutionFormsAPI.Models.MedicalInformationModel", "MedicalInformation")
+                        .WithMany("DisabilitiesDifficulties")
+                        .HasForeignKey("MedicalInformationID");
+
+                    b.Navigation("MedicalInformation");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationEmergencyContactModel", b =>
+                {
+                    b.HasOne("ProSolutionFormsAPI.Models.MedicalInformationModel", "MedicalInformation")
+                        .WithMany("EmergencyContacts")
+                        .HasForeignKey("MedicalInformationID");
+
+                    b.Navigation("MedicalInformation");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationMedicalConditionModel", b =>
+                {
+                    b.HasOne("ProSolutionFormsAPI.Models.MedicalInformationModel", "MedicalInformation")
+                        .WithMany("MedicalConditions")
+                        .HasForeignKey("MedicalInformationID");
+
+                    b.Navigation("MedicalInformation");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationModel", b =>
+                {
+                    b.Navigation("DisabilitiesDifficulties");
+
+                    b.Navigation("EmergencyContacts");
+
+                    b.Navigation("MedicalConditions");
                 });
 #pragma warning restore 612, 618
         }

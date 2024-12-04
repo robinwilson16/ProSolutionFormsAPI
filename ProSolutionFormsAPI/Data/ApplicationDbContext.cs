@@ -11,6 +11,10 @@ namespace ProSolutionFormsAPI.Data
 
         public DbSet<ConfigModel>? Config { get; set; }
         public DbSet<CriminalConvictionModel>? CriminalConviction { get; set; }
+        public DbSet<MedicalInformationModel>? MedicalInformation { get; set; }
+        public DbSet<MedicalInformationDisabilityDifficultyModel>? MedicalInformationDisabilityDifficulty { get; set; }
+        public DbSet<MedicalInformationEmergencyContactModel>? MedicalInformationEmergencyContact { get; set; }
+        public DbSet<MedicalInformationMedicalConditionModel>? MedicalInformationMedicalCondition { get; set; }
         public DbSet<StudentModel>? Student { get; set; }
         public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
 

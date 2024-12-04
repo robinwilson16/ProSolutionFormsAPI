@@ -14,8 +14,9 @@ builder.Services.AddOpenApi();
 
 //Add Services Here
 builder.Services.AddScoped<CriminalConvictionService>();
+builder.Services.AddScoped<MedicalInformationService>();
 builder.Services.AddScoped<StudentService>();
-builder.Services.AddScoped<StudentUniqueReferenceService>();
+builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now
 
 //Get connection string elements to asemble
 var databaseSettings = builder.Configuration.GetSection("DatabaseConnection");

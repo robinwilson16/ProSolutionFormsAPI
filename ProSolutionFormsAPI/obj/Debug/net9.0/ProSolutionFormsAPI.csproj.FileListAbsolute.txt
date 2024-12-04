@@ -158,3 +158,5 @@ C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Debug\net9.0\ProSolutionFormsAPI.sourcelink.json
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\appsettings - Default.Development.json
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\appsettings - Default.json
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Blazored.FluentValidation.dll
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\FluentValidation.dll
