@@ -15,7 +15,9 @@ builder.Services.AddOpenApi();
 //Add Services Here
 builder.Services.AddScoped<CriminalConvictionService>();
 builder.Services.AddScoped<MedicalInformationService>();
+builder.Services.AddScoped<RelationshipService>();
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<TitleService>();
 builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now
 
 //Get connection string elements to asemble

@@ -11,6 +11,8 @@ namespace ProSolutionFormsAPI.Data
 
         public DbSet<ConfigModel>? Config { get; set; }
         public DbSet<CriminalConvictionModel>? CriminalConviction { get; set; }
+        public DbSet<DropDownIntModel>? DropDownInt { get; set; }
+        public DbSet<DropDownStringModel>? DropDownString { get; set; }
         public DbSet<MedicalInformationModel>? MedicalInformation { get; set; }
         public DbSet<MedicalInformationDisabilityDifficultyModel>? MedicalInformationDisabilityDifficulty { get; set; }
         public DbSet<MedicalInformationEmergencyContactModel>? MedicalInformationEmergencyContact { get; set; }
@@ -21,6 +23,8 @@ namespace ProSolutionFormsAPI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<DropDownIntModel>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<DropDownStringModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<StudentModel>().ToTable(t => t.ExcludeFromMigrations());
 
             //Unique value
