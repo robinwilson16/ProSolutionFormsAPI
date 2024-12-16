@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c15aab21e76fbdc8f94828244c859f9e1a708c95")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68986e456421d5f90f32647c8f5901ebace3b0d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

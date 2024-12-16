@@ -1,0 +1,19 @@
+CREATE PROCEDURE [dbo].[SPR_GetDisabilityCategories]
+	@AcademicYear NVARCHAR(5)
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
+
+	SELECT
+		Code = DIS.DisabilityCategoryID,
+		Description = DIS.Description
+	FROM ProSolution.dbo.DisabilityCategory DIS
+	WHERE
+		DIS.Enabled = 1
+		AND COALESCE ( DIS.MinAcademicYearID, @AcademicYear ) <= @AcademicYear
+		AND COALESCE ( DIS.MaxAcademicYearID, @AcademicYear ) >= @AcademicYear
+	ORDER BY
+		DIS.Description
+END

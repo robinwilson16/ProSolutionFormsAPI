@@ -158,3 +158,5 @@ C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Release\net9.0\ProSolutionFormsAPI.pdb
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Release\net9.0\ProSolutionFormsAPI.genruntimeconfig.cache
 C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\obj\Release\net9.0\ref\ProSolutionFormsAPI.dll
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Release\net9.0\Blazored.FluentValidation.dll
+C:\Users\Robin.Wilson.SHCG\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Release\net9.0\FluentValidation.dll

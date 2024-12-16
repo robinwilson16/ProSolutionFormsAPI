@@ -95,13 +95,48 @@ namespace ProSolutionFormsAPI.Migrations
                     b.ToTable("CriminalConviction");
                 });
 
-            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDisabilityDifficultyModel", b =>
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.DropDownIntModel", b =>
                 {
-                    b.Property<int>("MedicalInformationDisabilityDifficultyID")
+                    b.Property<int>("Code")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationDisabilityDifficultyID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Code"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Code");
+
+                    b.ToTable("DropDownInt", t =>
+                        {
+                            t.ExcludeFromMigrations();
+                        });
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.DropDownStringModel", b =>
+                {
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Code");
+
+                    b.ToTable("DropDownString", t =>
+                        {
+                            t.ExcludeFromMigrations();
+                        });
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDifficultyDisabilityModel", b =>
+                {
+                    b.Property<int>("MedicalInformationDifficultyDisabilityID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicalInformationDifficultyDisabilityID"));
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -109,7 +144,7 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DisabilityID")
+                    b.Property<int?>("DisabilityCategoryID")
                         .HasColumnType("int");
 
                     b.Property<bool?>("IsPrimary")
@@ -127,11 +162,11 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MedicalInformationDisabilityDifficultyID");
+                    b.HasKey("MedicalInformationDifficultyDisabilityID");
 
                     b.HasIndex("MedicalInformationID");
 
-                    b.ToTable("MedicalInformationDisabilityDifficulty");
+                    b.ToTable("MedicalInformationDifficultyDisability");
                 });
 
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationEmergencyContactModel", b =>
@@ -179,10 +214,12 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PostCodeIn")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(3)
+                        .HasColumnType("nvarchar(3)");
 
                     b.Property<string>("PostCodeOut")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<int?>("RelationshipToStudent")
                         .HasColumnType("int");
@@ -228,6 +265,9 @@ namespace ProSolutionFormsAPI.Migrations
 
                     b.Property<DateTime>("LastUpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicalConditionTypeID")
+                        .HasColumnType("int");
 
                     b.Property<int?>("MedicalInformationID")
                         .HasColumnType("int");
@@ -290,6 +330,9 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<bool?>("HasCriminalConvictions")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("HasDifficultyDisability")
+                        .HasColumnType("bit");
+
                     b.Property<bool?>("HasEHCP")
                         .HasColumnType("bit");
 
@@ -303,6 +346,9 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool?>("HasGivenTripConsentStudent")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("HasMedicalCondition")
                         .HasColumnType("bit");
 
                     b.Property<string>("HospitalisationNotes")
@@ -445,10 +491,10 @@ namespace ProSolutionFormsAPI.Migrations
                     b.ToTable("StudentUniqueReference");
                 });
 
-            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDisabilityDifficultyModel", b =>
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDifficultyDisabilityModel", b =>
                 {
                     b.HasOne("ProSolutionFormsAPI.Models.MedicalInformationModel", "MedicalInformation")
-                        .WithMany("DisabilitiesDifficulties")
+                        .WithMany("DifficultiesDisabilities")
                         .HasForeignKey("MedicalInformationID");
 
                     b.Navigation("MedicalInformation");
@@ -474,7 +520,7 @@ namespace ProSolutionFormsAPI.Migrations
 
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationModel", b =>
                 {
-                    b.Navigation("DisabilitiesDifficulties");
+                    b.Navigation("DifficultiesDisabilities");
 
                     b.Navigation("EmergencyContacts");
 

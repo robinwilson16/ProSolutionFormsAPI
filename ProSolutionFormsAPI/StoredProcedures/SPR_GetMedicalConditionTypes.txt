@@ -1,0 +1,17 @@
+CREATE PROCEDURE [dbo].[SPR_GetMedicalConditionTypes]
+	@AcademicYear NVARCHAR(5)
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
+
+	SELECT
+		Code = MED.MedicalConditionTypeID,
+		Description = MED.Description
+	FROM ProSolution.dbo.MedicalConditionType MED
+	WHERE
+		MED.OLD_ID2 IS NOT NULL
+	ORDER BY
+		MED.Description
+END

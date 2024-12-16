@@ -14,7 +14,7 @@ namespace ProSolutionFormsAPI.Data
         public DbSet<DropDownIntModel>? DropDownInt { get; set; }
         public DbSet<DropDownStringModel>? DropDownString { get; set; }
         public DbSet<MedicalInformationModel>? MedicalInformation { get; set; }
-        public DbSet<MedicalInformationDisabilityDifficultyModel>? MedicalInformationDisabilityDifficulty { get; set; }
+        public DbSet<MedicalInformationDifficultyDisabilityModel>? MedicalInformationDifficultyDisability { get; set; }
         public DbSet<MedicalInformationEmergencyContactModel>? MedicalInformationEmergencyContact { get; set; }
         public DbSet<MedicalInformationMedicalConditionModel>? MedicalInformationMedicalCondition { get; set; }
         public DbSet<StudentModel>? Student { get; set; }

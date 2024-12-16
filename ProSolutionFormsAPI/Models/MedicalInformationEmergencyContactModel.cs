@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace ProSolutionFormsAPI.Models
@@ -19,8 +20,13 @@ namespace ProSolutionFormsAPI.Models
         public string? Address2 { get; set; }
         public string? Address3 { get; set; }
         public string? Address4 { get; set; }
+
+        [MaxLength(4)]
         public string? PostCodeOut { get; set; }
+
+        [MaxLength(3)]
         public string? PostCodeIn { get; set; }
+
         public string? PostCode
         {
             get
@@ -38,5 +44,29 @@ namespace ProSolutionFormsAPI.Models
         public DateTime? CreatedDate { get; set; }
         public string? LastUpdatedBy { get; set; }
         public DateTime LastUpdatedDate { get; set; }
+    }
+
+    public class MedicalInformationEmergencyContactValidator : AbstractValidator<MedicalInformationEmergencyContactModel>
+    {
+        //Drop-down options
+        public List<DropDownStringModel>? Titles = new List<DropDownStringModel>();
+        public List<DropDownIntModel>? Relationships = new List<DropDownIntModel>();
+
+        public MedicalInformationEmergencyContactValidator()
+        {
+            //Get lists of drop-down options to be checked
+            //Titles = MedicalInformation.GetTitles();
+            //Relationships = MedicalInformation.GetRelationships();
+
+            RuleFor(e => e.Surname)
+                .NotNull()
+                .WithMessage("Please specify the contact surname");
+            RuleFor(e => e.Title)
+                .Must(f => Titles.Any(t => t.Description == f))
+                .WithMessage(e => $"The value you entered '{e.Title}' is not valid. Please enter or select a valid option from the list");
+            RuleFor(e => e.RelationshipToStudent)
+                .Must(f => Relationships.Any(t => t.Code == f))
+                .WithMessage(e => $"The value you entered '{e.RelationshipToStudent}' is not valid. Please enter or select a valid option from the list");
+        }
     }
 }

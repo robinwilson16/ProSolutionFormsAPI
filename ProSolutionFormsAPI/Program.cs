@@ -13,11 +13,19 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 //Add Services Here
+//Forms
 builder.Services.AddScoped<CriminalConvictionService>();
 builder.Services.AddScoped<MedicalInformationService>();
-builder.Services.AddScoped<RelationshipService>();
+
+//Lookups
 builder.Services.AddScoped<StudentService>();
+
+//Drop-Downs
+builder.Services.AddScoped<DisabilityCategoryService>();
+builder.Services.AddScoped<MedicalConditionTypeService>();
+builder.Services.AddScoped<RelationshipService>();
 builder.Services.AddScoped<TitleService>();
+
 builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now
 
 //Get connection string elements to asemble

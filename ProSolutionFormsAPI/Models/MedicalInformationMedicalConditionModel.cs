@@ -10,7 +10,7 @@ namespace ProSolutionFormsAPI.Models
 
         [JsonIgnore]
         public MedicalInformationModel? MedicalInformation { get; set; }
-        public int? MedicalInformationID { get; set; }
+        public int? MedicalConditionTypeID { get; set; }
         public string? MedicationDetails { get; set; }
         public string? MedicationSchedule { get; set; }
         public string? Notes { get; set; }
