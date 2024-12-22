@@ -100,12 +100,70 @@
   },
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "DeleteAll",
+    "RelativePath": "CriminalConviction/All/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
     "Method": "CreateMany",
     "RelativePath": "CriminalConviction/Many",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "criminalConvictions",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "UpdateMany",
+    "RelativePath": "CriminalConviction/Many/{studentDetailID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "criminalConvictions",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "DeleteMany",
+    "RelativePath": "CriminalConviction/Many/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "criminalConvictions",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -213,6 +271,297 @@
     "ReturnTypes": [
       {
         "Type": "ProSolutionFormsAPI.Models.DropDownIntModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FeeExemptionReasonController",
+    "Method": "GetAll",
+    "RelativePath": "FeeExemptionReason",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.DropDownIntModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FeeExemptionReasonController",
+    "Method": "Get",
+    "RelativePath": "FeeExemptionReason/{code}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.DropDownIntModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "GetAll",
+    "RelativePath": "FundingEligibilityDeclaration",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "Create",
+    "RelativePath": "FundingEligibilityDeclaration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fundingEligibilityDeclaration",
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "Get",
+    "RelativePath": "FundingEligibilityDeclaration/{criminalConvictionID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fundingEligibilityDeclarationID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "criminalConvictionID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "Update",
+    "RelativePath": "FundingEligibilityDeclaration/{criminalConvictionID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fundingEligibilityDeclarationID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fundingEligibilityDeclaration",
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "criminalConvictionID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "Delete",
+    "RelativePath": "FundingEligibilityDeclaration/{fundingEligibilityDeclarationID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fundingEligibilityDeclarationID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "DeleteAll",
+    "RelativePath": "FundingEligibilityDeclaration/All/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "CreateMany",
+    "RelativePath": "FundingEligibilityDeclaration/Many",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fundingEligibilityDeclarations",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "UpdateMany",
+    "RelativePath": "FundingEligibilityDeclaration/Many/{studentDetailID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fundingEligibilityDeclarations",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "DeleteMany",
+    "RelativePath": "FundingEligibilityDeclaration/Many/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fundingEligibilityDeclarations",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "GetByStudentDetailID",
+    "RelativePath": "FundingEligibilityDeclaration/StudentDetailID/{fundingEligibilityDeclarationID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fundingEligibilityDeclarationID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "GetByStudentRef",
+    "RelativePath": "FundingEligibilityDeclaration/StudentRef/{academicYearID}/{studentRef}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearID",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentRef",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -369,12 +718,70 @@
   },
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "Method": "DeleteAll",
+    "RelativePath": "MedicalInformation/All/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
     "Method": "CreateMany",
     "RelativePath": "MedicalInformation/Many",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "medicalInformations",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "Method": "UpdateMany",
+    "RelativePath": "MedicalInformation/Many/{studentDetailID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicalInformations",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "Method": "DeleteMany",
+    "RelativePath": "MedicalInformation/Many/{studentDetailID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentDetailID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "medicalInformations",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -662,6 +1069,84 @@
       {
         "Name": "studentUniqueReference",
         "Type": "ProSolutionFormsAPI.Models.StudentUniqueReferenceModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemFileController",
+    "Method": "GetAll",
+    "RelativePath": "SystemFile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.SystemFileModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemFileController",
+    "Method": "Create",
+    "RelativePath": "SystemFile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemFile",
+        "Type": "ProSolutionFormsAPI.Models.SystemFileModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemFileController",
+    "Method": "Get",
+    "RelativePath": "SystemFile/{systemFileID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemFileID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.SystemFileModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemFileController",
+    "Method": "CreateMany",
+    "RelativePath": "SystemFile/Many",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemFiles",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.SystemFileModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],

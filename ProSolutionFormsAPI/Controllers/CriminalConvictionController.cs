@@ -55,7 +55,7 @@ namespace ProSolutionFormsAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CriminalConvictionModel criminalConviction)
         {
-            //Check this record is not already existing
+            //Check this record does not already exist
             var existingRecord = _criminalConvictionService.Get(criminalConviction.CriminalConvictionID);
 
             if (existingRecord is not null)
@@ -89,6 +89,21 @@ namespace ProSolutionFormsAPI.Controllers
             return NoContent();
         }
 
+        [HttpPut("Many/{studentDetailID}")]
+        public async Task<IActionResult> UpdateMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictions)
+        {
+            if (criminalConvictions == null)
+                return BadRequest();
+
+            var existingRecords = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
+            if (existingRecords is null)
+                return NotFound();
+
+            await _criminalConvictionService.UpdateMany(studentDetailID, criminalConvictions);
+
+            return NoContent();
+        }
+
         [HttpDelete("{criminalConvictionID}")]
         public async Task<IActionResult> Delete(int criminalConvictionID)
         {
@@ -98,6 +113,31 @@ namespace ProSolutionFormsAPI.Controllers
                 return NotFound();
 
             await _criminalConvictionService.Delete(criminalConvictionID);
+
+            return NoContent();
+        }
+
+        [HttpDelete("Many/{studentDetailID}")]
+        public async Task<IActionResult> DeleteMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictions)
+        {
+            //Make sure records exist
+            var existingRecords = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
+
+            if (existingRecords is null)
+                return NotFound();
+
+            await _criminalConvictionService.DeleteMany(studentDetailID, criminalConvictions);
+
+            return NoContent();
+        }
+
+        [HttpDelete("All/{studentDetailID}")]
+        public async Task<IActionResult> DeleteAll(int? studentDetailID)
+        {
+            if (studentDetailID is null)
+                return NotFound();
+
+            await _criminalConvictionService.DeleteAll((int)studentDetailID);
 
             return NoContent();
         }

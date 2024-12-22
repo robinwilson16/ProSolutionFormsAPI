@@ -11,24 +11,116 @@
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\disabilitycategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\disabilitycategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\criminalconvictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\criminalconvictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\systemfilemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\systemfilemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\dropdownstringmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\dropdownstringmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\dropdownintmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\dropdownintmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\fundingeligibilitydeclarationevidencemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\fundingeligibilitydeclarationevidencemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\medicalconditiontypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\medicalconditiontypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\systemfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\systemfileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\systemfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\systemfilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\medicalinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\medicalinformationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\criminalconvictionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\criminalconvictionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\medicalconditiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\medicalconditiontypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\fundingeligibilitydeclarationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\fundingeligibilitydeclarationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\medicalinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\medicalinformationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\medicalinformationdifficultydisabilitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\medicalinformationdifficultydisabilitymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\feeexemptionreasonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\feeexemptionreasonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\fundingeligibilitydeclarationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\fundingeligibilitydeclarationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\medicalinformationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\medicalinformationmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\fundingeligibilitydeclarationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\fundingeligibilitydeclarationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\criminalconvictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\criminalconvictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\medicalconditiontypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\medicalconditiontypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\disabilitycategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +129,26 @@
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\relationshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\relationshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\feeexemptionreasoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\feeexemptionreasoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\disabilitycategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\disabilitycategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\medicalinformationemergencycontactmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\medicalinformationemergencycontactmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\medicalinformationmedicalconditionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\medicalinformationmedicalconditionmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,8 +158,370 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 29,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\StudentModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\StudentModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\StudentModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\StudentModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T04:01:13.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DropDownStringModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\DropDownStringModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\DropDownStringModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\DropDownStringModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\DropDownStringModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T18:52:41.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DropDownIntModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\DropDownIntModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\DropDownIntModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\DropDownIntModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\DropDownIntModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T18:52:32.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222163908_Added ImageThumbnail to SystemFile and EvidenceModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T16:39:08.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222125301_Changed Evidence to EvidenceContent in Evidence Model.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T12:53:02.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20241222125109_Added File Path to Evidence Model.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222125109_Added File Path to Evidence Model.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T12:51:10.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222114924_Add Evidence File Extension to FundingEligibilityDeclarationEvidenceModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T11:49:24.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20241222041114_Add File Size and Name fields to Evidence Model.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222041114_Add File Size and Name fields to Evidence Model.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T04:11:14.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SystemFileController.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\SystemFileController.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\SystemFileController.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\SystemFileController.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\SystemFileController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwDIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T03:37:59.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SystemFileService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\SystemFileService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\SystemFileService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\SystemFileService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\SystemFileService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA9wDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T03:22:38.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SystemFileModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemFileModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\SystemFileModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemFileModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\SystemFileModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T03:21:31.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\StudentService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\StudentService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T01:23:48.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "20241222004851_Rename Evidence Type Column.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241222004851_Rename Evidence Type Column.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T00:48:51.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FundingEligibilityDeclarationController.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAYwIgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T22:47:53.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MedicalInformationController.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\MedicalInformationController.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\MedicalInformationController.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\MedicalInformationController.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\MedicalInformationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T21:38:27.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CriminalConvictionService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\CriminalConvictionService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\CriminalConvictionService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\CriminalConvictionService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\CriminalConvictionService.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAYwF0AAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T21:21:40.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "FundingEligibilityDeclarationService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAGwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T21:16:46.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MedicalInformationService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\MedicalInformationService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\MedicalInformationService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\MedicalInformationService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\MedicalInformationService.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAwG8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T01:23:55.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "FeeExemptionReasonController.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\FeeExemptionReasonController.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\FeeExemptionReasonController.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\FeeExemptionReasonController.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\FeeExemptionReasonController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T01:18:56.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "FeeExemptionReasonService.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FeeExemptionReasonService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\FeeExemptionReasonService.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FeeExemptionReasonService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\FeeExemptionReasonService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T01:17:32.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20241221010655_Add Funding Eligibility Tables.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20241221010655_Add Funding Eligibility Tables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T01:06:56.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FundingEligibilityDeclarationEvidenceModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationEvidenceModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationEvidenceModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationEvidenceModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationEvidenceModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T00:55:51.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwBwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T00:52:29.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MedicalInformationDifficultyDisabilityModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationDifficultyDisabilityModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\MedicalInformationDifficultyDisabilityModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationDifficultyDisabilityModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\MedicalInformationDifficultyDisabilityModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T00:49:02.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "FundingEligibilityDeclarationModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\FundingEligibilityDeclarationModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T00:35:56.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "MedicalInformationModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\MedicalInformationModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\MedicalInformationModel.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAIwFIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T11:46:36.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "MedicalInformationMedicalConditionModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationMedicalConditionModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\MedicalInformationMedicalConditionModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationMedicalConditionModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\MedicalInformationMedicalConditionModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T11:46:28.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "MedicalInformationEmergencyContactModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationEmergencyContactModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\MedicalInformationEmergencyContactModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\MedicalInformationEmergencyContactModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\MedicalInformationEmergencyContactModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T11:31:37.4Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -76,33 +550,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 28,
               "Title": "CriminalConvictionController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
               "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAAwHoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T18:22:02.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Program.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Program.cs",
               "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Program.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T18:04:19.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 29,
               "Title": "MedicalConditionTypeController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\MedicalConditionTypeController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\MedicalConditionTypeController.cs",
@@ -115,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 33,
               "Title": "DisabilityCategoryController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\DisabilityCategoryController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\DisabilityCategoryController.cs",
@@ -128,20 +602,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "MedicalConditionTypeService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\MedicalConditionTypeService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\MedicalConditionTypeService.cs",
               "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\MedicalConditionTypeService.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\MedicalConditionTypeService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAA0wBYAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T18:01:08.03Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 30,
               "Title": "DisabilityCategoryService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\DisabilityCategoryService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\DisabilityCategoryService.cs",
@@ -154,13 +628,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 31,
               "Title": "RelationshipService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\RelationshipService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\RelationshipService.cs",
               "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\RelationshipService.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\RelationshipService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T17:57:57.044Z",
               "EditorCaption": ""

@@ -1,0 +1,20 @@
+CREATE PROCEDURE [dbo].[SPR_GetFeeExemptionReasons]
+	@AcademicYear NVARCHAR(5)
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
+
+	SELECT
+		Code = FEE.FeeExemptionReasonID,
+		Description = FEE.Description
+	FROM ProSolution.dbo.FeeExemptionReason FEE
+	WHERE
+		FEE.Enabled = 1
+		AND COALESCE ( FEE.MinAcademicYearID, @AcademicYear ) <= @AcademicYear
+		AND COALESCE ( FEE.MaxAcademicYearID, @AcademicYear ) >= @AcademicYear
+		--AND FEE.FundingIndicatorID = '01'
+	ORDER BY
+		FEE.Description
+END

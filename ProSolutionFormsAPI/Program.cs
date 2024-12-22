@@ -15,6 +15,7 @@ builder.Services.AddOpenApi();
 //Add Services Here
 //Forms
 builder.Services.AddScoped<CriminalConvictionService>();
+builder.Services.AddScoped<FundingEligibilityDeclarationService>();
 builder.Services.AddScoped<MedicalInformationService>();
 
 //Lookups
@@ -22,8 +23,10 @@ builder.Services.AddScoped<StudentService>();
 
 //Drop-Downs
 builder.Services.AddScoped<DisabilityCategoryService>();
+builder.Services.AddScoped<FeeExemptionReasonService>();
 builder.Services.AddScoped<MedicalConditionTypeService>();
 builder.Services.AddScoped<RelationshipService>();
+builder.Services.AddScoped<SystemFileService>();
 builder.Services.AddScoped<TitleService>();
 
 builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now

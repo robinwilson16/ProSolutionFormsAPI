@@ -46,7 +46,7 @@ namespace ProSolutionFormsAPI.Services
 
         public async Task Update(CriminalConvictionModel? criminalConviction)
         {
-            CriminalConvictionModel? criminalConvictionDB = _context.CriminalConviction!
+            CriminalConvictionModel? recordToUpdate = _context.CriminalConviction!
                 .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction!.CriminalConvictionID);
 
             if (_context.CriminalConviction == null)
@@ -54,27 +54,74 @@ namespace ProSolutionFormsAPI.Services
                 return;
             }
 
-            _context.Entry(criminalConvictionDB!).CurrentValues.SetValues(criminalConviction!);
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(criminalConviction!);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateMany(int studentDetailID, List<CriminalConvictionModel>? criminalConvictions)
+        {
+            if (criminalConvictions is null)
+                return;
+
+            foreach (var criminalConviction in criminalConvictions)
+            {
+                CriminalConvictionModel? recordToUpdate = _context.CriminalConviction!
+                    .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction.CriminalConvictionID);
+                if (_context.CriminalConviction == null)
+                {
+                    return;
+                }
+                else if (recordToUpdate?.StudentDetailID != studentDetailID)
+                {
+                    return;
+                }
+                _context.Entry(recordToUpdate!).CurrentValues.SetValues(criminalConviction);
+            }
+
             await _context.SaveChangesAsync();
         }
 
         public async Task Delete(int criminalConvictionID)
         {
-            var criminalConviction = Get(criminalConvictionID);
-            if (criminalConviction is null)
+            var recordToDelete = Get(criminalConvictionID);
+            if (recordToDelete is null)
                 return;
 
-            _context.CriminalConviction!.Remove(criminalConviction);
+            _context.CriminalConviction!.Remove(recordToDelete);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteForStudent(int studentDetailID)
+        public async Task DeleteMany(int studentDetailID, List<CriminalConvictionModel>? criminalConvictions)
         {
-            var criminalConviction = GetByStudentDetailID(studentDetailID);
-            if (criminalConviction is null)
+            if (criminalConvictions is null)
                 return;
 
-            _context.CriminalConviction!.RemoveRange(criminalConviction);
+            //Check records belong to this student - extra security step
+            foreach (var criminalConviction in criminalConvictions)
+            {
+                CriminalConvictionModel? recordToDelete = _context.CriminalConviction!
+                    .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction.CriminalConvictionID);
+                if (_context.CriminalConviction == null)
+                {
+                    return;
+                }
+                else if (recordToDelete?.StudentDetailID != studentDetailID)
+                {
+                    return;
+                }
+            }
+
+            _context.CriminalConviction!.RemoveRange(criminalConvictions);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAll(int studentDetailID)
+        {
+            var recordsToDelete = GetByStudentDetailID(studentDetailID);
+            if (recordsToDelete is null)
+                return;
+
+            _context.CriminalConviction!.RemoveRange(recordsToDelete);
             await _context.SaveChangesAsync();
         }
     }

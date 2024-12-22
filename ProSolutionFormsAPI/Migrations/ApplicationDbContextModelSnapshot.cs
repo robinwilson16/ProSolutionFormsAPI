@@ -130,6 +130,109 @@ namespace ProSolutionFormsAPI.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.FundingEligibilityDeclarationEvidenceModel", b =>
+                {
+                    b.Property<int>("FundingEligibilityDeclarationEvidenceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FundingEligibilityDeclarationEvidenceID"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("EvidenceContent")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("EvidenceContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EvidenceFileExtension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EvidenceFileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EvidenceFilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("EvidenceFileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("EvidenceTypeID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FundingEligibilityDeclarationID")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("ImageThumbnail")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FundingEligibilityDeclarationEvidenceID");
+
+                    b.HasIndex("FundingEligibilityDeclarationID");
+
+                    b.ToTable("FundingEligibilityDeclarationEvidence");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel", b =>
+                {
+                    b.Property<int>("FundingEligibilityDeclarationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FundingEligibilityDeclarationID"));
+
+                    b.Property<string>("AcademicYearID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("FeeExemptionReasonID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeeExemptionReasonOther")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SignedStudent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SignedStudentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentRef")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("FundingEligibilityDeclarationID");
+
+                    b.ToTable("FundingEligibilityDeclaration");
+                });
+
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDifficultyDisabilityModel", b =>
                 {
                     b.Property<int>("MedicalInformationDifficultyDisabilityID")
@@ -491,6 +594,52 @@ namespace ProSolutionFormsAPI.Migrations
                     b.ToTable("StudentUniqueReference");
                 });
 
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.SystemFileModel", b =>
+                {
+                    b.Property<int>("SystemFileID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SystemFileID"));
+
+                    b.Property<byte[]>("FileContent")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("FileContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileExtension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<byte[]>("ImageThumbnail")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("SystemFileID");
+
+                    b.ToTable("SystemFile", t =>
+                        {
+                            t.ExcludeFromMigrations();
+                        });
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.FundingEligibilityDeclarationEvidenceModel", b =>
+                {
+                    b.HasOne("ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel", "FundingEligibilityDeclaration")
+                        .WithMany("FundingEligibilityDeclarationEvidence")
+                        .HasForeignKey("FundingEligibilityDeclarationID");
+
+                    b.Navigation("FundingEligibilityDeclaration");
+                });
+
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationDifficultyDisabilityModel", b =>
                 {
                     b.HasOne("ProSolutionFormsAPI.Models.MedicalInformationModel", "MedicalInformation")
@@ -516,6 +665,11 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasForeignKey("MedicalInformationID");
 
                     b.Navigation("MedicalInformation");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel", b =>
+                {
+                    b.Navigation("FundingEligibilityDeclarationEvidence");
                 });
 
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalInformationModel", b =>
