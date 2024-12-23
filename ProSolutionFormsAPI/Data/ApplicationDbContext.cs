@@ -15,6 +15,8 @@ namespace ProSolutionFormsAPI.Data
         public DbSet<DropDownStringModel>? DropDownString { get; set; }
         public DbSet<FundingEligibilityDeclarationEvidenceModel>? FundingEligibilityDeclarationEvidence { get; set; }
         public DbSet<FundingEligibilityDeclarationModel>? FundingEligibilityDeclaration { get; set; }
+        public DbSet<GraphAPIAuthorisationModel>? GraphAPIAuthorisation { get; set; }
+        public DbSet<GraphAPITokenModel>? GraphAPIToken { get; set; }
         public DbSet<MedicalInformationModel>? MedicalInformation { get; set; }
         public DbSet<MedicalInformationDifficultyDisabilityModel>? MedicalInformationDifficultyDisability { get; set; }
         public DbSet<MedicalInformationEmergencyContactModel>? MedicalInformationEmergencyContact { get; set; }

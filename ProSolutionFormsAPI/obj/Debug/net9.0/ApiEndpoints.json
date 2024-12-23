@@ -1075,6 +1075,89 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemEmailController",
+    "Method": "GetAll",
+    "RelativePath": "SystemEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.SystemEmailModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemEmailController",
+    "Method": "Send",
+    "RelativePath": "SystemEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemEmail",
+        "Type": "ProSolutionFormsAPI.Models.SystemEmailModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemEmailController",
+    "Method": "Get",
+    "RelativePath": "SystemEmail/{systemFileID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemEmailID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "systemFileID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.SystemEmailModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemEmailController",
+    "Method": "SendMany",
+    "RelativePath": "SystemEmail/Many",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "systemEmails",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.SystemEmailModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProSolutionFormsAPI.Controllers.SystemFileController",
     "Method": "GetAll",
     "RelativePath": "SystemFile",

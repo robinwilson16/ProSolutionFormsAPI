@@ -26,8 +26,11 @@ builder.Services.AddScoped<DisabilityCategoryService>();
 builder.Services.AddScoped<FeeExemptionReasonService>();
 builder.Services.AddScoped<MedicalConditionTypeService>();
 builder.Services.AddScoped<RelationshipService>();
-builder.Services.AddScoped<SystemFileService>();
 builder.Services.AddScoped<TitleService>();
+
+//Functionality for Files and Emails
+builder.Services.AddScoped<SystemEmailService>();
+builder.Services.AddScoped<SystemFileService>();
 
 builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now
 
