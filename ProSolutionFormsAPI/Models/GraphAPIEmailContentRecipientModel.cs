@@ -7,6 +7,6 @@ namespace ProSolutionFormsAPI.Models
     [Keyless]
     public class GraphAPIEmailContentRecipientModel
     {
-        public GraphAPIEmailContentRecipientEmailModel? EmailAddress { get; set; }
+        public virtual GraphAPIEmailContentRecipientEmailModel? EmailAddress { get; set; }
     }
 }

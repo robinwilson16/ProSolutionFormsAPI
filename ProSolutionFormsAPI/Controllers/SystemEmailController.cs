@@ -11,6 +11,9 @@ namespace ProSolutionFormsAPI.Controllers
         private readonly SystemEmailService _systemEmailService;
         private readonly IConfiguration _configuration;
 
+        private SystemEmailModel? _systemEmail;
+        private List<SystemEmailModel>? _systemEmails;
+
         public SystemEmailController(SystemEmailService systemEmailService, IConfiguration configuration)
         {
             _systemEmailService = systemEmailService;
@@ -21,7 +24,7 @@ namespace ProSolutionFormsAPI.Controllers
         public ActionResult<List<SystemEmailModel>?> GetAll() =>
             _systemEmailService.GetAll();
 
-        [HttpGet("{systemFileID}")]
+        [HttpGet("{systemEmailID}")]
         public ActionResult<SystemEmailModel> Get(int systemEmailID)
         {
             var systemEmail = _systemEmailService.Get(systemEmailID);
@@ -48,18 +51,17 @@ namespace ProSolutionFormsAPI.Controllers
             if (emailKey != systemEmail.EmailKey)
                 return Unauthorized("Email Key not valid");
 
-            SystemEmailModel SystemEmail = new SystemEmailModel();
-            SystemEmail = await _systemEmailService.SendEmail(systemEmail);
+            _systemEmail = await _systemEmailService.SendEmail(systemEmail);
 
-            return CreatedAtAction(nameof(Send), new { }, SystemEmail);
+            return CreatedAtAction(nameof(Send), new { }, _systemEmail);
         }
 
         [HttpPost("Many")]
         public async Task<IActionResult> SendMany(List<SystemEmailModel> systemEmails)
         {
-            await _systemEmailService.SendEmails(systemEmails);
+            _systemEmails = await _systemEmailService.SendEmails(systemEmails);
 
-            return CreatedAtAction(nameof(Send), new { systemEmailID = systemEmails[0].SystemEmailID }, systemEmails);
+            return CreatedAtAction(nameof(Send), new { }, _systemEmails);
         }
     }
 }

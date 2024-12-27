@@ -9,7 +9,7 @@ namespace ProSolutionFormsAPI.Models
         public int MedicalInformationMedicalConditionID { get; set; }
 
         [JsonIgnore]
-        public MedicalInformationModel? MedicalInformation { get; set; }
+        public virtual MedicalInformationModel? MedicalInformation { get; set; }
         public int? MedicalConditionTypeID { get; set; }
         public string? MedicationDetails { get; set; }
         public string? MedicationSchedule { get; set; }
@@ -19,6 +19,6 @@ namespace ProSolutionFormsAPI.Models
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
     }
 }

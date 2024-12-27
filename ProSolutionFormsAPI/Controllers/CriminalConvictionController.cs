@@ -10,6 +10,8 @@ namespace ProSolutionFormsAPI.Controllers
     {
         private readonly CriminalConvictionService _criminalConvictionService;
 
+        private ModelResultModel? _modelResult;
+
         public CriminalConvictionController(CriminalConvictionService criminalConvictionService)
         {
             _criminalConvictionService = criminalConvictionService;
@@ -53,82 +55,87 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CriminalConvictionModel criminalConviction)
+        public async Task<IActionResult> Create(CriminalConvictionModel newCriminalConviction)
         {
             //Check this record does not already exist
-            var existingRecord = _criminalConvictionService.Get(criminalConviction.CriminalConvictionID);
+            var existingRecord = _criminalConvictionService.Get(newCriminalConviction.CriminalConvictionID);
 
             if (existingRecord is not null)
                 return BadRequest("Record Exists");
 
-            await _criminalConvictionService.Add(criminalConviction);
+            _modelResult = await _criminalConvictionService.Add(newCriminalConviction);
 
-            return CreatedAtAction(nameof(Create), new { criminalConvictionID = criminalConviction.CriminalConvictionID }, criminalConviction);
+            return CreatedAtAction(nameof(Create), new { newCriminalConviction.CriminalConvictionID }, newCriminalConviction);
         }
 
         [HttpPost("Many")]
-        public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> criminalConvictions)
+        public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> newcriminalConvictions)
         {
-            await _criminalConvictionService.AddMany(criminalConvictions);
+            _modelResult = await _criminalConvictionService.AddMany(newcriminalConvictions);
 
-            return CreatedAtAction(nameof(Create), new { criminalConvictionID = criminalConvictions[0].CriminalConvictionID }, criminalConvictions);
+            var ids = string.Join(",", newcriminalConvictions.Select(t => t.CriminalConvictionID));
+
+            return CreatedAtAction(nameof(Create), new { ids }, newcriminalConvictions);
         }
 
         [HttpPut("{criminalConvictionID}")]
-        public async Task<IActionResult> Update(int criminalConvictionID, CriminalConvictionModel criminalConviction)
+        public async Task<IActionResult> Update(int criminalConvictionID, CriminalConvictionModel updatedCriminalConviction)
         {
-            if (criminalConvictionID != criminalConviction.CriminalConvictionID)
+            if (criminalConvictionID != updatedCriminalConviction.CriminalConvictionID)
                 return BadRequest();
 
             var existingRecord = _criminalConvictionService.Get(criminalConvictionID);
             if (existingRecord is null)
                 return NotFound();
 
-            await _criminalConvictionService.Update(criminalConviction);
+            await _criminalConvictionService.Update(updatedCriminalConviction);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedCriminalConviction);
         }
 
         [HttpPut("Many/{studentDetailID}")]
-        public async Task<IActionResult> UpdateMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictions)
+        public async Task<IActionResult> UpdateMany(int studentDetailID, List<CriminalConvictionModel> updatedCriminalConvictions)
         {
-            if (criminalConvictions == null)
+            if (updatedCriminalConvictions == null)
                 return BadRequest();
 
             var existingRecords = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
             if (existingRecords is null)
                 return NotFound();
 
-            await _criminalConvictionService.UpdateMany(studentDetailID, criminalConvictions);
+            await _criminalConvictionService.UpdateMany(studentDetailID, updatedCriminalConvictions);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedCriminalConvictions);
         }
 
         [HttpDelete("{criminalConvictionID}")]
         public async Task<IActionResult> Delete(int criminalConvictionID)
         {
-            var criminalConviction = _criminalConvictionService.Get(criminalConvictionID);
+            var recordToDelete = _criminalConvictionService.Get(criminalConvictionID);
 
-            if (criminalConviction is null)
+            if (recordToDelete is null)
                 return NotFound();
 
             await _criminalConvictionService.Delete(criminalConvictionID);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
         [HttpDelete("Many/{studentDetailID}")]
-        public async Task<IActionResult> DeleteMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictions)
+        public async Task<IActionResult> DeleteMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictionsToDelete)
         {
-            //Make sure records exist
-            var existingRecords = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
+            if (criminalConvictionsToDelete == null)
+                return BadRequest();
 
-            if (existingRecords is null)
+            //Make sure records exist
+            var recordsToDelete = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
+
+            if (recordsToDelete is null)
                 return NotFound();
 
-            await _criminalConvictionService.DeleteMany(studentDetailID, criminalConvictions);
+            await _criminalConvictionService.DeleteMany(studentDetailID, criminalConvictionsToDelete);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(DeleteMany), new { }, criminalConvictionsToDelete);
         }
 
         [HttpDelete("All/{studentDetailID}")]

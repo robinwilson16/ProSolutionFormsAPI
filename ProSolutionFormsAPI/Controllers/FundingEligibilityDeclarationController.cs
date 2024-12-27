@@ -10,6 +10,8 @@ namespace ProSolutionFormsAPI.Controllers
     {
         private readonly FundingEligibilityDeclarationService _fundingEligibilityDeclarationService;
 
+        private ModelResultModel? _modelResult;
+
         public FundingEligibilityDeclarationController(FundingEligibilityDeclarationService fundingEligibilityDeclarationService)
         {
             _fundingEligibilityDeclarationService = fundingEligibilityDeclarationService;
@@ -53,81 +55,86 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(FundingEligibilityDeclarationModel fundingEligibilityDeclaration)
+        public async Task<IActionResult> Create(FundingEligibilityDeclarationModel newFundingEligibilityDeclaration)
         {
             //Check this record does not already exist
-            var existingRecord = _fundingEligibilityDeclarationService.Get(fundingEligibilityDeclaration.FundingEligibilityDeclarationID);
+            var existingRecord = _fundingEligibilityDeclarationService.Get(newFundingEligibilityDeclaration.FundingEligibilityDeclarationID);
 
             if (existingRecord is not null)
                 return BadRequest("Record Exists");
 
-            await _fundingEligibilityDeclarationService.Add(fundingEligibilityDeclaration);
+            _modelResult = await _fundingEligibilityDeclarationService.Add(newFundingEligibilityDeclaration);
 
-            return CreatedAtAction(nameof(Create), new { fundingEligibilityDeclarationID = fundingEligibilityDeclaration.FundingEligibilityDeclarationID }, fundingEligibilityDeclaration);
+            return CreatedAtAction(nameof(Create), new { newFundingEligibilityDeclaration.FundingEligibilityDeclarationID }, newFundingEligibilityDeclaration);
         }
 
         [HttpPost("Many")]
-        public async Task<IActionResult> CreateMany(List<FundingEligibilityDeclarationModel> fundingEligibilityDeclarations)
+        public async Task<IActionResult> CreateMany(List<FundingEligibilityDeclarationModel> newFundingEligibilityDeclarations)
         {
-            await _fundingEligibilityDeclarationService.AddMany(fundingEligibilityDeclarations);
+            _modelResult = await _fundingEligibilityDeclarationService.AddMany(newFundingEligibilityDeclarations);
 
-            return CreatedAtAction(nameof(Create), new { criminalConvictionID = fundingEligibilityDeclarations[0].FundingEligibilityDeclarationID }, fundingEligibilityDeclarations);
+            var ids = string.Join(",", newFundingEligibilityDeclarations.Select(t => t.FundingEligibilityDeclarationID));
+
+            return CreatedAtAction(nameof(Create), new { ids }, newFundingEligibilityDeclarations);
         }
 
         [HttpPut("{criminalConvictionID}")]
-        public async Task<IActionResult> Update(int fundingEligibilityDeclarationID, FundingEligibilityDeclarationModel fundingEligibilityDeclaration)
+        public async Task<IActionResult> Update(int fundingEligibilityDeclarationID, FundingEligibilityDeclarationModel updatedFundingEligibilityDeclaration)
         {
-            if (fundingEligibilityDeclarationID != fundingEligibilityDeclaration.FundingEligibilityDeclarationID)
+            if (fundingEligibilityDeclarationID != updatedFundingEligibilityDeclaration.FundingEligibilityDeclarationID)
                 return BadRequest();
 
             var existingRecord = _fundingEligibilityDeclarationService.Get(fundingEligibilityDeclarationID);
             if (existingRecord is null)
                 return NotFound();
 
-            await _fundingEligibilityDeclarationService.Update(fundingEligibilityDeclaration);
+            await _fundingEligibilityDeclarationService.Update(updatedFundingEligibilityDeclaration);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedFundingEligibilityDeclaration);
         }
 
         [HttpPut("Many/{studentDetailID}")]
-        public async Task<IActionResult> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel> fundingEligibilityDeclarations)
+        public async Task<IActionResult> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel> updatedFundingEligibilityDeclarations)
         {
-            if (fundingEligibilityDeclarations == null)
+            if (updatedFundingEligibilityDeclarations == null)
                 return BadRequest();
 
             var existingRecords = _fundingEligibilityDeclarationService.GetByStudentDetailID(studentDetailID);
             if (existingRecords is null)
                 return NotFound();
 
-            await _fundingEligibilityDeclarationService.UpdateMany(studentDetailID, fundingEligibilityDeclarations);
+            await _fundingEligibilityDeclarationService.UpdateMany(studentDetailID, updatedFundingEligibilityDeclarations);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedFundingEligibilityDeclarations);
         }
 
         [HttpDelete("{fundingEligibilityDeclarationID}")]
         public async Task<IActionResult> Delete(int fundingEligibilityDeclarationID)
         {
-            var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.Get(fundingEligibilityDeclarationID);
+            var recordToDelete = _fundingEligibilityDeclarationService.Get(fundingEligibilityDeclarationID);
 
-            if (fundingEligibilityDeclaration is null)
+            if (recordToDelete is null)
                 return NotFound();
 
             await _fundingEligibilityDeclarationService.Delete(fundingEligibilityDeclarationID);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
         [HttpDelete("Many/{studentDetailID}")]
-        public async Task<IActionResult> DeleteMany(int studentDetailID, List<FundingEligibilityDeclarationModel> fundingEligibilityDeclarations)
+        public async Task<IActionResult> DeleteMany(int studentDetailID, List<FundingEligibilityDeclarationModel> fundingEligibilityDeclarationsToDelete)
         {
-            var existingRecords = _fundingEligibilityDeclarationService.GetByStudentDetailID(studentDetailID);
+            if (fundingEligibilityDeclarationsToDelete == null)
+                return BadRequest();
 
-            if (existingRecords is null)
+            var recordsToDelete = _fundingEligibilityDeclarationService.GetByStudentDetailID(studentDetailID);
+
+            if (recordsToDelete is null)
                 return NotFound();
 
-            await _fundingEligibilityDeclarationService.DeleteMany(studentDetailID, fundingEligibilityDeclarations);
+            await _fundingEligibilityDeclarationService.DeleteMany(studentDetailID, fundingEligibilityDeclarationsToDelete);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(DeleteMany), new { }, fundingEligibilityDeclarationsToDelete);
         }
 
         [HttpDelete("All/{studentDetailID}")]

@@ -32,97 +32,109 @@ namespace ProSolutionFormsAPI.Services
             .Where(c => c.StudentDetailID == studentDetailID)
             .ToList();
 
-        public async Task Add(FundingEligibilityDeclarationModel studentDetailID)
+        public async Task<ModelResultModel> Add(FundingEligibilityDeclarationModel newFundingEligibilityDeclaration)
         {
-            _context.FundingEligibilityDeclaration?.Add(studentDetailID);
+            _context.FundingEligibilityDeclaration?.Add(newFundingEligibilityDeclaration);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task AddMany(List<FundingEligibilityDeclarationModel> studentDetailID)
+        public async Task<ModelResultModel> AddMany(List<FundingEligibilityDeclarationModel> newFundingEligibilityDeclarations)
         {
-            await _context.FundingEligibilityDeclaration?.AddRangeAsync(studentDetailID)!;
+            await _context.FundingEligibilityDeclaration?.AddRangeAsync(newFundingEligibilityDeclarations)!;
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task Update(FundingEligibilityDeclarationModel? fundingEligibilityDeclaration)
+        public async Task<ModelResultModel> Update(FundingEligibilityDeclarationModel? changedFundingEligibilityDeclaration)
         {
             FundingEligibilityDeclarationModel? recordToUpdate = _context.FundingEligibilityDeclaration!
-                .FirstOrDefault(m => m.FundingEligibilityDeclarationID == fundingEligibilityDeclaration!.FundingEligibilityDeclarationID);
+                .FirstOrDefault(m => m.FundingEligibilityDeclarationID == changedFundingEligibilityDeclaration!.FundingEligibilityDeclarationID);
 
             if (_context.FundingEligibilityDeclaration == null)
-            {
-                return;
-            }
+                return new ModelResultModel() { IsSuccessful = false };
 
-            _context.Entry(recordToUpdate!).CurrentValues.SetValues(fundingEligibilityDeclaration!);
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedFundingEligibilityDeclaration!);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? fundingEligibilityDeclarations)
+        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? changedFundingEligibilityDeclarations)
         {
-            if (fundingEligibilityDeclarations is null)
-                return;
+            if (changedFundingEligibilityDeclarations is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
-            foreach (var fundingEligibilityDeclaration in fundingEligibilityDeclarations)
+            foreach (var changedFundingEligibilityDeclaration in changedFundingEligibilityDeclarations)
             {
                 FundingEligibilityDeclarationModel? recordToUpdate = _context.FundingEligibilityDeclaration!
-                    .FirstOrDefault(c => c.FundingEligibilityDeclarationID == fundingEligibilityDeclaration.FundingEligibilityDeclarationID);
+                    .FirstOrDefault(c => c.FundingEligibilityDeclarationID == changedFundingEligibilityDeclaration.FundingEligibilityDeclarationID);
                 if (_context.FundingEligibilityDeclaration == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToUpdate?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
-                _context.Entry(recordToUpdate!).CurrentValues.SetValues(fundingEligibilityDeclaration);
+                _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedFundingEligibilityDeclaration);
+
+                return new ModelResultModel() { IsSuccessful = true };
             }
 
             await _context.SaveChangesAsync();
         }
 
-        public async Task Delete(int fundingEligibilityDeclarationID)
+        public async Task<ModelResultModel> Delete(int fundingEligibilityDeclarationID)
         {
             var recordToDelete = Get(fundingEligibilityDeclarationID);
             if (recordToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.FundingEligibilityDeclaration!.Remove(recordToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? fundingEligibilityDeclarations)
+        public async Task<ModelResultModel> DeleteMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? fundingEligibilityDeclarationsToDelete)
         {
-            if (fundingEligibilityDeclarations is null)
-                return;
+            if (fundingEligibilityDeclarationsToDelete is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
             //Check records belong to this student - extra security step
-            foreach (var fundingEligibilityDeclaration in fundingEligibilityDeclarations)
+            foreach (var fundingEligibilityDeclarationToDelete in fundingEligibilityDeclarationsToDelete)
             {
                 FundingEligibilityDeclarationModel? recordToDelete = _context.FundingEligibilityDeclaration!
-                    .FirstOrDefault(c => c.FundingEligibilityDeclarationID == fundingEligibilityDeclaration.FundingEligibilityDeclarationID);
+                    .FirstOrDefault(c => c.FundingEligibilityDeclarationID == fundingEligibilityDeclarationToDelete.FundingEligibilityDeclarationID);
                 if (_context.FundingEligibilityDeclaration == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToDelete?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
             }
 
-            _context.FundingEligibilityDeclaration!.RemoveRange(fundingEligibilityDeclarations);
+            _context.FundingEligibilityDeclaration!.RemoveRange(fundingEligibilityDeclarationsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteAll(int studentDetailID)
+        public async Task<ModelResultModel> DeleteAll(int studentDetailID)
         {
             var recordsToDelete = GetByStudentDetailID(studentDetailID);
             if (recordsToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.FundingEligibilityDeclaration!.RemoveRange(recordsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
     }
 }

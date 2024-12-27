@@ -20,12 +20,13 @@ namespace ProSolutionFormsAPI.Services
 
         public List<SystemEmailModel>? SystemEmails { get; }
 
+        private SystemEmailModel? _systemEmail;
+        private List<SystemEmailModel>? _systemEmails;
+
         public SystemEmailService(ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
 
-            //SystemFiles = _context.SystemFile!
-            //    .ToList();
             SystemEmails = new List<SystemEmailModel>();
             _configuration = configuration;
         }
@@ -38,22 +39,25 @@ namespace ProSolutionFormsAPI.Services
         {
             string emailService = _configuration["EmailService"] ?? "";
             if (emailService == "SMTP")
-                systemEmail = await SendEmailSMTP(systemEmail);
+                _systemEmail = await SendEmailSMTP(systemEmail);
             else if (emailService == "GraphAPI")
-                systemEmail = await SendEmailGraphAPI(systemEmail);
+                _systemEmail = await SendEmailGraphAPI(systemEmail);
             else
-                systemEmail = await SendEmailSMTP(systemEmail);
+                _systemEmail = await SendEmailSMTP(systemEmail);
 
-            return systemEmail;
+            return _systemEmail;
         }
 
-        public async Task SendEmails(List<SystemEmailModel> systemEmails)
+        public async Task<List<SystemEmailModel>> SendEmails(List<SystemEmailModel> systemEmails)
         {
-            if (systemEmails == null) return;
+            _systemEmails = new List<SystemEmailModel>();
+            if (systemEmails == null) return _systemEmails;
             foreach (var systemEmail in systemEmails)
             {
-                await SendEmailSMTP(systemEmail);
+                _systemEmails.Add(await SendEmailSMTP(systemEmail));
             }
+
+            return _systemEmails;
         }
 
         public async Task<SystemEmailModel> SendEmailSMTP(SystemEmailModel systemEmail)

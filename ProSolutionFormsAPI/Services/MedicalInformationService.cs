@@ -32,97 +32,109 @@ namespace ProSolutionFormsAPI.Services
             .Where(c => c.StudentDetailID == studentDetailID)
             .ToList();
 
-        public async Task Add(MedicalInformationModel studentDetailID)
+        public async Task<ModelResultModel> Add(MedicalInformationModel newMedicalInformation)
         {
-            _context.MedicalInformation?.Add(studentDetailID);
+            _context.MedicalInformation?.Add(newMedicalInformation);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task AddMany(List<MedicalInformationModel> studentDetailID)
+        public async Task<ModelResultModel> AddMany(List<MedicalInformationModel> newMedicalInformations)
         {
-            await _context.MedicalInformation?.AddRangeAsync(studentDetailID)!;
+            await _context.MedicalInformation?.AddRangeAsync(newMedicalInformations)!;
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task Update(MedicalInformationModel? medicalInformation)
+        public async Task<ModelResultModel> Update(MedicalInformationModel? changedMedicalInformation)
         {
             MedicalInformationModel? recordToUpdate = _context.MedicalInformation!
-                .FirstOrDefault(m => m.MedicalInformationID == medicalInformation!.MedicalInformationID);
+                .FirstOrDefault(m => m.MedicalInformationID == changedMedicalInformation!.MedicalInformationID);
 
             if (_context.MedicalInformation == null)
-            {
-                return;
-            }
+                return new ModelResultModel() { IsSuccessful = false };
 
-            _context.Entry(recordToUpdate!).CurrentValues.SetValues(medicalInformation!);
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedMedicalInformation!);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task UpdateMany(int studentDetailID, List<MedicalInformationModel>? medicalInformations)
+        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<MedicalInformationModel>? changedMedicalInformations)
         {
-            if (medicalInformations is null)
-                return;
+            if (changedMedicalInformations is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
-            foreach (var medicalInformation in medicalInformations)
+            foreach (var changedMedicalInformation in changedMedicalInformations)
             {
                 MedicalInformationModel? recordToUpdate = _context.MedicalInformation!
-                    .FirstOrDefault(c => c.MedicalInformationID == medicalInformation.MedicalInformationID);
+                    .FirstOrDefault(c => c.MedicalInformationID == changedMedicalInformation.MedicalInformationID);
                 if (_context.MedicalInformation == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToUpdate?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
-                _context.Entry(recordToUpdate!).CurrentValues.SetValues(medicalInformation);
+                _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedMedicalInformation);
             }
 
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task Delete(int medicalInformationID)
+        public async Task<ModelResultModel> Delete(int medicalInformationID)
         {
             var recordToDelete = Get(medicalInformationID);
             if (recordToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.MedicalInformation!.Remove(recordToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteMany(int studentDetailID, List<MedicalInformationModel>? medicalInformations)
+        public async Task<ModelResultModel> DeleteMany(int studentDetailID, List<MedicalInformationModel>? medicalInformationsToDelete)
         {
-            if (medicalInformations is null)
-                return;
+            if (medicalInformationsToDelete is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
             //Check records belong to this student - extra security step
-            foreach (var medicalInformation in medicalInformations)
+            foreach (var medicalInformationToDelete in medicalInformationsToDelete)
             {
                 MedicalInformationModel? recordToDelete = _context.MedicalInformation!
-                    .FirstOrDefault(c => c.MedicalInformationID == medicalInformation.MedicalInformationID);
+                    .FirstOrDefault(c => c.MedicalInformationID == medicalInformationToDelete.MedicalInformationID);
                 if (_context.MedicalInformation == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToDelete?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
             }
 
-            _context.MedicalInformation!.RemoveRange(medicalInformations);
+            _context.MedicalInformation!.RemoveRange(medicalInformationsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteAll(int studentDetailID)
+        public async Task<ModelResultModel> DeleteAll(int studentDetailID)
         {
             var recordsToDelete = GetByStudentDetailID(studentDetailID);
             if (recordsToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.MedicalInformation!.RemoveRange(recordsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
     }
 }

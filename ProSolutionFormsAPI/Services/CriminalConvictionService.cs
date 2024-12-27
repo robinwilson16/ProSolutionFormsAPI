@@ -32,97 +32,109 @@ namespace ProSolutionFormsAPI.Services
             .Where(c => c.StudentDetailID == studentDetailID)
             .ToList();
 
-        public async Task Add(CriminalConvictionModel studentDetailID)
+        public async Task<ModelResultModel> Add(CriminalConvictionModel newCriminalConviction)
         {
-            _context.CriminalConviction?.Add(studentDetailID);
+            _context.CriminalConviction?.Add(newCriminalConviction);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task AddMany(List<CriminalConvictionModel> studentDetailID)
+        public async Task<ModelResultModel> AddMany(List<CriminalConvictionModel> newCriminalConvictions)
         {
-            await _context.CriminalConviction?.AddRangeAsync(studentDetailID)!;
+            await _context.CriminalConviction?.AddRangeAsync(newCriminalConvictions)!;
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task Update(CriminalConvictionModel? criminalConviction)
+        public async Task<ModelResultModel> Update(CriminalConvictionModel? changedCriminalConviction)
         {
             CriminalConvictionModel? recordToUpdate = _context.CriminalConviction!
-                .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction!.CriminalConvictionID);
+                .FirstOrDefault(c => c.CriminalConvictionID == changedCriminalConviction!.CriminalConvictionID);
 
             if (_context.CriminalConviction == null)
-            {
-                return;
-            }
+                return new ModelResultModel() { IsSuccessful = false };
 
-            _context.Entry(recordToUpdate!).CurrentValues.SetValues(criminalConviction!);
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedCriminalConviction!);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task UpdateMany(int studentDetailID, List<CriminalConvictionModel>? criminalConvictions)
+        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<CriminalConvictionModel>? changedCriminalConvictions)
         {
-            if (criminalConvictions is null)
-                return;
+            if (changedCriminalConvictions is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
-            foreach (var criminalConviction in criminalConvictions)
+            foreach (var changedCriminalConviction in changedCriminalConvictions)
             {
                 CriminalConvictionModel? recordToUpdate = _context.CriminalConviction!
-                    .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction.CriminalConvictionID);
+                    .FirstOrDefault(c => c.CriminalConvictionID == changedCriminalConviction.CriminalConvictionID);
                 if (_context.CriminalConviction == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToUpdate?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
-                _context.Entry(recordToUpdate!).CurrentValues.SetValues(criminalConviction);
+                _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedCriminalConviction);
             }
 
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task Delete(int criminalConvictionID)
+        public async Task<ModelResultModel> Delete(int criminalConvictionID)
         {
             var recordToDelete = Get(criminalConvictionID);
             if (recordToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.CriminalConviction!.Remove(recordToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteMany(int studentDetailID, List<CriminalConvictionModel>? criminalConvictions)
+        public async Task<ModelResultModel> DeleteMany(int studentDetailID, List<CriminalConvictionModel>? criminalConvictionsToDelete)
         {
-            if (criminalConvictions is null)
-                return;
+            if (criminalConvictionsToDelete is null)
+                return new ModelResultModel() { IsSuccessful = false };
 
             //Check records belong to this student - extra security step
-            foreach (var criminalConviction in criminalConvictions)
+            foreach (var criminalConvictionToDelete in criminalConvictionsToDelete)
             {
                 CriminalConvictionModel? recordToDelete = _context.CriminalConviction!
-                    .FirstOrDefault(c => c.CriminalConvictionID == criminalConviction.CriminalConvictionID);
+                    .FirstOrDefault(c => c.CriminalConvictionID == criminalConvictionToDelete.CriminalConvictionID);
                 if (_context.CriminalConviction == null)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
                 else if (recordToDelete?.StudentDetailID != studentDetailID)
                 {
-                    return;
+                    return new ModelResultModel() { IsSuccessful = false };
                 }
             }
 
-            _context.CriminalConviction!.RemoveRange(criminalConvictions);
+            _context.CriminalConviction!.RemoveRange(criminalConvictionsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task DeleteAll(int studentDetailID)
+        public async Task<ModelResultModel> DeleteAll(int studentDetailID)
         {
             var recordsToDelete = GetByStudentDetailID(studentDetailID);
             if (recordsToDelete is null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false };
 
             _context.CriminalConviction!.RemoveRange(recordsToDelete);
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
     }
 }

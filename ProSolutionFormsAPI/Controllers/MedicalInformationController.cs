@@ -10,6 +10,8 @@ namespace ProSolutionFormsAPI.Controllers
     {
         private readonly MedicalInformationService _medicalInformationService;
 
+        private ModelResultModel? _modelResult;
+
         public MedicalInformationController(MedicalInformationService medicalInformationService)
         {
             _medicalInformationService = medicalInformationService;
@@ -53,82 +55,87 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(MedicalInformationModel medicalInformation)
+        public async Task<IActionResult> Create(MedicalInformationModel newMedicalInformation)
         {
             //Check this record does not already exist
-            var existingRecord = _medicalInformationService.Get(medicalInformation.MedicalInformationID);
+            var existingRecord = _medicalInformationService.Get(newMedicalInformation.MedicalInformationID);
 
             if (existingRecord is not null)
                 return BadRequest("Record Exists");
 
-            await _medicalInformationService.Add(medicalInformation);
+            await _medicalInformationService.Add(newMedicalInformation);
 
-            return CreatedAtAction(nameof(Create), new { medicalInformationID = medicalInformation.MedicalInformationID }, medicalInformation);
+            return CreatedAtAction(nameof(Create), new { newMedicalInformation.MedicalInformationID }, newMedicalInformation);
         }
 
         [HttpPost("Many")]
-        public async Task<IActionResult> CreateMany(List<MedicalInformationModel> medicalInformations)
+        public async Task<IActionResult> CreateMany(List<MedicalInformationModel> newMedicalInformations)
         {
-            await _medicalInformationService.AddMany(medicalInformations);
+            await _medicalInformationService.AddMany(newMedicalInformations);
 
-            return CreatedAtAction(nameof(Create), new { medicalInformationID = medicalInformations[0].MedicalInformationID }, medicalInformations);
+            var ids = string.Join(",", newMedicalInformations.Select(t => t.MedicalInformationID));
+
+            return CreatedAtAction(nameof(Create), new { ids }, newMedicalInformations);
         }
 
         [HttpPut("{medicalInformationID}")]
-        public async Task<IActionResult> Update(int medicalInformationID, MedicalInformationModel medicalInformation)
+        public async Task<IActionResult> Update(int medicalInformationID, MedicalInformationModel updatedMedicalInformation)
         {
-            if (medicalInformationID != medicalInformation.MedicalInformationID)
+            if (medicalInformationID != updatedMedicalInformation.MedicalInformationID)
                 return BadRequest();
 
             var existingRecord = _medicalInformationService.Get(medicalInformationID);
             if (existingRecord is null)
                 return NotFound();
 
-            await _medicalInformationService.Update(medicalInformation);
+            await _medicalInformationService.Update(updatedMedicalInformation);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedMedicalInformation);
         }
 
         [HttpPut("Many/{studentDetailID}")]
-        public async Task<IActionResult> UpdateMany(int studentDetailID, List<MedicalInformationModel> medicalInformations)
+        public async Task<IActionResult> UpdateMany(int studentDetailID, List<MedicalInformationModel> updatedMedicalInformations)
         {
-            if (medicalInformations == null)
+            if (updatedMedicalInformations == null)
                 return BadRequest();
 
             var existingRecords = _medicalInformationService.GetByStudentDetailID(studentDetailID);
             if (existingRecords is null)
                 return NotFound();
 
-            await _medicalInformationService.UpdateMany(studentDetailID, medicalInformations);
+            await _medicalInformationService.UpdateMany(studentDetailID, updatedMedicalInformations);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Update), new { }, updatedMedicalInformations);
         }
 
         [HttpDelete("{medicalInformationID}")]
         public async Task<IActionResult> Delete(int medicalInformationID)
         {
-            var medicalInformation = _medicalInformationService.Get(medicalInformationID);
+            var recordToDelete = _medicalInformationService.Get(medicalInformationID);
 
-            if (medicalInformation is null)
+            if (recordToDelete is null)
                 return NotFound();
 
             await _medicalInformationService.Delete(medicalInformationID);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
         [HttpDelete("Many/{studentDetailID}")]
-        public async Task<IActionResult> DeleteMany(int studentDetailID, List<MedicalInformationModel> medicalInformations)
+        public async Task<IActionResult> DeleteMany(int studentDetailID, List<MedicalInformationModel> medicalInformationsToDelete)
         {
-            //Make sure records exist
-            var existingRecords = _medicalInformationService.GetByStudentDetailID(studentDetailID);
+            if (medicalInformationsToDelete == null)
+                return BadRequest();
 
-            if (existingRecords is null)
+            //Make sure records exist
+            var recordsToDelete = _medicalInformationService.GetByStudentDetailID(studentDetailID);
+
+            if (recordsToDelete is null)
                 return NotFound();
 
-            await _medicalInformationService.DeleteMany(studentDetailID, medicalInformations);
+            await _medicalInformationService.DeleteMany(studentDetailID, medicalInformationsToDelete);
 
-            return NoContent();
+            return AcceptedAtAction(nameof(DeleteMany), new { }, medicalInformationsToDelete);
         }
 
         [HttpDelete("All/{studentDetailID}")]

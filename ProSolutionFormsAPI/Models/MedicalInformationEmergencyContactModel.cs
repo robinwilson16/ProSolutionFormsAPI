@@ -10,7 +10,7 @@ namespace ProSolutionFormsAPI.Models
         public int MedicalInformationEmergencyContactID { get; set; }
 
         [JsonIgnore]
-        public MedicalInformationModel? MedicalInformation { get; set; }
+        public virtual MedicalInformationModel? MedicalInformation { get; set; }
         public int? ContactOrder { get; set; }
         public string? Surname { get; set; }
         public string? Forename { get; set; }
@@ -43,7 +43,7 @@ namespace ProSolutionFormsAPI.Models
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
     }
 
     public class MedicalInformationEmergencyContactValidator : AbstractValidator<MedicalInformationEmergencyContactModel>

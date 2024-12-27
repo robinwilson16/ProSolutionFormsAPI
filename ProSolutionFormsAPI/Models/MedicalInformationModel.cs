@@ -8,11 +8,11 @@ namespace ProSolutionFormsAPI.Models
     {
         [Key]
         public int MedicalInformationID { get; set; }
-        public ICollection<MedicalInformationEmergencyContactModel>? EmergencyContacts { get; set; }
+        public virtual ICollection<MedicalInformationEmergencyContactModel>? EmergencyContacts { get; set; }
         public bool? HasMedicalCondition { get; set; }
-        public ICollection<MedicalInformationMedicalConditionModel>? MedicalConditions { get; set; }
+        public virtual ICollection<MedicalInformationMedicalConditionModel>? MedicalConditions { get; set; }
         public bool? HasDifficultyDisability { get; set; }
-        public ICollection<MedicalInformationDifficultyDisabilityModel>? DifficultiesDisabilities { get; set; }
+        public virtual ICollection<MedicalInformationDifficultyDisabilityModel>? DifficultiesDisabilities { get; set; }
         public bool? RequiresRiskAssesment { get; set; }
         public bool? HasBeenHospitalisedInLastYear { get; set; }
         public string? HospitalisationNotes { get; set; }
@@ -42,7 +42,7 @@ namespace ProSolutionFormsAPI.Models
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
 
         //Linking Data
         public int? StudentDetailID { get; set; }

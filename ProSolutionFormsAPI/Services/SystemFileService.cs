@@ -25,7 +25,7 @@ namespace ProSolutionFormsAPI.Services
 
         public SystemFileModel? Get(int systemFileID) => SystemFiles?.FirstOrDefault(m => m.SystemFileID == systemFileID);
 
-        public async Task Add(SystemFileModel systemFile)
+        public async Task<SystemFileModel> Add(SystemFileModel systemFile)
         {
             string currentFolder = Directory.GetCurrentDirectory();
 
@@ -55,7 +55,7 @@ namespace ProSolutionFormsAPI.Services
             }
         }
 
-        public async Task AddMany(List<SystemFileModel> systemFiles)
+        public async Task<List<SystemFileModel>> AddMany(List<SystemFileModel> systemFiles)
         {
             if (systemFiles == null) return;
             foreach (var systemFile in systemFiles)

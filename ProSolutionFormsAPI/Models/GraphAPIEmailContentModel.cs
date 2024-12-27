@@ -8,8 +8,8 @@ namespace ProSolutionFormsAPI.Models
     public class GraphAPIEmailContentModel
     {
         public string? Subject { get; set; }
-        public GraphAPIEmailContentBodyModel? Body { get; set; }
-        public ICollection<GraphAPIEmailContentRecipientModel>? ToRecipients { get; set; }
-        public ICollection<GraphAPIEmailContentRecipientModel>? CCRecipients { get; set; }
+        public virtual GraphAPIEmailContentBodyModel? Body { get; set; }
+        public virtual ICollection<GraphAPIEmailContentRecipientModel>? ToRecipients { get; set; }
+        public virtual ICollection<GraphAPIEmailContentRecipientModel>? CCRecipients { get; set; }
     }
 }

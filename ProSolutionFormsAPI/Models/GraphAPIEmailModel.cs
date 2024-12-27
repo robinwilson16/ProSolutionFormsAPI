@@ -8,7 +8,7 @@ namespace ProSolutionFormsAPI.Models
     [Keyless]
     public class GraphAPIEmailModel
     {
-        public GraphAPIEmailContentModel? Message { get; set; }
+        public virtual GraphAPIEmailContentModel? Message { get; set; }
         public bool? SaveToSentItems { get; set; }
     }
 }

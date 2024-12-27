@@ -10,7 +10,7 @@ namespace ProSolutionFormsAPI.Models
         public int FundingEligibilityDeclarationEvidenceID { get; set; }
 
         [JsonIgnore]
-        public FundingEligibilityDeclarationModel? FundingEligibilityDeclaration { get; set; }
+        public virtual FundingEligibilityDeclarationModel? FundingEligibilityDeclaration { get; set; }
         public EvidenceType EvidenceTypeID { get; set; }
         public byte[]? EvidenceContent { get; set; }
         public byte[]? ImageThumbnail { get; set; }
@@ -25,7 +25,7 @@ namespace ProSolutionFormsAPI.Models
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? LastUpdatedBy { get; set; }
-        public DateTime LastUpdatedDate { get; set; }
+        public DateTime? LastUpdatedDate { get; set; }
     }
 
     public enum EvidenceType

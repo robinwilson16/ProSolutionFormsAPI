@@ -4,7 +4,7 @@ namespace ProSolutionFormsAPI.Models
 {
     public class CriminalConvictionsModel
     {
-        public ICollection<CriminalConvictionModel>? Convictions { get; set; }
+        public virtual ICollection<CriminalConvictionModel>? Convictions { get; set; }
     }
 
     public class CriminalConvictionsValidator : AbstractValidator<CriminalConvictionsModel>
