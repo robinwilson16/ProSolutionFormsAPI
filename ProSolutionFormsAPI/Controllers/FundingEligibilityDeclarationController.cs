@@ -88,7 +88,7 @@ namespace ProSolutionFormsAPI.Controllers
             if (existingRecord is null)
                 return NotFound();
 
-            await _fundingEligibilityDeclarationService.Update(updatedFundingEligibilityDeclaration);
+            await _fundingEligibilityDeclarationService.Update(updatedFundingEligibilityDeclaration, true);
 
             return AcceptedAtAction(nameof(Update), new { }, updatedFundingEligibilityDeclaration);
         }

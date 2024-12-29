@@ -88,7 +88,7 @@ namespace ProSolutionFormsAPI.Controllers
             if (existingRecord is null)
                 return NotFound();
 
-            await _medicalInformationService.Update(updatedMedicalInformation);
+            await _medicalInformationService.Update(updatedMedicalInformation, true);
 
             return AcceptedAtAction(nameof(Update), new { }, updatedMedicalInformation);
         }

@@ -48,40 +48,44 @@ namespace ProSolutionFormsAPI.Services
             return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task<ModelResultModel> Update(MedicalInformationModel? changedMedicalInformation)
+        public async Task<ModelResultModel> Update(MedicalInformationModel? updatedMedicalInformation, bool? save)
         {
+            //Include any related entities
             MedicalInformationModel? recordToUpdate = _context.MedicalInformation!
-                .FirstOrDefault(m => m.MedicalInformationID == changedMedicalInformation!.MedicalInformationID);
+                .FirstOrDefault(m => m.MedicalInformationID == updatedMedicalInformation!.MedicalInformationID);
 
-            if (_context.MedicalInformation == null)
+            if (recordToUpdate == null)
                 return new ModelResultModel() { IsSuccessful = false };
 
-            _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedMedicalInformation!);
-            await _context.SaveChangesAsync();
+            //Update IDs on related entities
+            //Need to get full related entity as only the ID is set in the updated record so causes the rest of the fields to be wiped out
+            //None
+
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(updatedMedicalInformation!);
+
+            //Update content of related entities
+            //None
+
+            //Ensures related entities are included in the save operation
+            _context?.Update(recordToUpdate);
+
+            if (save != false)
+                await _context!.SaveChangesAsync();
 
             return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<MedicalInformationModel>? changedMedicalInformations)
+        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<MedicalInformationModel>? updatedMedicalInformations)
         {
-            if (changedMedicalInformations is null)
+            if (updatedMedicalInformations is null)
                 return new ModelResultModel() { IsSuccessful = false };
 
-            foreach (var changedMedicalInformation in changedMedicalInformations)
+            foreach (var updatedMedicalInformation in updatedMedicalInformations)
             {
-                MedicalInformationModel? recordToUpdate = _context.MedicalInformation!
-                    .FirstOrDefault(c => c.MedicalInformationID == changedMedicalInformation.MedicalInformationID);
-                if (_context.MedicalInformation == null)
-                {
-                    return new ModelResultModel() { IsSuccessful = false };
-                }
-                else if (recordToUpdate?.StudentDetailID != studentDetailID)
-                {
-                    return new ModelResultModel() { IsSuccessful = false };
-                }
-                _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedMedicalInformation);
+                await Update(updatedMedicalInformation, false);
             }
 
+            //Save all changes at the end to avoid multiple save operations
             await _context.SaveChangesAsync();
 
             return new ModelResultModel() { IsSuccessful = true };

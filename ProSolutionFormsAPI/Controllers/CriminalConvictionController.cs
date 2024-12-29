@@ -88,7 +88,7 @@ namespace ProSolutionFormsAPI.Controllers
             if (existingRecord is null)
                 return NotFound();
 
-            await _criminalConvictionService.Update(updatedCriminalConviction);
+            await _criminalConvictionService.Update(updatedCriminalConviction, true);
 
             return AcceptedAtAction(nameof(Update), new { }, updatedCriminalConviction);
         }

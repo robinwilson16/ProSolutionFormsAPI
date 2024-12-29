@@ -25,12 +25,12 @@ namespace ProSolutionFormsAPI.Services
 
         public SystemFileModel? Get(int systemFileID) => SystemFiles?.FirstOrDefault(m => m.SystemFileID == systemFileID);
 
-        public async Task<SystemFileModel> Add(SystemFileModel systemFile)
+        public async Task<ModelResultModel> Add(SystemFileModel systemFile)
         {
             string currentFolder = Directory.GetCurrentDirectory();
 
             if (systemFile == null)
-                return;
+                return new ModelResultModel() { IsSuccessful = false }; ;
 
             //Create Directory if it does not exist
             try
@@ -53,15 +53,19 @@ namespace ProSolutionFormsAPI.Services
             {
                 await stream.WriteAsync(systemFile.FileContent, 0, systemFile.FileContent.Length);
             }
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task<List<SystemFileModel>> AddMany(List<SystemFileModel> systemFiles)
+        public async Task<ModelResultModel> AddMany(List<SystemFileModel> systemFiles)
         {
-            if (systemFiles == null) return;
+            if (systemFiles == null) return new ModelResultModel() { IsSuccessful = false }; ;
             foreach (var systemFile in systemFiles)
             {
                 await Add(systemFile);
             }
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
     }
 }

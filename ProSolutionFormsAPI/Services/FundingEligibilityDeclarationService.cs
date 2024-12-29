@@ -48,43 +48,47 @@ namespace ProSolutionFormsAPI.Services
             return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task<ModelResultModel> Update(FundingEligibilityDeclarationModel? changedFundingEligibilityDeclaration)
+        public async Task<ModelResultModel> Update(FundingEligibilityDeclarationModel? updatedFundingEligibilityDeclaration, bool? save)
         {
+            //Include any related entities
             FundingEligibilityDeclarationModel? recordToUpdate = _context.FundingEligibilityDeclaration!
-                .FirstOrDefault(m => m.FundingEligibilityDeclarationID == changedFundingEligibilityDeclaration!.FundingEligibilityDeclarationID);
+                .FirstOrDefault(m => m.FundingEligibilityDeclarationID == updatedFundingEligibilityDeclaration!.FundingEligibilityDeclarationID);
 
-            if (_context.FundingEligibilityDeclaration == null)
+            if (recordToUpdate == null)
                 return new ModelResultModel() { IsSuccessful = false };
 
-            _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedFundingEligibilityDeclaration!);
-            await _context.SaveChangesAsync();
+            //Update IDs on related entities
+            //Need to get full related entity as only the ID is set in the updated record so causes the rest of the fields to be wiped out
+            //None
+
+            _context.Entry(recordToUpdate!).CurrentValues.SetValues(updatedFundingEligibilityDeclaration!);
+
+            //Update content of related entities
+            //None
+
+            //Ensures related entities are included in the save operation
+            _context?.Update(recordToUpdate);
+
+            if (save != false)
+                await _context!.SaveChangesAsync();
 
             return new ModelResultModel() { IsSuccessful = true };
         }
 
-        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? changedFundingEligibilityDeclarations)
+        public async Task<ModelResultModel> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel>? updatedFundingEligibilityDeclarations)
         {
-            if (changedFundingEligibilityDeclarations is null)
+            if (updatedFundingEligibilityDeclarations is null)
                 return new ModelResultModel() { IsSuccessful = false };
 
-            foreach (var changedFundingEligibilityDeclaration in changedFundingEligibilityDeclarations)
+            foreach (var updatedFundingEligibilityDeclaration in updatedFundingEligibilityDeclarations)
             {
-                FundingEligibilityDeclarationModel? recordToUpdate = _context.FundingEligibilityDeclaration!
-                    .FirstOrDefault(c => c.FundingEligibilityDeclarationID == changedFundingEligibilityDeclaration.FundingEligibilityDeclarationID);
-                if (_context.FundingEligibilityDeclaration == null)
-                {
-                    return new ModelResultModel() { IsSuccessful = false };
-                }
-                else if (recordToUpdate?.StudentDetailID != studentDetailID)
-                {
-                    return new ModelResultModel() { IsSuccessful = false };
-                }
-                _context.Entry(recordToUpdate!).CurrentValues.SetValues(changedFundingEligibilityDeclaration);
-
-                return new ModelResultModel() { IsSuccessful = true };
+                await Update(updatedFundingEligibilityDeclaration, false);
             }
 
+            //Save all changes at the end to avoid multiple save operations
             await _context.SaveChangesAsync();
+
+            return new ModelResultModel() { IsSuccessful = true };
         }
 
         public async Task<ModelResultModel> Delete(int fundingEligibilityDeclarationID)
