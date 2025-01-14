@@ -11,16 +11,17 @@ namespace ProSolutionFormsAPI.Data
 
         public DbSet<ConfigModel>? Config { get; set; }
         public DbSet<CriminalConvictionModel>? CriminalConviction { get; set; }
+        public DbSet<CriminalConvictionOffenceModel>? CriminalConvictionOffence { get; set; }
         public DbSet<DropDownIntModel>? DropDownInt { get; set; }
         public DbSet<DropDownStringModel>? DropDownString { get; set; }
         public DbSet<FundingEligibilityDeclarationEvidenceModel>? FundingEligibilityDeclarationEvidence { get; set; }
         public DbSet<FundingEligibilityDeclarationModel>? FundingEligibilityDeclaration { get; set; }
         public DbSet<GraphAPIAuthorisationModel>? GraphAPIAuthorisation { get; set; }
         public DbSet<GraphAPITokenModel>? GraphAPIToken { get; set; }
-        public DbSet<MedicalInformationModel>? MedicalInformation { get; set; }
-        public DbSet<MedicalInformationDifficultyDisabilityModel>? MedicalInformationDifficultyDisability { get; set; }
-        public DbSet<MedicalInformationEmergencyContactModel>? MedicalInformationEmergencyContact { get; set; }
-        public DbSet<MedicalInformationMedicalConditionModel>? MedicalInformationMedicalCondition { get; set; }
+        public DbSet<MedicalLearningSupportAndTripConsentModel>? MedicalLearningSupportAndTripConsent { get; set; }
+        public DbSet<MedicalLearningSupportAndTripConsentLearningDifficultyDisabilityModel>? MedicalLearningSupportAndTripConsentLearningDifficultyDisability { get; set; }
+        public DbSet<MedicalLearningSupportAndTripConsentEmergencyContactModel>? MedicalLearningSupportAndTripConsentEmergencyContact { get; set; }
+        public DbSet<MedicalLearningSupportAndTripConsentMedicalConditionModel>? MedicalLearningSupportAndTripConsentMedicalCondition { get; set; }
         public DbSet<StudentModel>? Student { get; set; }
         public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
         public DbSet<SystemFileModel>? SystemFile { get; set; }

@@ -10,7 +10,7 @@ namespace ProSolutionFormsAPI.Models
         public int FundingEligibilityDeclarationID { get; set; }
         public int? FeeExemptionReasonID { get; set; }
         public string? FeeExemptionReasonOther { get; set; }
-        public virtual ICollection<FundingEligibilityDeclarationEvidenceModel>? FundingEligibilityDeclarationEvidence { get; set; }
+        public ICollection<FundingEligibilityDeclarationEvidenceModel>? FundingEligibilityDeclarationEvidence { get; set; }
         public string? SignedStudent { get; set; }
         public DateTime? SignedStudentDate { get; set; }
 
@@ -23,6 +23,7 @@ namespace ProSolutionFormsAPI.Models
         public int? StudentDetailID { get; set; }
         public string? AcademicYearID { get; set; }
         public string? StudentRef { get; set; }
+        public Guid? StudentGUID { get; set; }
     }
 
     public class FundingEligibilityDeclarationValidator : AbstractValidator<FundingEligibilityDeclarationModel>

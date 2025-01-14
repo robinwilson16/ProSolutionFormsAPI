@@ -23,14 +23,19 @@ namespace ProSolutionFormsAPI.Services
 
         public FundingEligibilityDeclarationModel? Get(int fundingEligibilityDeclarationID) => FundingEligibilityDeclarations?.FirstOrDefault(m => m.FundingEligibilityDeclarationID == fundingEligibilityDeclarationID);
 
-        public List<FundingEligibilityDeclarationModel>? GetByStudentRef(string academicYear, string studentRef) => FundingEligibilityDeclarations?
+        public FundingEligibilityDeclarationModel? GetByGUID(string academicYear, Guid studentGUID) => FundingEligibilityDeclarations?
+            .Where(c => c.AcademicYearID == academicYear)
+            .Where(c => c.StudentGUID == studentGUID)
+            .FirstOrDefault();
+
+        public FundingEligibilityDeclarationModel? GetByStudentRef(string academicYear, string studentRef) => FundingEligibilityDeclarations?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentRef == studentRef)
-            .ToList();
+            .FirstOrDefault();
 
-        public List<FundingEligibilityDeclarationModel>? GetByStudentDetailID(int studentDetailID) => FundingEligibilityDeclarations?
+        public FundingEligibilityDeclarationModel? GetByStudentDetailID(int studentDetailID) => FundingEligibilityDeclarations?
             .Where(c => c.StudentDetailID == studentDetailID)
-            .ToList();
+            .FirstOrDefault();
 
         public async Task<ModelResultModel> Add(FundingEligibilityDeclarationModel newFundingEligibilityDeclaration)
         {

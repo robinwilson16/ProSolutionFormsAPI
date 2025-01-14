@@ -10,7 +10,7 @@ namespace ProSolutionFormsAPI.Models
         public int FundingEligibilityDeclarationEvidenceID { get; set; }
 
         [JsonIgnore]
-        public virtual FundingEligibilityDeclarationModel? FundingEligibilityDeclaration { get; set; }
+        public FundingEligibilityDeclarationModel? FundingEligibilityDeclaration { get; set; }
         public EvidenceType EvidenceTypeID { get; set; }
         public byte[]? EvidenceContent { get; set; }
         public byte[]? ImageThumbnail { get; set; }
@@ -32,10 +32,14 @@ namespace ProSolutionFormsAPI.Models
     {
         Passport = 1,
         [Display(Name = "Birth Certificate")]
-        Birth_Certificate = 2,
+        BirthCertificate = 2,
         [Display(Name = "Driving Licence")]
-        Driving_Licence = 3,
-        Other = 4
+        DrivingLicence = 3,
+        [Display(Name = "Low Wage Evidence")]
+        LowWageEvidence = 4,
+        [Display(Name = "Benefit Evidence")]
+        Benefit_Evidence = 5,
+        Other = 6
     }
 
     public class FundingEligibilityDeclarationEvidenceValidator : AbstractValidator<FundingEligibilityDeclarationEvidenceModel>

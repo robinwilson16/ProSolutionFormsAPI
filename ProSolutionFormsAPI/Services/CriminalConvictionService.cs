@@ -16,6 +16,7 @@ namespace ProSolutionFormsAPI.Services
             _context = context;
 
             CriminalConvictions = _context.CriminalConviction!
+                .Include(c => c.Offences)
                 .ToList();
         }
 
@@ -23,14 +24,19 @@ namespace ProSolutionFormsAPI.Services
 
         public CriminalConvictionModel? Get(int criminalConvictionID) => CriminalConvictions?.FirstOrDefault(c => c.CriminalConvictionID == criminalConvictionID);
 
-        public List<CriminalConvictionModel>? GetByStudentRef(string academicYear, string studentRef) => CriminalConvictions?
+        public CriminalConvictionModel? GetByGUID(string academicYear, Guid studentGUID) => CriminalConvictions?
+            .Where(c => c.AcademicYearID == academicYear)
+            .Where(c => c.StudentGUID == studentGUID)
+            .FirstOrDefault();
+
+        public CriminalConvictionModel? GetByStudentRef(string academicYear, string studentRef) => CriminalConvictions?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentRef == studentRef)
-            .ToList();
+            .FirstOrDefault();
 
-        public List<CriminalConvictionModel>? GetByStudentDetailID(int studentDetailID) => CriminalConvictions?
+        public CriminalConvictionModel? GetByStudentDetailID(int studentDetailID) => CriminalConvictions?
             .Where(c => c.StudentDetailID == studentDetailID)
-            .ToList();
+            .FirstOrDefault();
 
         public async Task<ModelResultModel> Add(CriminalConvictionModel newCriminalConviction)
         {

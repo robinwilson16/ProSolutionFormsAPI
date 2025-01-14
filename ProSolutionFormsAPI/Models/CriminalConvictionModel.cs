@@ -7,14 +7,12 @@ namespace ProSolutionFormsAPI.Models
     {
         [Key]
         public int CriminalConvictionID { get; set; }
-        public DateTime? DateOfOffence { get; set; }
-
-        [Required(ErrorMessage = "Please record details of the offence")]
-        public string? Offence { get; set; }
-        public string? Penalty { get; set; }
-        public string? Comments { get; set; }
-        public string? ContactName { get; set; }
-
+        public ICollection<CriminalConvictionOffenceModel>? Offences { get; set; }
+        public bool? NoOffencesToDeclare { get; set; }
+        public bool? AgreeInfoIsCorrectStudent { get; set; }
+        public string? SignedStudent { get; set; }
+        public DateTime? SignedStudentDate { get; set; }
+        
         //Created and Updated
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
@@ -29,15 +27,27 @@ namespace ProSolutionFormsAPI.Models
 
         [MaxLength(12)]
         public string? StudentRef { get; set; }
+        public Guid? StudentGUID { get; set; }
     }
 
-    public class CriminalConvictionValidator : AbstractValidator<CriminalConvictionModel>
+    public class CriminalConvictionsValidator : AbstractValidator<CriminalConvictionModel>
     {
-        public CriminalConvictionValidator()
+        public CriminalConvictionsValidator()
         {
-            RuleFor(c => c.DateOfOffence).NotNull().WithMessage("You must provide the date of the offence");
-            RuleFor(c => c.DateOfOffence).LessThanOrEqualTo(DateTime.Today).WithMessage("The date of the offence must not be in the future");
-            RuleFor(c => c.Offence).NotEmpty().WithMessage("You must provide details of the offence");
+            When(m => m.NoOffencesToDeclare == true, () =>
+            {
+                RuleFor(m => m.Offences)
+                .NotNull()
+                .ForEach(x => x.SetValidator(new CriminalConvictionOffenceBlankValidator()));
+            }).Otherwise(() =>
+            {
+                RuleFor(m => m.Offences)
+                .NotNull()
+                .ForEach(x => x.SetValidator(new CriminalConvictionOffenceValidator()));
+            });
+            RuleFor(m => m.AgreeInfoIsCorrectStudent).NotNull().WithMessage("Please state whether you agree the information above is correct");
+            RuleFor(m => m.SignedStudent).NotNull().WithMessage("Please type your name in the box to confirm the information entered is correct");
+            RuleFor(m => m.SignedStudentDate).NotNull().WithMessage("Please enter the date you are confirming the information to be correct");
         }
     }
 }

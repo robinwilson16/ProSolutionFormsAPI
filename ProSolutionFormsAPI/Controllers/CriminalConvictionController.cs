@@ -32,26 +32,43 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
-        [HttpGet("StudentDetailID/{criminalConvictionID}")]
-        public ActionResult<List<CriminalConvictionModel>> GetByStudentDetailID(int studentDetailID)
+        [HttpGet("{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}")]
+        public ActionResult<CriminalConvictionModel> Get(int? academicYearIDPart1, int? academicYearIDPart2, Guid studentGUID)
         {
-            var criminalConvictions = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
-
-            if (criminalConvictions == null)
+            string academicYearID;
+            if (academicYearIDPart1 != null && academicYearIDPart2 != null)
+                academicYearID = $"{academicYearIDPart1.ToString()}/{academicYearIDPart2.ToString()}";
+            else
                 return NotFound();
 
-            return criminalConvictions;
+            var criminalConviction = _criminalConvictionService.GetByGUID(academicYearID, studentGUID);
+
+            if (criminalConviction == null)
+                return NotFound();
+
+            return criminalConviction;
+        }
+
+        [HttpGet("StudentDetailID/{studentDetailID}")]
+        public ActionResult<CriminalConvictionModel> GetByStudentDetailID(int studentDetailID)
+        {
+            var criminalConviction = _criminalConvictionService.GetByStudentDetailID(studentDetailID);
+
+            if (criminalConviction == null)
+                return NotFound();
+
+            return criminalConviction;
         }
 
         [HttpGet("StudentRef/{academicYearID}/{studentRef}")]
-        public ActionResult<List<CriminalConvictionModel>> GetByStudentRef(string academicYearID, string studentRef)
+        public ActionResult<CriminalConvictionModel> GetByStudentRef(string academicYearID, string studentRef)
         {
-            var criminalConvictions = _criminalConvictionService.GetByStudentRef(academicYearID, studentRef);
+            var criminalConviction = _criminalConvictionService.GetByStudentRef(academicYearID, studentRef);
 
-            if (criminalConvictions == null)
+            if (criminalConviction == null)
                 return NotFound();
 
-            return criminalConvictions;
+            return criminalConviction;
         }
 
         [HttpPost]

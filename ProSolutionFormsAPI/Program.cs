@@ -16,7 +16,7 @@ builder.Services.AddOpenApi();
 //Forms
 builder.Services.AddScoped<CriminalConvictionService>();
 builder.Services.AddScoped<FundingEligibilityDeclarationService>();
-builder.Services.AddScoped<MedicalInformationService>();
+builder.Services.AddScoped<MedicalLearningSupportAndTripConsentService>();
 
 //Lookups
 builder.Services.AddScoped<StudentService>();
@@ -92,8 +92,8 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.MapOpenApi();
     app.MapScalarApiReference(options =>
     {
@@ -104,7 +104,7 @@ if (app.Environment.IsDevelopment())
             //.WithPreferredScheme("ApiKey")
             //.WithApiKeyAuthentication(keyOptions => keyOptions.Token = "apikey");
     });
-}
+//}
 
 app.UseHttpsRedirection();
 

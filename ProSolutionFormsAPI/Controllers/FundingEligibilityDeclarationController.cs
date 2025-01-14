@@ -32,26 +32,43 @@ namespace ProSolutionFormsAPI.Controllers
             return fundingEligibilityDeclaration;
         }
 
-        [HttpGet("StudentDetailID/{fundingEligibilityDeclarationID}")]
-        public ActionResult<List<FundingEligibilityDeclarationModel>> GetByStudentDetailID(int studentDetailID)
+        [HttpGet("{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}")]
+        public ActionResult<FundingEligibilityDeclarationModel> Get(int? academicYearIDPart1, int? academicYearIDPart2, Guid studentGUID)
         {
-            var fundingEligibilityDeclarations = _fundingEligibilityDeclarationService.GetByStudentDetailID(studentDetailID);
-
-            if (fundingEligibilityDeclarations == null)
+            string academicYearID;
+            if (academicYearIDPart1 != null && academicYearIDPart2 != null)
+                academicYearID = $"{academicYearIDPart1.ToString()}/{academicYearIDPart2.ToString()}";
+            else
                 return NotFound();
 
-            return fundingEligibilityDeclarations;
+            var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.GetByGUID(academicYearID, studentGUID);
+
+            if (fundingEligibilityDeclaration == null)
+                return NotFound();
+
+            return fundingEligibilityDeclaration;
+        }
+
+        [HttpGet("StudentDetailID/{studentDetailID}")]
+        public ActionResult<FundingEligibilityDeclarationModel> GetByStudentDetailID(int studentDetailID)
+        {
+            var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.GetByStudentDetailID(studentDetailID);
+
+            if (fundingEligibilityDeclaration == null)
+                return NotFound();
+
+            return fundingEligibilityDeclaration;
         }
 
         [HttpGet("StudentRef/{academicYearID}/{studentRef}")]
-        public ActionResult<List<FundingEligibilityDeclarationModel>> GetByStudentRef(string academicYearID, string studentRef)
+        public ActionResult<FundingEligibilityDeclarationModel> GetByStudentRef(string academicYearID, string studentRef)
         {
-            var fundingEligibilityDeclarations = _fundingEligibilityDeclarationService.GetByStudentRef(academicYearID, studentRef);
+            var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.GetByStudentRef(academicYearID, studentRef);
 
-            if (fundingEligibilityDeclarations == null)
+            if (fundingEligibilityDeclaration == null)
                 return NotFound();
 
-            return fundingEligibilityDeclarations;
+            return fundingEligibilityDeclaration;
         }
 
         [HttpPost]

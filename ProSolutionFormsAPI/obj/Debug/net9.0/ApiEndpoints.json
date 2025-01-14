@@ -28,12 +28,48 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "criminalConviction",
+        "Name": "newCriminalConviction",
         "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
+    "Method": "Get",
+    "RelativePath": "CriminalConviction/{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearIDPart1",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearIDPart2",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
@@ -75,7 +111,7 @@
         "IsRequired": true
       },
       {
-        "Name": "criminalConviction",
+        "Name": "updatedCriminalConviction",
         "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "IsRequired": true
       }
@@ -123,7 +159,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "criminalConvictions",
+        "Name": "newcriminalConvictions",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -144,7 +180,7 @@
         "IsRequired": true
       },
       {
-        "Name": "criminalConvictions",
+        "Name": "updatedCriminalConvictions",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -165,7 +201,7 @@
         "IsRequired": true
       },
       {
-        "Name": "criminalConvictions",
+        "Name": "criminalConvictionsToDelete",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -175,7 +211,7 @@
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.CriminalConvictionController",
     "Method": "GetByStudentDetailID",
-    "RelativePath": "CriminalConviction/StudentDetailID/{criminalConvictionID}",
+    "RelativePath": "CriminalConviction/StudentDetailID/{studentDetailID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -183,17 +219,12 @@
       {
         "Name": "studentDetailID",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "criminalConvictionID",
-        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -224,7 +255,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.CriminalConvictionModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.CriminalConvictionModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -355,12 +386,48 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "fundingEligibilityDeclaration",
+        "Name": "newFundingEligibilityDeclaration",
         "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
+    "Method": "Get",
+    "RelativePath": "FundingEligibilityDeclaration/{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYearIDPart1",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearIDPart2",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
@@ -407,7 +474,7 @@
         "IsRequired": false
       },
       {
-        "Name": "fundingEligibilityDeclaration",
+        "Name": "updatedFundingEligibilityDeclaration",
         "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
         "IsRequired": true
       },
@@ -460,7 +527,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "fundingEligibilityDeclarations",
+        "Name": "newFundingEligibilityDeclarations",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -481,7 +548,7 @@
         "IsRequired": true
       },
       {
-        "Name": "fundingEligibilityDeclarations",
+        "Name": "updatedFundingEligibilityDeclarations",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -502,7 +569,7 @@
         "IsRequired": true
       },
       {
-        "Name": "fundingEligibilityDeclarations",
+        "Name": "fundingEligibilityDeclarationsToDelete",
         "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
@@ -512,7 +579,7 @@
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.FundingEligibilityDeclarationController",
     "Method": "GetByStudentDetailID",
-    "RelativePath": "FundingEligibilityDeclaration/StudentDetailID/{fundingEligibilityDeclarationID}",
+    "RelativePath": "FundingEligibilityDeclaration/StudentDetailID/{studentDetailID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -520,17 +587,12 @@
       {
         "Name": "studentDetailID",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "fundingEligibilityDeclarationID",
-        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -561,7 +623,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.FundingEligibilityDeclarationModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -618,16 +680,16 @@
     ]
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "GetAll",
-    "RelativePath": "MedicalInformation",
+    "RelativePath": "MedicalLearningSupportAndTripConsent",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -638,38 +700,74 @@
     ]
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "Create",
-    "RelativePath": "MedicalInformation",
+    "RelativePath": "MedicalLearningSupportAndTripConsent",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "medicalInformation",
-        "Type": "ProSolutionFormsAPI.Models.MedicalInformationModel",
+        "Name": "newMedicalLearningSupportAndTripConsent",
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "Get",
-    "RelativePath": "MedicalInformation/{medicalInformationID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "medicalInformationID",
+        "Name": "academicYearIDPart1",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearIDPart2",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "studentGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
+    "Method": "Get",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/{medicalLearningSupportAndTripConsentID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicalLearningSupportAndTripConsentID",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ProSolutionFormsAPI.Models.MedicalInformationModel",
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -680,36 +778,36 @@
     ]
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "Update",
-    "RelativePath": "MedicalInformation/{medicalInformationID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/{medicalLearningSupportAndTripConsentID}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "medicalInformationID",
+        "Name": "medicalLearningSupportAndTripConsentID",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "medicalInformation",
-        "Type": "ProSolutionFormsAPI.Models.MedicalInformationModel",
+        "Name": "updatedMedicalLearningSupportAndTripConsent",
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "Delete",
-    "RelativePath": "MedicalInformation/{medicalInformationID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/{medicalLearningSupportAndTripConsentID}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "medicalInformationID",
+        "Name": "medicalLearningSupportAndTripConsentID",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -717,9 +815,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "DeleteAll",
-    "RelativePath": "MedicalInformation/All/{studentDetailID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/All/{studentDetailID}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -733,25 +831,25 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "CreateMany",
-    "RelativePath": "MedicalInformation/Many",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/Many",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "medicalInformations",
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "newMedicalLearningSupportAndTripConsents",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "UpdateMany",
-    "RelativePath": "MedicalInformation/Many/{studentDetailID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/Many/{studentDetailID}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -762,17 +860,17 @@
         "IsRequired": true
       },
       {
-        "Name": "medicalInformations",
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "updatedMedicalLearningSupportAndTripConsents",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "DeleteMany",
-    "RelativePath": "MedicalInformation/Many/{studentDetailID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/Many/{studentDetailID}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -783,17 +881,17 @@
         "IsRequired": true
       },
       {
-        "Name": "medicalInformations",
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "medicalLearningSupportAndTripConsentsToDelete",
+        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "GetByStudentDetailID",
-    "RelativePath": "MedicalInformation/StudentDetailID/{medicalInformationID}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/StudentDetailID/{studentDetailID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -801,17 +899,12 @@
       {
         "Name": "studentDetailID",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "medicalInformationID",
-        "Type": "",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -822,16 +915,21 @@
     ]
   },
   {
-    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalInformationController",
+    "ContainingType": "ProSolutionFormsAPI.Controllers.MedicalLearningSupportAndTripConsentController",
     "Method": "GetByStudentRef",
-    "RelativePath": "MedicalInformation/StudentRef/{academicYearID}/{studentRef}",
+    "RelativePath": "MedicalLearningSupportAndTripConsent/StudentRef/{academicYearIDPart1}/{academicYearIDPart2}/{studentRef}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "academicYearID",
-        "Type": "System.String",
+        "Name": "academicYearIDPart1",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearIDPart2",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       },
       {
@@ -842,7 +940,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ProSolutionFormsAPI.Models.MedicalInformationModel, ProSolutionFormsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -921,14 +1019,19 @@
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.StudentController",
     "Method": "Get",
-    "RelativePath": "Student/{academicYearID}/{studentGUID}",
+    "RelativePath": "Student/{academicYearIDPart1}/{academicYearIDPart2}/{studentGUID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "academicYearID",
-        "Type": "System.String",
+        "Name": "academicYearIDPart1",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicYearIDPart2",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": true
       },
       {
@@ -1113,7 +1216,7 @@
   {
     "ContainingType": "ProSolutionFormsAPI.Controllers.SystemEmailController",
     "Method": "Get",
-    "RelativePath": "SystemEmail/{systemFileID}",
+    "RelativePath": "SystemEmail/{systemEmailID}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1121,11 +1224,6 @@
       {
         "Name": "systemEmailID",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "systemFileID",
-        "Type": "",
         "IsRequired": true
       }
     ],

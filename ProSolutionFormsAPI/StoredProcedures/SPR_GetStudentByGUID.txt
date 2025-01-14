@@ -6,7 +6,7 @@ BEGIN
 	SET XACT_ABORT, NOCOUNT ON;
 
 	--DECLARE @AcademicYear VARCHAR(5) = '24/25'
-	--DECLARE @StudentGUID UNIQUEIDENTIFIER = '05a13fa1-22a3-457e-86be-389806731e3f'
+	--DECLARE @StudentGUID UNIQUEIDENTIFIER = '8ccabd43-7aa1-47b2-84d2-976b332e0f0a'
 
 
 
@@ -73,20 +73,6 @@ BEGIN
 	ADD PRIMARY KEY (EnrolmentID, RowNum);
 
 
-	--Existing Criminal Convictions
-	DROP TABLE IF EXISTS #Convictions
-	SELECT
-		StudentDetailID = CRI.StudentDetailID,
-		NumDeclaredConvictions = COUNT ( CRI.CriminalConvictionID )
-		INTO #Convictions
-	FROM CriminalConviction CRI
-	WHERE
-		CRI.AcademicYearID = @AcademicYear
-	GROUP BY
-		CRI.StudentDetailID
-
-
-
 	SELECT
 		StudentID = SD.StudentID,
 		StudentDetailID = SD.StudentDetailID,
@@ -105,24 +91,21 @@ BEGIN
 		CompletionStatusName = CMP.Description,
 		StartDate = ENR.StartDate,
 		ExpEndDate = ENR.ExpectedEndDate,
-		ActEndDate = ENR.ActualEndDate,
-		NumConvictions = COALESCE ( CON.NumDeclaredConvictions, 0 )
+		ActEndDate = ENR.ActualEndDate
 	FROM ProSolution.dbo.StudentDetail SD
 	INNER JOIN ProSolution.dbo.Student S
 		ON S.StudentID = SD.StudentID
-	INNER JOIN #MainAims MA
+	LEFT JOIN #MainAims MA
 		ON MA.StudentDetailID = SD.StudentDetailID
 		AND MA.RowNum = 1
-	INNER JOIN ProSolution.dbo.Enrolment ENR
+	LEFT JOIN ProSolution.dbo.Enrolment ENR
 		ON ENR.EnrolmentID = MA.EnrolmentID
-	INNER JOIN ProSolution.dbo.Offering CRS
+	LEFT JOIN ProSolution.dbo.Offering CRS
 		ON CRS.OfferingID = ENR.OfferingID
-	INNER JOIN ProSolution.dbo.CollegeLevel TEAM
+	LEFT JOIN ProSolution.dbo.CollegeLevel TEAM
 		ON TEAM.SID = CRS.SID
-	INNER JOIN ProSolution.dbo.CompletionStatus CMP
+	LEFT JOIN ProSolution.dbo.CompletionStatus CMP
 		ON CMP.CompletionStatusID = ENR.CompletionStatusID
-	LEFT JOIN #Convictions CON
-		ON CON.StudentDetailID = SD.StudentDetailID
 	WHERE
 		SD.AcademicYearID = @AcademicYear
 		AND S.StudentGUID = COALESCE ( @StudentGUID, S.StudentGUID )
