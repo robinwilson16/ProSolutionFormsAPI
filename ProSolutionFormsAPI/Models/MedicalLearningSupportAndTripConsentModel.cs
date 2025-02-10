@@ -11,11 +11,13 @@ namespace ProSolutionFormsAPI.Models
         public int MedicalLearningSupportAndTripConsentID { get; set; }
         public bool? HasLearningDifficultyDisability { get; set; }
         public ICollection<MedicalLearningSupportAndTripConsentLearningDifficultyDisabilityModel>? LearningDifficultiesDisabilities { get; set; }
-        public bool? RequiresRiskAssesment { get; set; }
+        public bool? AgreeToKeepCollegeInformed { get; set; }
         public bool? HasBeenHospitalisedInLastYear { get; set; }
         public string? HospitalisationNotes { get; set; }
         public bool? RequiresLearningSupport { get; set; }
         public bool? HasEHCP { get; set; }
+        public string? NameOfDoctor { get; set; }
+        public string? NameOfDoctorsPractice { get; set; }
         public ICollection<MedicalLearningSupportAndTripConsentEmergencyContactModel>? EmergencyContacts { get; set; }
         public bool? HasMedicalCondition { get; set; }
         public ICollection<MedicalLearningSupportAndTripConsentMedicalConditionModel>? MedicalConditions { get; set; }
@@ -25,7 +27,6 @@ namespace ProSolutionFormsAPI.Models
         public bool? HasFSM { get; set; }
         public bool? IsFromMilitaryServiceFamily { get; set; }
         public bool? HasAccessArrangements { get; set; }
-        public string? AccessRequirementDetails { get; set; }
         public bool? HadFurtherSupportAtSchoolOrCollege { get; set; }
         public string? FurtherSupportAtSchoolOrCollegeDetails { get; set; }
         public bool? HasGivenTripConsentStudent { get; set; }
@@ -68,7 +69,7 @@ namespace ProSolutionFormsAPI.Models
             {
                 RuleFor(m => m.MedicalConditions).ForEach(x => x.SetValidator(new MedicalInformationMedicalConditionValidator()));
             });
-            RuleFor(m => m.RequiresRiskAssesment).NotNull().WithMessage("Please state whether you require a risk assessment");
+            RuleFor(m => m.AgreeToKeepCollegeInformed).NotNull().WithMessage("Please state whether you agree to keep the college informed of any changes in medical conditions or emergency contact details");
             RuleFor(m => m.HasBeenHospitalisedInLastYear).NotNull().WithMessage("Please state whether you have been hospitalised in the last year");
             RuleFor(m => m.RequiresLearningSupport).NotNull().WithMessage("Please state whether you require learning support");
             RuleFor(m => m.HasEHCP).NotNull().WithMessage("Please state whether you have an Educational Health Care Plan");
