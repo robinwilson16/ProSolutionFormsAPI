@@ -21,7 +21,7 @@ namespace ProSolutionFormsAPI.Controllers
         public ActionResult<List<FundingEligibilityDeclarationModel>?> GetAll() =>
             _fundingEligibilityDeclarationService.GetAll();
 
-        [HttpGet("{criminalConvictionID}")]
+        [HttpGet("{fundingEligibilityDeclarationID}")]
         public ActionResult<FundingEligibilityDeclarationModel> Get(int fundingEligibilityDeclarationID)
         {
             var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.Get(fundingEligibilityDeclarationID);
@@ -42,6 +42,17 @@ namespace ProSolutionFormsAPI.Controllers
                 return NotFound();
 
             var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.GetByGUID(academicYearID, studentGUID);
+
+            if (fundingEligibilityDeclaration == null)
+                return NotFound();
+
+            return fundingEligibilityDeclaration;
+        }
+
+        [HttpGet("ID/{studentGUID}/{fundingEligibilityDeclarationID}")]
+        public ActionResult<FundingEligibilityDeclarationModel> GetByID(Guid studentGUID, int fundingEligibilityDeclarationID)
+        {
+            var fundingEligibilityDeclaration = _fundingEligibilityDeclarationService.GetByGUIDAndID(studentGUID, fundingEligibilityDeclarationID);
 
             if (fundingEligibilityDeclaration == null)
                 return NotFound();
@@ -95,7 +106,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { ids }, newFundingEligibilityDeclarations);
         }
 
-        [HttpPut("{criminalConvictionID}")]
+        [HttpPut("{fundingEligibilityDeclarationID}")]
         public async Task<IActionResult> Update(int fundingEligibilityDeclarationID, FundingEligibilityDeclarationModel updatedFundingEligibilityDeclaration)
         {
             if (fundingEligibilityDeclarationID != updatedFundingEligibilityDeclaration.FundingEligibilityDeclarationID)

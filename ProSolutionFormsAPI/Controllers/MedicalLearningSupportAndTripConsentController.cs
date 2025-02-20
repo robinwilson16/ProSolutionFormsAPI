@@ -49,6 +49,17 @@ namespace ProSolutionFormsAPI.Controllers
             return medicalLearningSupportAndTripConsents;
         }
 
+        [HttpGet("ID/{studentGUID}/{medicalLearningSupportAndTripConsentID}")]
+        public ActionResult<MedicalLearningSupportAndTripConsentModel> GetByID(Guid studentGUID, int medicalLearningSupportAndTripConsentID)
+        {
+            var medicalLearningSupportAndTripConsents = _medicalLearningSupportAndTripConsentService.GetByGUIDAndID(studentGUID, medicalLearningSupportAndTripConsentID);
+
+            if (medicalLearningSupportAndTripConsents == null)
+                return NotFound();
+
+            return medicalLearningSupportAndTripConsents;
+        }
+
         [HttpGet("StudentDetailID/{studentDetailID}")]
         public ActionResult<MedicalLearningSupportAndTripConsentModel> GetByStudentDetailID(int studentDetailID)
         {

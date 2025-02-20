@@ -49,6 +49,17 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
+        [HttpGet("ID/{studentGUID}/{criminalConvictionID}")]
+        public ActionResult<CriminalConvictionModel> GetByID(Guid studentGUID, int criminalConvictionID)
+        {
+            var criminalConviction = _criminalConvictionService.GetByGUIDAndID(studentGUID, criminalConvictionID);
+
+            if (criminalConviction == null)
+                return NotFound();
+
+            return criminalConviction;
+        }
+
         [HttpGet("StudentDetailID/{studentDetailID}")]
         public ActionResult<CriminalConvictionModel> GetByStudentDetailID(int studentDetailID)
         {

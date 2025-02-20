@@ -1,0 +1,282 @@
+CREATE PROCEDURE [dbo].[SPR_StudentDetails]
+	@AcademicYear NVARCHAR(5),
+	@StudentRef NVARCHAR(5)
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	--DECLARE @AcademicYear VARCHAR(5) = '25/26'
+	--DECLARE @StudentRef VARCHAR(50) = NULL
+
+	--Main Application
+	DROP TABLE IF EXISTS #MainApp
+	SELECT 
+		SD.AcademicYearID,
+		SD.StudentDetailID,
+		APP.ApplicationID,
+		APPC.ApplicationCourseID,
+		RowNum = 
+			ROW_NUMBER () OVER ( 
+				PARTITION BY
+					SD.StudentDetailID
+				ORDER BY
+					APP.Choice,
+					CASE
+						WHEN DECS.IsAccepted = 1 THEN 1
+						WHEN DECS.IsAccepted IS NULL THEN 2
+						WHEN DECS.IsAccepted = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN DECC.IsAccepted = 1 THEN 1
+						WHEN DECC.IsAccepted IS NULL THEN 2
+						WHEN DECC.IsAccepted = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN APPO.OfferYes = 1 THEN 1
+						WHEN APPO.OfferYes IS NULL THEN 2
+						WHEN APPO.OfferYes = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN APPC.TransferredTo IS NOT NULL THEN 1
+						ELSE 0
+					END,
+					APPC.Withdrawn,
+					CRS.IncludeInReturn DESC,
+					CASE
+						--Prioritise parent codes
+						WHEN HasPar.OfferingID IS NULL THEN 1
+						ELSE 2
+					END,
+					CASE
+						WHEN CRS.QualID IS NOT NULL THEN 1
+						ELSE 2
+					END,
+					CASE
+						--In case learners in gateway so only parent active but have started something else
+						WHEN CRS.QualID = 'ZPROG001' THEN 2
+						ELSE 1
+					END,
+					COALESCE ( CRS.ProgrammeTypeID, '99' ),
+					CASE
+						WHEN AIMT.AimTypeID = 1 THEN 1 --Programme Aim
+						WHEN AIMT.AimTypeID = 5 THEN 2 --Core Aim
+						ELSE 3
+					END,
+					CASE
+						WHEN AIM.LEARNING_AIM_TYPE_CODE IN (
+							'0003', --GCSE
+							'1439' --Functional Skills
+						) THEN 2
+						ELSE 1
+					END,
+					CASE WHEN AIM.NVQLevelID_v2 = 'E' THEN ' E' WHEN AIM.NVQLevelID_v2 = 'X' THEN ' X' ELSE AIM.NVQLevelID_v2 END DESC,
+					COALESCE (
+						CASE
+							WHEN
+								CASE
+									WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+									ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+								END <= 18 THEN
+									CRS.PlannedLearningHours1618
+							ELSE CRS.PlannedLearningHours19Plus
+						END,
+						0
+					) +
+					COALESCE (
+						CASE
+							WHEN
+								CASE
+									WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+									ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+								END <= 18 THEN
+									CRS.PlannedEEPHours1618
+							ELSE CRS.PlannedEEPHours19Plus
+						END,
+						0
+					) DESC,
+					DATEDIFF ( DAY, CRS.StartDate, CRS.EndDate ),
+					CRS.StartDate,
+					APPC.ApplicationCourseID
+			)
+		INTO #MainApp
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Application APP
+		ON APP.StudentDetailID = SD.StudentDetailID
+	INNER JOIN ProSolution.dbo.ApplicationCourse APPC
+		ON APPC.ApplicationID = APP.ApplicationID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = APPC.OfferingID
+	LEFT JOIN ProSolution.dbo.AimType AIMT
+		ON AIMT.AimTypeID = 
+			CASE
+				WHEN
+					CASE
+						WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+						ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+					END <= 18 THEN
+						CRS.AimTypeID
+				ELSE CRS.AimType2ID
+			END
+	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
+		ON DECS.ApplicationDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.CollegeDecision DECC
+		ON DECC.CollegeDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.ApplicationOffer APPO
+		ON APPO.ApplicationOfferID = APP.OfferID
+	LEFT JOIN ProSolution.dbo.Learning_Aim AIM
+		ON AIM.LEARNING_AIM_REF = CRS.QualID
+	LEFT JOIN (
+		--Avoid showing parent codes as child codes
+		SELECT DISTINCT
+			OfferingID = LNK.SubOfferingID
+		FROM ProSolution.dbo.LinkedOffering LNK
+	) HasPar
+		ON HasPar.OfferingID = CRS.OfferingID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+
+
+
+	SELECT
+		StudentDetailID = SD.StudentDetailID,
+		StudentID = SD.StudentID,
+		StudentRef = RTRIM ( SD.RefNo ),
+		Surname = SD.Surname,
+		Forename = SD.FirstForename,
+		StudentGUID = S.StudentGUID,
+		CollegeCode = RTRIM ( COL.Code ),
+		CollegeName = COL.Name,
+		DirectorateCode = RTRIM ( DIR.Code ),
+		DirectorateName = DIR.Name,
+		CAMCode = RTRIM ( CAM.Code ),
+		CAMName = CAM.Name,
+		DeptCode = RTRIM ( DEPT.Code ),
+		DeptName = DEPT.Name,
+		CourseCode = CRS.Code,
+		CourseTitle = CRS.Name,
+		ApplicationDate = APP.ApplicationDate,
+		MedicalFormCompleted = 
+			CAST (
+				CASE
+					WHEN COALESCE ( MEDF.NumberOfSubmissions, 0 ) > 0 THEN 1
+					ELSE 0
+				END
+			AS BIT ),
+		MedicalFormLatestSubmissionID = MEDF.LatestSubmissionID,
+		MedicalFormLatestSubmissionDate = MEDF.LatestFormCreatedDate,
+		MedicalFormNumberOfSubmissions = COALESCE ( MEDF.NumberOfSubmissions, 0 ),
+		CriminalConvictionFormCompleted = 
+			CAST (
+				CASE
+					WHEN COALESCE ( CRMF.NumberOfSubmissions, 0 ) > 0 THEN 1
+					ELSE 0
+				END
+			AS BIT ),
+		CriminalConvictionFormLatestSubmissionID = CRMF.LatestSubmissionID,
+		CriminalConvictionFormLatestSubmissionDate = CRMF.LatestFormCreatedDate,
+		CriminalConvictionFormNumberOfSubmissions = COALESCE ( CRMF.NumberOfSubmissions, 0 ),
+		FundingEligibilityFormCompleted = 
+			CAST (
+				CASE
+					WHEN COALESCE ( FEDF.NumberOfSubmissions, 0 ) > 0 THEN 1
+					ELSE 0
+				END
+			AS BIT ),
+		FundingEligibilityFormLatestSubmissionID = FEDF.LatestSubmissionID,
+		FundingEligibilityFormLatestSubmissionDate = FEDF.LatestFormCreatedDate,
+		FundingEligibilityFormNumberOfSubmissions = COALESCE ( FEDF.NumberOfSubmissions, 0 ),
+		MedicalConsentFormReceivedCode = SD.UserDefined4,
+		MedicalConsentFormReceivedName = UDF4D.Description,
+		TripPhotographicCosentObtainedCode = SD.UserDefined5,
+		TripPhotographicCosentObtainedName = UDF5D.Description
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo._CCC_DataSource DS
+		ON DS.DataSourceName = 'StudentDetail'
+	INNER JOIN ProSolution.dbo.Student S
+		ON S.StudentID = SD.StudentID
+	INNER JOIN #MainApp MAPP
+		ON MAPP.StudentDetailID = SD.StudentDetailID
+		AND MAPP.RowNum = 1
+	INNER JOIN ProSolution.dbo.ApplicationCourse APPC
+		ON APPC.ApplicationCourseID = MAPP.ApplicationCourseID
+	INNER JOIN ProSolution.dbo.Application APP
+		ON APP.ApplicationID = APPC.ApplicationID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = APPC.OfferingID
+	INNER JOIN ProSolution.dbo.CollegeLevel DEPT
+		ON DEPT.SID = CRS.SID
+	INNER JOIN ProSolution.dbo.CollegeLevel CAM
+		ON CAM.SID = DEPT.ParentSID
+	INNER JOIN ProSolution.dbo.CollegeLevel DIR
+		ON DIR.SID = CAM.ParentSID
+	INNER JOIN ProSolution.dbo.CollegeLevel COL
+		ON COL.SID = DIR.ParentSID
+	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
+		ON DECS.ApplicationDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.CollegeDecision DECC
+		ON DECC.CollegeDecisionID = APP.CollegeDecisionID
+	LEFT JOIN ProSolution.dbo.ApplicationOffer APPO
+		ON APPO.ApplicationOfferID = APP.OfferID
+	LEFT JOIN ProSolution.dbo._CCC_DataSource_Column UDF4
+		ON UDF4.DataSourceID = DS.DataSourceID
+		AND UDF4.DataSourceColumnName = 'UserDefined4'
+	LEFT JOIN ProSolution.dbo._CCC_UserDefinedFieldLookupValues UDF4D
+		ON UDF4D.DataSourceID = UDF4.DataSourceID
+		AND UDF4D.DataSourceColumnName = UDF4.DataSourceColumnName
+		AND UDF4D.Value = SD.UserDefined4
+	LEFT JOIN ProSolution.dbo._CCC_DataSource_Column UDF5
+		ON UDF5.DataSourceID = DS.DataSourceID
+		AND UDF5.DataSourceColumnName = 'UserDefined5'
+	LEFT JOIN ProSolution.dbo._CCC_UserDefinedFieldLookupValues UDF5D
+		ON UDF5D.DataSourceID = UDF5.DataSourceID
+		AND UDF5D.DataSourceColumnName = UDF5.DataSourceColumnName
+		AND UDF5D.Value = SD.UserDefined5
+
+	LEFT JOIN (
+		SELECT
+			StudentDetailID = MEDF.StudentDetailID,
+			LatestFormCreatedDate = MAX ( MEDF.CreatedDate ),
+			NumberOfSubmissions = COUNT ( MEDF.MedicalLearningSupportAndTripConsentID ),
+			LatestSubmissionID = MAX ( MEDF.MedicalLearningSupportAndTripConsentID )
+		FROM ProSolutionForms.dbo.MedicalLearningSupportAndTripConsent MEDF
+		GROUP BY
+			MEDF.StudentDetailID
+	) MEDF
+		ON MEDF.StudentDetailID = SD.StudentDetailID
+	LEFT JOIN (
+		SELECT
+			StudentDetailID = CRMF.StudentDetailID,
+			LatestFormCreatedDate = MAX ( CRMF.CreatedDate ),
+			NumberOfSubmissions = COUNT ( CRMF.CriminalConvictionID ),
+			LatestSubmissionID = MAX ( CRMF.CriminalConvictionID )
+		FROM ProSolutionForms.dbo.CriminalConviction CRMF
+		GROUP BY
+			CRMF.StudentDetailID
+	) CRMF
+		ON CRMF.StudentDetailID = SD.StudentDetailID
+	LEFT JOIN (
+		SELECT
+			StudentDetailID = FEDF.StudentDetailID,
+			LatestFormCreatedDate = MAX ( FEDF.CreatedDate ),
+			NumberOfSubmissions = COUNT ( FEDF.FundingEligibilityDeclarationID ),
+			LatestSubmissionID = MAX ( FEDF.FundingEligibilityDeclarationID )
+		FROM ProSolutionForms.dbo.FundingEligibilityDeclaration FEDF
+		GROUP BY
+			FEDF.StudentDetailID
+	) FEDF
+		ON FEDF.StudentDetailID = SD.StudentDetailID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND SD.RefNo = COALESCE ( @StudentRef, SD.RefNo )
+		AND COALESCE ( DECS.IsAccepted, 1 ) = 1
+		AND COALESCE ( DECC.IsAccepted, 1 ) = 1
+		AND COALESCE ( APPO.OfferYes, 1 ) = 1
+
+	ORDER BY
+		SD.Surname,
+		SD.FirstForename,
+		SD.RefNo
+END

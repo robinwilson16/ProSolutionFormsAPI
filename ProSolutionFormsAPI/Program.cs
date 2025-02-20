@@ -32,6 +32,9 @@ builder.Services.AddScoped<TitleService>();
 builder.Services.AddScoped<SystemEmailService>();
 builder.Services.AddScoped<SystemFileService>();
 
+//Backend
+builder.Services.AddScoped<StudentDetailService>();
+
 builder.Services.AddScoped<StudentUniqueReferenceService>(); //Not used now
 
 //Get connection string elements to asemble

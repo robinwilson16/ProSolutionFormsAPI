@@ -23,6 +23,7 @@ namespace ProSolutionFormsAPI.Data
         public DbSet<MedicalLearningSupportAndTripConsentEmergencyContactModel>? MedicalLearningSupportAndTripConsentEmergencyContact { get; set; }
         public DbSet<MedicalLearningSupportAndTripConsentMedicalConditionModel>? MedicalLearningSupportAndTripConsentMedicalCondition { get; set; }
         public DbSet<StudentModel>? Student { get; set; }
+        public DbSet<StudentDetailModel>? StudentDetail { get; set; }
         public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
         public DbSet<SystemFileModel>? SystemFile { get; set; }
 
@@ -32,6 +33,7 @@ namespace ProSolutionFormsAPI.Data
             modelBuilder.Entity<DropDownIntModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<DropDownStringModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<StudentModel>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<StudentDetailModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<SystemFileModel>().ToTable(t => t.ExcludeFromMigrations());
 
             //Unique value

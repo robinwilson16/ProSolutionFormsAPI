@@ -16,16 +16,23 @@ namespace ProSolutionFormsAPI.Services
             _context = context;
 
             FundingEligibilityDeclarations = _context.FundingEligibilityDeclaration!
+                .Include(f => f.FundingEligibilityDeclarationEvidence)
                 .ToList();
         }
 
         public List<FundingEligibilityDeclarationModel>? GetAll() => FundingEligibilityDeclarations;
 
-        public FundingEligibilityDeclarationModel? Get(int fundingEligibilityDeclarationID) => FundingEligibilityDeclarations?.FirstOrDefault(m => m.FundingEligibilityDeclarationID == fundingEligibilityDeclarationID);
+        public FundingEligibilityDeclarationModel? Get(int fundingEligibilityDeclarationID) => FundingEligibilityDeclarations?
+            .FirstOrDefault(m => m.FundingEligibilityDeclarationID == fundingEligibilityDeclarationID);
 
         public FundingEligibilityDeclarationModel? GetByGUID(string academicYear, Guid studentGUID) => FundingEligibilityDeclarations?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentGUID == studentGUID)
+            .FirstOrDefault();
+
+        public FundingEligibilityDeclarationModel? GetByGUIDAndID(Guid studentGUID, int fundingEligibilityDeclarationID) => FundingEligibilityDeclarations?
+            .Where(c => c.StudentGUID == studentGUID)
+            .Where(c => c.FundingEligibilityDeclarationID == fundingEligibilityDeclarationID)
             .FirstOrDefault();
 
         public FundingEligibilityDeclarationModel? GetByStudentRef(string academicYear, string studentRef) => FundingEligibilityDeclarations?

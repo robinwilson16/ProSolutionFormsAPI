@@ -16,6 +16,9 @@ namespace ProSolutionFormsAPI.Services
             _context = context;
 
             MedicalLearningSupportAndTripConsents = _context.MedicalLearningSupportAndTripConsent!
+                .Include(m => m.EmergencyContacts)
+                .Include(m => m.LearningDifficultiesDisabilities)
+                .Include(m => m.MedicalConditions)
                 .ToList();
         }
 
@@ -26,6 +29,11 @@ namespace ProSolutionFormsAPI.Services
         public MedicalLearningSupportAndTripConsentModel? GetByGUID(string academicYear, Guid studentGUID) => MedicalLearningSupportAndTripConsents?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentGUID == studentGUID)
+            .FirstOrDefault();
+
+        public MedicalLearningSupportAndTripConsentModel? GetByGUIDAndID(Guid studentGUID, int medicalLearningSupportAndTripConsentID) => MedicalLearningSupportAndTripConsents?
+            .Where(c => c.StudentGUID == studentGUID)
+            .Where(c => c.MedicalLearningSupportAndTripConsentID == medicalLearningSupportAndTripConsentID)
             .FirstOrDefault();
 
         public MedicalLearningSupportAndTripConsentModel? GetByStudentRef(string academicYear, string studentRef) => MedicalLearningSupportAndTripConsents?

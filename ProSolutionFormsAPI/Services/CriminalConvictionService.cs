@@ -29,6 +29,11 @@ namespace ProSolutionFormsAPI.Services
             .Where(c => c.StudentGUID == studentGUID)
             .FirstOrDefault();
 
+        public CriminalConvictionModel? GetByGUIDAndID(Guid studentGUID, int criminalConvictionID) => CriminalConvictions?
+            .Where(c => c.StudentGUID == studentGUID)
+            .Where(c => c.CriminalConvictionID == criminalConvictionID)
+            .FirstOrDefault();
+
         public CriminalConvictionModel? GetByStudentRef(string academicYear, string studentRef) => CriminalConvictions?
             .Where(c => c.AcademicYearID == academicYear)
             .Where(c => c.StudentRef == studentRef)
