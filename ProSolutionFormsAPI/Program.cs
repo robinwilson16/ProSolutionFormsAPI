@@ -3,8 +3,17 @@ using Microsoft.EntityFrameworkCore;
 using ProSolutionFormsAPI.Data;
 using ProSolutionFormsAPI.Services;
 using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(builder.Configuration.GetSection("AzureAd"))
+        .EnableTokenAcquisitionToCallDownstreamApi()
+            .AddMicrosoftGraph(builder.Configuration.GetSection("MicrosoftGraph"))
+            .AddInMemoryTokenCaches();
 
 // Add services to the container.
 
@@ -31,6 +40,10 @@ builder.Services.AddScoped<TitleService>();
 //Functionality for Files and Emails
 builder.Services.AddScoped<SystemEmailService>();
 builder.Services.AddScoped<SystemFileService>();
+
+//Functionality for User Authentication
+builder.Services.AddScoped<SystemUserService>();
+builder.Services.AddScoped<SystemUserTokenService>();
 
 //Backend
 builder.Services.AddScoped<StudentDetailService>();
@@ -112,6 +125,8 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.UseCors(origins); //Enable cors access using URLs above
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

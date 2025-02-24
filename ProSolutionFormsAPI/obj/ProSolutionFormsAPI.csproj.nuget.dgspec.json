@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj": {}
+    "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj": {
+    "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
         "projectName": "ProSolutionFormsAPI",
-        "projectPath": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
-        "packagesPath": "C:\\Users\\robin.wilson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\obj\\",
+        "projectPath": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
+        "packagesPath": "C:\\Users\\Robin.Wilson.SHCG\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\robin.wilson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Robin.Wilson.SHCG\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -55,9 +55,17 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
@@ -65,31 +73,43 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.Identity.Web": {
+              "target": "Package",
+              "version": "[3.2.2, )"
+            },
+            "Microsoft.Identity.Web.MicrosoftGraph": {
+              "target": "Package",
+              "version": "[3.2.2, )"
+            },
+            "Microsoft.Identity.Web.UI": {
+              "target": "Package",
+              "version": "[3.2.2, )"
             },
             "Scalar.AspNetCore": {
               "target": "Package",
-              "version": "[2.0.4, )"
+              "version": "[2.0.16, )"
             }
           },
           "imports": [
@@ -111,7 +131,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

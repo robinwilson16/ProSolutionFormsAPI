@@ -1499,6 +1499,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemUserController",
+    "Method": "Get",
+    "RelativePath": "SystemUser/{accessToken}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accessToken",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.SystemUserModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProSolutionFormsAPI.Controllers.SystemUserTokenController",
+    "Method": "Get",
+    "RelativePath": "SystemUserToken/{codeToken}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "codeToken",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ProSolutionFormsAPI.Models.SystemUserTokenModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ProSolutionFormsAPI.Controllers.TitleController",
     "Method": "GetAll",
     "RelativePath": "Title",

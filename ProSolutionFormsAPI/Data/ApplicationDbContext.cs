@@ -26,6 +26,7 @@ namespace ProSolutionFormsAPI.Data
         public DbSet<StudentDetailModel>? StudentDetail { get; set; }
         public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
         public DbSet<SystemFileModel>? SystemFile { get; set; }
+        public DbSet<SystemUserModel>? SystemUser { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,8 @@ namespace ProSolutionFormsAPI.Data
             modelBuilder.Entity<StudentModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<StudentDetailModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<SystemFileModel>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<SystemUserModel>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<SystemUserTokenModel>().ToTable(t => t.ExcludeFromMigrations());
 
             //Unique value
             //modelBuilder.Entity<StudentUniqueReference>().HasIndex(s => s.StudentRef).IsUnique();

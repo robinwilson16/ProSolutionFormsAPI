@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "identityapp1": {
+      "connectionInfo": "App registration: ProSolution Forms, Tenant: South Hampshire College Group (shcg.ac.uk - Microsoft Entra ID)",
+      "secretStore": null,
+      "resourceId": null,
+      "type": "identityapp.secretStore",
+      "connectionId": "AzureAD:ClientSecret"
+    },
+    "secrets1": {
+      "type": "secrets.user"
+    }
+  }
+}
