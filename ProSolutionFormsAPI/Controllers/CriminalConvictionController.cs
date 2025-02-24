@@ -1,11 +1,14 @@
 ﻿using ProSolutionFormsAPI.Models;
 using ProSolutionFormsAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProSolutionFormsAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class CriminalConvictionController : ControllerBase
     {
         private readonly CriminalConvictionService _criminalConvictionService;
@@ -17,10 +20,12 @@ namespace ProSolutionFormsAPI.Controllers
             _criminalConvictionService = criminalConvictionService;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<List<CriminalConvictionModel>?> GetAll() =>
             _criminalConvictionService.GetAll();
 
+        [Authorize]
         [HttpGet("{criminalConvictionID}")]
         public ActionResult<CriminalConvictionModel> Get(int criminalConvictionID)
         {
@@ -60,6 +65,7 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
+        [Authorize]
         [HttpGet("StudentDetailID/{studentDetailID}")]
         public ActionResult<CriminalConvictionModel> GetByStudentDetailID(int studentDetailID)
         {
@@ -71,6 +77,7 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
+        [Authorize]
         [HttpGet("StudentRef/{academicYearID}/{studentRef}")]
         public ActionResult<CriminalConvictionModel> GetByStudentRef(string academicYearID, string studentRef)
         {
@@ -82,6 +89,7 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CriminalConvictionModel newCriminalConviction)
         {
@@ -96,6 +104,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newCriminalConviction.CriminalConvictionID }, newCriminalConviction);
         }
 
+        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> newcriminalConvictions)
         {
@@ -106,6 +115,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { ids }, newcriminalConvictions);
         }
 
+        [Authorize]
         [HttpPut("{criminalConvictionID}")]
         public async Task<IActionResult> Update(int criminalConvictionID, CriminalConvictionModel updatedCriminalConviction)
         {
@@ -121,6 +131,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedCriminalConviction);
         }
 
+        [Authorize]
         [HttpPut("Many/{studentDetailID}")]
         public async Task<IActionResult> UpdateMany(int studentDetailID, List<CriminalConvictionModel> updatedCriminalConvictions)
         {
@@ -136,6 +147,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedCriminalConvictions);
         }
 
+        [Authorize]
         [HttpDelete("{criminalConvictionID}")]
         public async Task<IActionResult> Delete(int criminalConvictionID)
         {
@@ -149,6 +161,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
+        [Authorize]
         [HttpDelete("Many/{studentDetailID}")]
         public async Task<IActionResult> DeleteMany(int studentDetailID, List<CriminalConvictionModel> criminalConvictionsToDelete)
         {
@@ -166,6 +179,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(DeleteMany), new { }, criminalConvictionsToDelete);
         }
 
+        [Authorize]
         [HttpDelete("All/{studentDetailID}")]
         public async Task<IActionResult> DeleteAll(int? studentDetailID)
         {

@@ -1,11 +1,14 @@
 ﻿using ProSolutionFormsAPI.Models;
 using ProSolutionFormsAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProSolutionFormsAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class MedicalLearningSupportAndTripConsentController : ControllerBase
     {
         private readonly MedicalLearningSupportAndTripConsentService _medicalLearningSupportAndTripConsentService;
@@ -17,10 +20,12 @@ namespace ProSolutionFormsAPI.Controllers
             _medicalLearningSupportAndTripConsentService = medicalLearningSupportAndTripConsentService;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<List<MedicalLearningSupportAndTripConsentModel>?> GetAll() =>
             _medicalLearningSupportAndTripConsentService.GetAll();
 
+        [Authorize]
         [HttpGet("{medicalLearningSupportAndTripConsentID}")]
         public ActionResult<MedicalLearningSupportAndTripConsentModel> Get(int medicalLearningSupportAndTripConsentID)
         {
@@ -60,6 +65,7 @@ namespace ProSolutionFormsAPI.Controllers
             return medicalLearningSupportAndTripConsents;
         }
 
+        [Authorize]
         [HttpGet("StudentDetailID/{studentDetailID}")]
         public ActionResult<MedicalLearningSupportAndTripConsentModel> GetByStudentDetailID(int studentDetailID)
         {
@@ -71,6 +77,7 @@ namespace ProSolutionFormsAPI.Controllers
             return medicalLearningSupportAndTripConsent;
         }
 
+        [Authorize]
         [HttpGet("StudentRef/{academicYearIDPart1}/{academicYearIDPart2}/{studentRef}")]
         public ActionResult<MedicalLearningSupportAndTripConsentModel> GetByStudentRef(int? academicYearIDPart1, int? academicYearIDPart2, string studentRef)
         {
@@ -88,6 +95,7 @@ namespace ProSolutionFormsAPI.Controllers
             return medicalLearningSupportAndTripConsent;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(MedicalLearningSupportAndTripConsentModel newMedicalLearningSupportAndTripConsent)
         {
@@ -102,6 +110,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newMedicalLearningSupportAndTripConsent.MedicalLearningSupportAndTripConsentID }, newMedicalLearningSupportAndTripConsent);
         }
 
+        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<MedicalLearningSupportAndTripConsentModel> newMedicalLearningSupportAndTripConsents)
         {
@@ -112,6 +121,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { ids }, newMedicalLearningSupportAndTripConsents);
         }
 
+        [Authorize]
         [HttpPut("{medicalLearningSupportAndTripConsentID}")]
         public async Task<IActionResult> Update(int medicalLearningSupportAndTripConsentID, MedicalLearningSupportAndTripConsentModel updatedMedicalLearningSupportAndTripConsent)
         {
@@ -127,6 +137,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedMedicalLearningSupportAndTripConsent);
         }
 
+        [Authorize]
         [HttpPut("Many/{studentDetailID}")]
         public async Task<IActionResult> UpdateMany(int studentDetailID, List<MedicalLearningSupportAndTripConsentModel> updatedMedicalLearningSupportAndTripConsents)
         {
@@ -142,6 +153,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedMedicalLearningSupportAndTripConsents);
         }
 
+        [Authorize]
         [HttpDelete("{medicalLearningSupportAndTripConsentID}")]
         public async Task<IActionResult> Delete(int medicalLearningSupportAndTripConsentID)
         {
@@ -155,6 +167,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
+        [Authorize]
         [HttpDelete("Many/{studentDetailID}")]
         public async Task<IActionResult> DeleteMany(int studentDetailID, List<MedicalLearningSupportAndTripConsentModel> medicalLearningSupportAndTripConsentsToDelete)
         {
@@ -172,6 +185,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(DeleteMany), new { }, medicalLearningSupportAndTripConsentsToDelete);
         }
 
+        [Authorize]
         [HttpDelete("All/{studentDetailID}")]
         public async Task<IActionResult> DeleteAll(int? studentDetailID)
         {

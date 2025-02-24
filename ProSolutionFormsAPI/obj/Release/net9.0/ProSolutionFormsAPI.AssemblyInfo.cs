@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("3bbe5df3-7483-44be-ad81-8ea9d753131b")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0d29e26b30d98ea015444abd4321196537d0ebb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11edd55761780d80bd29e23c5a591313b38c6349")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProSolutionFormsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,11 +1,14 @@
 ﻿using ProSolutionFormsAPI.Models;
 using ProSolutionFormsAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web.Resource;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProSolutionFormsAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
     public class FundingEligibilityDeclarationController : ControllerBase
     {
         private readonly FundingEligibilityDeclarationService _fundingEligibilityDeclarationService;
@@ -17,10 +20,12 @@ namespace ProSolutionFormsAPI.Controllers
             _fundingEligibilityDeclarationService = fundingEligibilityDeclarationService;
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult<List<FundingEligibilityDeclarationModel>?> GetAll() =>
             _fundingEligibilityDeclarationService.GetAll();
 
+        [Authorize]
         [HttpGet("{fundingEligibilityDeclarationID}")]
         public ActionResult<FundingEligibilityDeclarationModel> Get(int fundingEligibilityDeclarationID)
         {
@@ -60,6 +65,7 @@ namespace ProSolutionFormsAPI.Controllers
             return fundingEligibilityDeclaration;
         }
 
+        [Authorize]
         [HttpGet("StudentDetailID/{studentDetailID}")]
         public ActionResult<FundingEligibilityDeclarationModel> GetByStudentDetailID(int studentDetailID)
         {
@@ -71,6 +77,7 @@ namespace ProSolutionFormsAPI.Controllers
             return fundingEligibilityDeclaration;
         }
 
+        [Authorize]
         [HttpGet("StudentRef/{academicYearID}/{studentRef}")]
         public ActionResult<FundingEligibilityDeclarationModel> GetByStudentRef(string academicYearID, string studentRef)
         {
@@ -82,6 +89,7 @@ namespace ProSolutionFormsAPI.Controllers
             return fundingEligibilityDeclaration;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(FundingEligibilityDeclarationModel newFundingEligibilityDeclaration)
         {
@@ -96,6 +104,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newFundingEligibilityDeclaration.FundingEligibilityDeclarationID }, newFundingEligibilityDeclaration);
         }
 
+        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<FundingEligibilityDeclarationModel> newFundingEligibilityDeclarations)
         {
@@ -106,6 +115,7 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { ids }, newFundingEligibilityDeclarations);
         }
 
+        [Authorize]
         [HttpPut("{fundingEligibilityDeclarationID}")]
         public async Task<IActionResult> Update(int fundingEligibilityDeclarationID, FundingEligibilityDeclarationModel updatedFundingEligibilityDeclaration)
         {
@@ -121,6 +131,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedFundingEligibilityDeclaration);
         }
 
+        [Authorize]
         [HttpPut("Many/{studentDetailID}")]
         public async Task<IActionResult> UpdateMany(int studentDetailID, List<FundingEligibilityDeclarationModel> updatedFundingEligibilityDeclarations)
         {
@@ -136,6 +147,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Update), new { }, updatedFundingEligibilityDeclarations);
         }
 
+        [Authorize]
         [HttpDelete("{fundingEligibilityDeclarationID}")]
         public async Task<IActionResult> Delete(int fundingEligibilityDeclarationID)
         {
@@ -149,6 +161,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(Delete), new { }, recordToDelete);
         }
 
+        [Authorize]
         [HttpDelete("Many/{studentDetailID}")]
         public async Task<IActionResult> DeleteMany(int studentDetailID, List<FundingEligibilityDeclarationModel> fundingEligibilityDeclarationsToDelete)
         {
@@ -165,6 +178,7 @@ namespace ProSolutionFormsAPI.Controllers
             return AcceptedAtAction(nameof(DeleteMany), new { }, fundingEligibilityDeclarationsToDelete);
         }
 
+        [Authorize]
         [HttpDelete("All/{studentDetailID}")]
         public async Task<IActionResult> DeleteAll(int? studentDetailID)
         {
