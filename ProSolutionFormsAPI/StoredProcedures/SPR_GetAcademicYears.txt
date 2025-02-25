@@ -1,0 +1,14 @@
+CREATE PROCEDURE [dbo].[SPR_GetAcademicYears]
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	SELECT
+		Code = AY.AcademicYearID,
+		Description = AY.AcademicYearID
+	FROM ProSolution.dbo.AcademicYear AY
+	WHERE
+		AY.Enabled = 1
+	ORDER BY
+		AY.AcademicYearID
+END

@@ -31,7 +31,7 @@ namespace ProSolutionFormsAPI.Services
         //public List<StudentDetailModel>? GetAll() => _context.StudentDetail!
         //    .FromSqlInterpolated($"EXEC SPR_StudentDetails @AcademicYear = {AcademicYear}, @StudentRef = {null}")
         //    .ToList();
-        public StudentDetailModel? Get(string studentRef)
+        public StudentDetailModel? GetByStudent(string studentRef)
         {
             string academicYear = (string?)_configuration.GetSection("Settings")["DefaultAcademicYearID"] ?? "";
 
@@ -39,6 +39,9 @@ namespace ProSolutionFormsAPI.Services
             .FromSqlInterpolated($"EXEC SPR_StudentDetails @AcademicYear = {academicYear}, @StudentRef = {studentRef}").ToList())
             .FirstOrDefault();
         }
+
+        public List<StudentDetailModel>? Get(string academicYearID) => _context.StudentDetail!
+            .FromSqlInterpolated($"EXEC SPR_StudentDetails @AcademicYear = {academicYearID}, @StudentRef = {null}").ToList();
 
         public StudentDetailModel? Get(string academicYearID, string studentRef) => (_context.StudentDetail!
             .FromSqlInterpolated($"EXEC SPR_StudentDetails @AcademicYear = {academicYearID}, @StudentRef = {studentRef}").ToList())

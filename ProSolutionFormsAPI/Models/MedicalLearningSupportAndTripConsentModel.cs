@@ -58,6 +58,7 @@ namespace ProSolutionFormsAPI.Models
         [MaxLength(12)]
         public string? StudentRef { get; set; }
         public Guid? StudentGUID { get; set; }
+        public string? CourseCode { get; set; }
     }
 
     public class MedicalInformationValidator : AbstractValidator<MedicalLearningSupportAndTripConsentModel>

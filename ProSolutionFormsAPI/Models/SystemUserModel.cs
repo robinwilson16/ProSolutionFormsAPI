@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
 namespace ProSolutionFormsAPI.Models
 {
+    [NotMapped]
     public class SystemUserModel
     {
         [Key]

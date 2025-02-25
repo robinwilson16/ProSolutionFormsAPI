@@ -31,14 +31,33 @@ namespace ProSolutionFormsAPI.Controllers
 
             return _studentDetailService.GetAll();
         }
-            
+
+        [HttpGet("{academicYearIDPart1}/{academicYearIDPart2}")]
+        public async Task<ActionResult<List<StudentDetailModel>?>> Get(int? academicYearIDPart1, int? academicYearIDPart2)
+        {
+            var user = await _graphServiceClient.Me.Request().GetAsync();
+
+            string academicYearID;
+            if (academicYearIDPart1 != null && academicYearIDPart2 != null)
+                academicYearID = $"{academicYearIDPart1.ToString()}/{academicYearIDPart2.ToString()}";
+            else
+                return NotFound();
+
+            var studentDetail = _studentDetailService.Get(academicYearID);
+
+            if (studentDetail == null)
+                return NotFound();
+
+            return studentDetail;
+        }
+
 
         [HttpGet("{studentRef}")]
         public async Task<ActionResult<StudentDetailModel>> Get(string studentRef)
         {
             var user = await _graphServiceClient.Me.Request().GetAsync();
 
-            var studentDetail = _studentDetailService.Get(studentRef);
+            var studentDetail = _studentDetailService.GetByStudent(studentRef);
 
             if (studentDetail == null)
                 return NotFound();

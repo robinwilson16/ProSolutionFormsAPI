@@ -6,6 +6,7 @@ using Scalar.AspNetCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+using ProSolutionFormsAPI.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddScoped<MedicalLearningSupportAndTripConsentService>();
 builder.Services.AddScoped<StudentService>();
 
 //Drop-Downs
+builder.Services.AddScoped<AcademicYearService>();
 builder.Services.AddScoped<DisabilityCategoryService>();
 builder.Services.AddScoped<FeeExemptionReasonService>();
 builder.Services.AddScoped<MedicalConditionTypeService>();

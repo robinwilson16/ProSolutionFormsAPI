@@ -12,11 +12,11 @@ namespace ProSolutionFormsAPI.Models
         public DateTime? DeletedDateTime { get; set; }
         public string? Classification { get; set; }
         public DateTime? CreatedDateTime { get; set; }
-        public virtual ICollection<GraphAPIUserGroupCreationOptionModel>? CreationOptions { get; set; }
+        public string[]? CreationOptions { get; set; }
         public string? DisplayName { get; set; }
         public string? Description { get; set; }
         public DateTime? ExpirationDateTime { get; set; }
-        public virtual ICollection<GraphAPIUserGroupGroupTypeModel>? GroupTypes { get; set; }
+        public string[]? GroupTypes { get; set; }
         public bool? IsAssignableToRole { get; set; }
         public string? Mail { get; set; }
         public bool? MailEnabled { get; set; }
@@ -33,10 +33,10 @@ namespace ProSolutionFormsAPI.Models
         public bool? OnPremisesSyncEnabled { get; set; }
         public string? PreferredDataLocation { get; set; }
         public string? PreferredLanguage { get; set; }
-        public virtual ICollection<GraphAPIUserGroupProxyAddressModel>? ProxyAddresses { get; set; }
+        public string[]? ProxyAddresses { get; set; }
         public DateTime? RenewedDateTime { get; set; }
-        public virtual ICollection<GraphAPIUserGroupResourceBehaviorOptionModel>? ResourceBehaviorOptions { get; set; }
-        public virtual ICollection<GraphAPIUserGroupResourceProvisioningOptionModel>? ResourceProvisioningOptions { get; set; }
+        public string[]? ResourceBehaviorOptions { get; set; }
+        public string[]? ResourceProvisioningOptions { get; set; }
         public bool? SecurityEnabled { get; set; }
         public string? SecurityIdentifier { get; set; }
         public string? Theme { get; set; }

@@ -37,6 +37,9 @@ namespace ProSolutionFormsAPI.Models
         [Display(Name = "Med Num Sub")]
         public int? MedicalFormNumberOfSubmissions { get; set; }
 
+        [Display(Name = "Med Course")]
+        public string? MedicalFormCourseCode { get; set; }
+
         [Display(Name = "Crim Comp")]
         public bool? CriminalConvictionFormCompleted { get; set; }
         public int? CriminalConvictionFormLatestSubmissionID { get; set; }

@@ -8779,23 +8779,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robin.wilson\\.nuget\\packages\\": {},
+    "C:\\Users\\Robin.Wilson.SHCG\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
       "projectName": "ProSolutionFormsAPI",
-      "projectPath": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
-      "packagesPath": "C:\\Users\\robin.wilson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\obj\\",
+      "projectPath": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj",
+      "packagesPath": "C:\\Users\\Robin.Wilson.SHCG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\robin.wilson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Robin.Wilson.SHCG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

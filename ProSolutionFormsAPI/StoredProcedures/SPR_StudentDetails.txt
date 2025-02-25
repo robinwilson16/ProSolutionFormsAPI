@@ -168,6 +168,7 @@ BEGIN
 		MedicalFormLatestSubmissionID = MEDF.LatestSubmissionID,
 		MedicalFormLatestSubmissionDate = MEDF.LatestFormCreatedDate,
 		MedicalFormNumberOfSubmissions = COALESCE ( MEDF.NumberOfSubmissions, 0 ),
+		MedicalFormCourseCode = MEDFL.CourseCode,
 		CriminalConvictionFormCompleted = 
 			CAST (
 				CASE
@@ -246,6 +247,8 @@ BEGIN
 			MEDF.StudentDetailID
 	) MEDF
 		ON MEDF.StudentDetailID = SD.StudentDetailID
+	LEFT JOIN ProSolutionForms.dbo.MedicalLearningSupportAndTripConsent MEDFL
+		ON MEDFL.MedicalLearningSupportAndTripConsentID = MEDF.LatestSubmissionID
 	LEFT JOIN (
 		SELECT
 			StudentDetailID = CRMF.StudentDetailID,
