@@ -16,8 +16,14 @@ namespace ProSolutionFormsAPI.Models
         public string? Email { get; set; }
         public Guid? StudentGUID { get; set; }
         public string? AcademicYearID { get; set; }
-        public string? TeamCode { get; set; }
-        public string? TeamName { get; set; }
+        public string? CollegeCode { get; set; }
+        public string? CollegeName { get; set; }
+        public string? DirectorateCode { get; set; }
+        public string? DirectorateName { get; set; }
+        public string? CAMCode { get; set; }
+        public string? CAMName { get; set; }
+        public string? DeptCode { get; set; }
+        public string? DeptName { get; set; }
         public string? CourseCode { get; set; }
         public string? CourseTitle { get; set; }
         public string? CompletionStatusCode { get; set; }

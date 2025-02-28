@@ -83,8 +83,14 @@ BEGIN
 		Email = SD.Email,
 		StudentGUID = S.StudentGUID,
 		AcademicYearID = SD.AcademicYearID,
-		TeamCode = RTRIM ( TEAM.Code ),
-		TeamName = TEAM.Name,
+		CollegeCode = RTRIM ( COL.Code ),
+		CollegeName = COL.Name,
+		DirectorateCode = RTRIM ( DIR.Code ),
+		DirectorateName = DIR.Name,
+		CAMCode = RTRIM ( CAM.Code ),
+		CAMName = CAM.Name,
+		DeptCode = RTRIM ( DEPT.Code ),
+		DeptName = DEPT.Name,
 		CourseCode = CRS.Code,
 		CourseTitle = CRS.Name,
 		CompletionStatusCode = ENR.CompletionStatusID,
@@ -102,8 +108,14 @@ BEGIN
 		ON ENR.EnrolmentID = MA.EnrolmentID
 	LEFT JOIN ProSolution.dbo.Offering CRS
 		ON CRS.OfferingID = ENR.OfferingID
-	LEFT JOIN ProSolution.dbo.CollegeLevel TEAM
-		ON TEAM.SID = CRS.SID
+	LEFT JOIN ProSolution.dbo.CollegeLevel DEPT
+		ON DEPT.SID = CRS.SID
+	LEFT JOIN ProSolution.dbo.CollegeLevel CAM
+		ON CAM.SID = DEPT.ParentSID
+	LEFT JOIN ProSolution.dbo.CollegeLevel DIR
+		ON DIR.SID = CAM.ParentSID
+	LEFT JOIN ProSolution.dbo.CollegeLevel COL
+		ON COL.SID = DIR.ParentSID
 	LEFT JOIN ProSolution.dbo.CompletionStatus CMP
 		ON CMP.CompletionStatusID = ENR.CompletionStatusID
 	WHERE

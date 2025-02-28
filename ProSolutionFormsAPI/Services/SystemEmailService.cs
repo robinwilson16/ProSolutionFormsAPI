@@ -157,6 +157,13 @@ namespace ProSolutionFormsAPI.Services
                     }
                 };
             }
+            else
+            {
+                GraphAPIEmail.Message.CCRecipients = new List<GraphAPIEmailContentRecipientModel>()
+                {
+                    
+                };
+            }
 
             try
             {

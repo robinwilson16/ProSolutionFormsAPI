@@ -95,7 +95,6 @@ namespace ProSolutionFormsAPI.Controllers
             return medicalLearningSupportAndTripConsent;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(MedicalLearningSupportAndTripConsentModel newMedicalLearningSupportAndTripConsent)
         {
@@ -110,7 +109,6 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newMedicalLearningSupportAndTripConsent.MedicalLearningSupportAndTripConsentID }, newMedicalLearningSupportAndTripConsent);
         }
 
-        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<MedicalLearningSupportAndTripConsentModel> newMedicalLearningSupportAndTripConsents)
         {

@@ -89,7 +89,6 @@ namespace ProSolutionFormsAPI.Controllers
             return criminalConviction;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CriminalConvictionModel newCriminalConviction)
         {
@@ -104,7 +103,6 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newCriminalConviction.CriminalConvictionID }, newCriminalConviction);
         }
 
-        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> newcriminalConvictions)
         {

@@ -89,7 +89,6 @@ namespace ProSolutionFormsAPI.Controllers
             return fundingEligibilityDeclaration;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(FundingEligibilityDeclarationModel newFundingEligibilityDeclaration)
         {
@@ -104,7 +103,6 @@ namespace ProSolutionFormsAPI.Controllers
             return CreatedAtAction(nameof(Create), new { newFundingEligibilityDeclaration.FundingEligibilityDeclarationID }, newFundingEligibilityDeclaration);
         }
 
-        [Authorize]
         [HttpPost("Many")]
         public async Task<IActionResult> CreateMany(List<FundingEligibilityDeclarationModel> newFundingEligibilityDeclarations)
         {
