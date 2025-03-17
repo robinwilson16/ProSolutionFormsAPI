@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\medicallearningsupportandtripconsentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\systememailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\systememailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\systememailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson.shcg\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\models\\studentdetailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -357,23 +357,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SystemEmailModel.cs",
-              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
-              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
-              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
-              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T19:25:12.294Z"
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
+              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings.json",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-22T19:22:05.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SystemEmailService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\SystemEmailService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\SystemEmailService.cs",
@@ -385,32 +386,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
-              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings.json",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-22T19:22:05.762Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "StudentModel.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\StudentModel.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\StudentModel.cs",
               "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\StudentModel.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\StudentModel.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwBAAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA9wBkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-23T12:05:35.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CriminalConvictionController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\CriminalConvictionController.cs",
@@ -422,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\StudentController.cs",
@@ -434,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MedicalLearningSupportAndTripConsentService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\MedicalLearningSupportAndTripConsentService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\MedicalLearningSupportAndTripConsentService.cs",
@@ -447,7 +436,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "appsettings - Default.json",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings - Default.json",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
+              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings - Default.json",
+              "ViewState": "AgIAABAAAAAAAAAAAAAswDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-23T14:46:15.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SystemEmailModel.cs",
+              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
+              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Models\\SystemEmailModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T19:25:12.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "StudentService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\StudentService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\StudentService.cs",
@@ -460,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "FundingEligibilityDeclarationService.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
@@ -472,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "FundingEligibilityDeclarationController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\FundingEligibilityDeclarationController.cs",
@@ -484,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MedicalLearningSupportAndTripConsentController.cs",
               "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\MedicalLearningSupportAndTripConsentController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\MedicalLearningSupportAndTripConsentController.cs",
@@ -493,18 +507,6 @@
               "ViewState": "AgIAAFkAAAAAAAAAAAAuwG4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-23T09:53:39.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings - Default.json",
-              "DocumentMoniker": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
-              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings - Default.json",
-              "ToolTip": "C:\\Users\\Robin.Wilson.SHCG\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
-              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings - Default.json",
-              "ViewState": "AgIAABAAAAAAAAAAAAAswDQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-23T14:46:15.375Z"
             },
             {
               "$type": "Document",
@@ -732,7 +734,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\SystemUserService.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T11:41:31.946Z"
+              "WhenOpened": "2025-02-21T11:41:31.946Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -816,7 +819,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\SystemUserTokenService.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAAADYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T23:57:47.877Z"
+              "WhenOpened": "2025-02-21T23:57:47.877Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
