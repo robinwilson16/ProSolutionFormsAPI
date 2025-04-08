@@ -158,6 +158,17 @@ BEGIN
 		CourseCode = CRS.Code,
 		CourseTitle = CRS.Name,
 		ApplicationDate = APP.ApplicationDate,
+		ApplicationSourceID = APP.ApplicationSourceID,
+		ApplicationSourceCode = 
+			CASE 
+				WHEN CHARINDEX ( ' - ', APPS.Description ) > 0 THEN LEFT ( APPS.Description, CHARINDEX ( ' - ', APPS.Description ) )
+				ELSE 'AXX'
+			END,
+		ApplicationSourceName = 
+			CASE 
+				WHEN CHARINDEX ( ' - ', APPS.Description ) > 0 THEN RIGHT ( APPS.Description, LEN ( APPS.Description ) - CHARINDEX ( ' - ', APPS.Description ) - 2 )
+				ELSE APPS.Description
+			END,
 		MedicalFormCompleted = 
 			CAST (
 				CASE
@@ -215,6 +226,8 @@ BEGIN
 		ON DIR.SID = CAM.ParentSID
 	INNER JOIN ProSolution.dbo.CollegeLevel COL
 		ON COL.SID = DIR.ParentSID
+	LEFT JOIN ProSolution.dbo.ApplicationSource APPS
+		ON APPS.ApplicationSourceID = APP.ApplicationSourceID
 	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
 		ON DECS.ApplicationDecisionID = APP.DecisionID
 	LEFT JOIN ProSolution.dbo.CollegeDecision DECC

@@ -1,0 +1,106 @@
+CREATE PROCEDURE SPR_MedicalFormUpdateProSolution
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	DECLARE @AcademicYear VARCHAR(5) = (
+		SELECT
+			CFG.Value
+		FROM ProSolutionReports.dbo.Config CFG
+		WHERE
+			CFG.ConfigID = 'ENR_AcademicYearID'
+	)
+
+
+	--Latest Medical Forms
+	DROP TABLE IF EXISTS #LatestMedicalForms
+	SELECT
+		MED.AcademicYearID,
+		MED.StudentDetailID,
+		MED.StudentRef,
+		MED.CanContactStudent18PlusNOK,
+		RowNum = 
+			ROW_NUMBER () OVER (
+				PARTITION BY
+					MED.AcademicYearID,
+					MED.StudentDetailID
+				ORDER BY
+					MED.CreatedDate DESC
+			)
+		INTO #LatestMedicalForms
+	FROM ProSolutionForms.dbo.MedicalLearningSupportAndTripConsent MED
+	WHERE
+		MED.AcademicYearID >= @AcademicYear
+
+
+
+	--Insert Application
+	DROP TABLE IF EXISTS #UpdatedStudentDetail
+	CREATE TABLE #UpdatedStudentDetail (
+		AcademicYearID VARCHAR(5),
+		StudentDetailID INT,
+		AcceptShareInfoConsent INT
+	)
+	UPDATE SD
+	SET
+		SD.AcceptShareInfoConsent = 1,
+		SD.LastModifiedBy = 'MedicalFormUpdateInfo',
+		SD.LastModifiedDate = GETDATE()
+	OUTPUT
+		INSERTED.AcademicYearID,
+		INSERTED.StudentDetailID,
+		INSERTED.AcceptShareInfoConsent
+	INTO #UpdatedStudentDetail
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN #LatestMedicalForms MED
+		ON MED.StudentDetailID = SD.StudentDetailID
+		AND MED.AcademicYearID = SD.AcademicYearID
+		AND MED.RowNum = 1
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND MED.CanContactStudent18PlusNOK = 1
+		AND COALESCE ( SD.AcceptShareInfoConsent, 0 ) = 0
+
+
+	--Insert Audit Trail Record
+	DECLARE @TableName VARCHAR(50) = 'StudentDetail'
+	DECLARE @RecordIDName VARCHAR(50) = 'StudentDetailID'
+	DECLARE @RecordID VARCHAR(50) = '1234'
+	DECLARE @RowDescription VARCHAR(50) = 'Wilson, Robin (S000000)'
+	DECLARE @FieldName VARCHAR(50) = 'AcceptShareInfoConsent'
+	DECLARE @FieldOldValue VARCHAR(50) = '0'
+	DECLARE @FieldNewValue VARCHAR(50) = '1'
+	DECLARE @FieldOldDescription VARCHAR(50) = NULL
+	DECLARE @FieldNewDescription VARCHAR(50) = NULL
+	DECLARE @LastModifiedBy VARCHAR(50) = 'MedicalFormUpdateInfo'
+	DECLARE @Context VARCHAR(50) = 'MedicalFormUpdateInfo'
+
+	INSERT INTO ProSolution.dbo._CCC_AuditTrail
+	(
+		TableName,
+		WhereClause,
+		RowDescription,
+		ChangeInfo,
+		ChangeType,
+		ModifiedBy,
+		ModifiedOn,
+		Context,
+		ProductName,
+		AuditTrailAPILinkID
+	)
+	SELECT
+		TableName = @TableName,
+		WhereClause = '[' + @RecordIDName + '] = ' + CAST ( SD.StudentDetailID AS VARCHAR(50) ),
+		RowDescription = SD.Surname + ', ' + SD.FirstForename + ' (' + RTRIM ( SD.RefNo ) + ')',
+		ChangeInfo = 'Record Updated: ' + CHAR(13) + CHAR(10) + @FieldName + ': Changed from ''' + @FieldOldValue + '''' + COALESCE ( ' (' + @FieldOldDescription + ')', '' ) + ' to ''' + @FieldNewValue + '''' + COALESCE ( ' (' + @FieldNewDescription + ')', '' ),
+		ChangeType = 2,
+		ModifiedBy = @LastModifiedBy,
+		ModifiedOn = GETDATE(),
+		Context = @Context,
+		ProductName = 'ProSolution',
+		AuditTrailAPILinkID = NULL
+	FROM #UpdatedStudentDetail UPD
+	INNER JOIN ProSolution.dbo.StudentDetail SD
+		ON SD.StudentDetailID = UPD.StudentDetailID
+		AND SD.AcademicYearID = UPD.AcademicYearID
+END

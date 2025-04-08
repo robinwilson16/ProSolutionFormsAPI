@@ -33,6 +33,7 @@ namespace ProSolutionFormsAPI.Models
         public bool? HasGivenTripConsentParentCarer { get; set; }
         public bool? HasGivenPhotographicImagesConsent { get; set; }
         public bool? CanContactPriorSchoolOrCollege { get; set; }
+        public bool? CanContactStudent18PlusNOK { get; set; }
         public bool? HasCriminalConvictions { get; set; }
         public string? CriminalConvictionDetails { get; set; }
         public bool? CanShareInformationWithPotentialEmployers { get; set; }
@@ -93,6 +94,7 @@ namespace ProSolutionFormsAPI.Models
             RuleFor(m => m.HasAccessArrangements).NotNull().WithMessage("Please state whether you have any access arrangements");
             RuleFor(m => m.HadFurtherSupportAtSchoolOrCollege).NotNull().WithMessage("Please state whether you had any further support at school/college");
             RuleFor(m => m.CanContactPriorSchoolOrCollege).NotNull().WithMessage("Please confirm if we may contact your school/college/other institution/employer for details of your learning difficulties/disabilities");
+            RuleFor(m => m.CanContactStudent18PlusNOK).NotNull().WithMessage("Please confirm if we may contact your next of kin where you are aged over 18. If you are aged under 18 then please select Yes.");
             RuleFor(m => m.HasGivenTripConsentStudent)
                 .NotNull()
                 .When(m => m.HasGivenTripConsentParentCarer == null)
