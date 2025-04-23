@@ -81,7 +81,7 @@
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings.json",
               "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
               "RelativeToolTip": "ProSolutionFormsAPI\\appsettings.json",
-              "ViewState": "AgIAABsAAAAAAAAAAAAgwDQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwDQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-23T10:47:31.004Z",
               "EditorCaption": ""
@@ -96,7 +96,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20250423095705_Add OfferConditions to InterviewHE.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:57:05.452Z"
+              "WhenOpened": "2025-04-23T09:57:05.452Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -108,7 +109,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\InterviewHEModel.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAkwCEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:52:55.404Z"
+              "WhenOpened": "2025-04-23T09:52:55.404Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -120,7 +122,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\InterviewHEService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:52:51.305Z"
+              "WhenOpened": "2025-04-23T09:52:51.305Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -130,7 +133,6 @@
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20250422161430_Minor Changes to OfferHE.cs",
               "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20250422161430_Minor Changes to OfferHE.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20250422161430_Minor Changes to OfferHE.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-22T16:14:30.966Z"
             },
@@ -144,7 +146,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\OfferHEAttachmentModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T16:12:57.211Z"
+              "WhenOpened": "2025-04-22T16:12:57.211Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -154,9 +157,10 @@
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
               "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
               "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAABQwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:55:49.216Z"
+              "WhenOpened": "2025-04-22T15:55:49.216Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -168,7 +172,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\OfferHEModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:22:11.886Z"
+              "WhenOpened": "2025-04-22T15:22:11.886Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -180,7 +185,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\OfferHEService.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAiwBMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T14:56:39.83Z"
+              "WhenOpened": "2025-04-22T14:56:39.83Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -192,7 +198,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\StudentDetailModel.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAYwF4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:31:42.204Z"
+              "WhenOpened": "2025-04-22T15:31:42.204Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -204,7 +211,8 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T14:56:31.305Z"
+              "WhenOpened": "2025-04-22T14:56:31.305Z",
+              "EditorCaption": ""
             }
           ]
         }

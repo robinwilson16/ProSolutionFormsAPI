@@ -27,7 +27,7 @@
     <PackageReference Include="Microsoft.Identity.Web" Version="3.8.3" />
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="3.8.3" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.8.3" />
-    <PackageReference Include="Scalar.AspNetCore" Version="2.1.8" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.1.18" />
   </ItemGroup>
 
   <ItemGroup>

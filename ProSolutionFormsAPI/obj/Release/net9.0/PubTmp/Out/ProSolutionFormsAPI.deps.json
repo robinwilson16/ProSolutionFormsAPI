@@ -21,7 +21,7 @@
           "Microsoft.Identity.Web": "3.8.3",
           "Microsoft.Identity.Web.MicrosoftGraph": "3.8.3",
           "Microsoft.Identity.Web.UI": "3.8.3",
-          "Scalar.AspNetCore": "2.1.8"
+          "Scalar.AspNetCore": "2.1.18"
         },
         "runtime": {
           "ProSolutionFormsAPI.dll": {}
@@ -955,11 +955,11 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
-      "Scalar.AspNetCore/2.1.8": {
+      "Scalar.AspNetCore/2.1.18": {
         "runtime": {
           "lib/net9.0/Scalar.AspNetCore.dll": {
-            "assemblyVersion": "2.1.8.0",
-            "fileVersion": "2.1.8.0"
+            "assemblyVersion": "2.1.18.0",
+            "fileVersion": "2.1.18.0"
           }
         }
       },
@@ -2152,12 +2152,12 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.2",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512"
     },
-    "Scalar.AspNetCore/2.1.8": {
+    "Scalar.AspNetCore/2.1.18": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wf9VD5Ye9HDPVc4E7VfqoiDutk/0ZZgMzpGQA2BD0odd8IEzApWyVNilsNAacfWumzZTrivFFxJuyg7KvDD05w==",
-      "path": "scalar.aspnetcore/2.1.8",
-      "hashPath": "scalar.aspnetcore.2.1.8.nupkg.sha512"
+      "sha512": "sha512-opHbgUvw9rM5LWV5VZ8HTfD8YjxchNyWbkuyM/yTeih3xM6QDjBW98U41GTbZURFpOM1KqviGPnHEofMaSAjqw==",
+      "path": "scalar.aspnetcore/2.1.18",
+      "hashPath": "scalar.aspnetcore.2.1.18.nupkg.sha512"
     },
     "System.ClientModel/1.0.0": {
       "type": "package",
