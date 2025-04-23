@@ -56,6 +56,9 @@ namespace ProSolutionFormsAPI.Models
         [Display(Name = "Med Course")]
         public string? MedicalFormCourseCode { get; set; }
 
+        [Display(Name = "Med Crim Declared")]
+        public bool? MedicalFormHasDeclaredCriminalConvictions { get; set; }
+
         [Display(Name = "Crim Form")]
         public bool? CriminalConvictionFormCompleted { get; set; }
         public int? CriminalConvictionFormLatestSubmissionID { get; set; }
@@ -76,6 +79,28 @@ namespace ProSolutionFormsAPI.Models
 
         [Display(Name = "Fund Forms")]
         public int? FundingEligibilityFormNumberOfSubmissions { get; set; }
+
+        [Display(Name = "Int HE Form")]
+        public bool? InterviewHEFormCompleted { get; set; }
+
+        public int? InterviewHEFormLatestSubmissionID { get; set; }
+
+        [Display(Name = "Int HE Latest")]
+        public DateTime? InterviewHEFormLatestSubmissionDate { get; set; }
+
+        [Display(Name = "Int HE Forms")]
+        public int? InterviewHEFormNumberOfSubmissions { get; set; }
+
+        [Display(Name = "Offer HE Form")]
+        public bool? OfferHEFormCompleted { get; set; }
+
+        public int? OfferHEFormLatestSubmissionID { get; set; }
+
+        [Display(Name = "Offer HE Latest")]
+        public DateTime? OfferHEFormLatestSubmissionDate { get; set; }
+
+        [Display(Name = "Offer HE Forms")]
+        public int? OfferHEFormNumberOfSubmissions { get; set; }
 
         public string? MedicalConsentFormReceivedCode { get; set; }
 

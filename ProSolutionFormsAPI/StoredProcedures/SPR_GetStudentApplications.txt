@@ -1,0 +1,135 @@
+CREATE PROCEDURE [dbo].[SPR_GetStudentApplications]
+	@AcademicYear NVARCHAR(5),
+	@StudentRef NVARCHAR(50),
+	@ApplicationCourseID INT
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+
+	--DECLARE @AcademicYear VARCHAR(5) = '25/26'
+	--DECLARE @StudentRef VARCHAR(50) = NULL
+	--DECLARE @ApplicationCourseID INT = NULL
+
+	--For checking if students are now enrolled to the course
+	DROP TABLE IF EXISTS #Enrols
+	SELECT DISTINCT
+		StudentDetailID = SD.StudentDetailID,
+		StudentRef = SD.RefNo,
+		OfferingID = CRS.OfferingID,
+		CourseCode = CRS.Code
+		INTO #Enrols
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Enrolment ENR
+		ON ENR.StudentDetailID = SD.StudentDetailID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = ENR.OfferingID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND ENR.CompletionStatusID IN ( '1', '2', '3' )
+
+
+	SELECT
+		ApplicationCourseID = APPC.ApplicationCourseID,
+		ApplicationID = APP.ApplicationID,
+		StudentDetailID = SD.StudentDetailID,
+		StudentID = SD.StudentID,
+		StudentRef = RTRIM ( SD.RefNo ),
+		Surname = SD.Surname,
+		Forename = SD.FirstForename,
+		CollegeCode = RTRIM ( COL.Code ),
+		CollegeName = COL.Name,
+		DirectorateCode = RTRIM ( DIR.Code ),
+		DirectorateName = DIR.Name,
+		CAMCode = RTRIM ( CAM.Code ),
+		CAMName = CAM.Name,
+		DeptCode = RTRIM ( DEPT.Code ),
+		DeptName = DEPT.Name,
+		CourseID = CRS.OfferingID,
+		CourseCode = CRS.Code,
+		CourseTitle = CRS.Name,
+		StartDate = CRS.StartDate,
+		EndDate = CRS.EndDate,
+		YearlyCourseFee = ( SELECT Max(v) FROM (VALUES (FEE.FeeStandard), (FEE.FeeAdvLoan), (FEE.FeeOverseas), (0)) AS value(v) ),
+		ApplicationStatusCode = 
+			CASE
+				WHEN ENR.StudentDetailID IS NOT NULL THEN 'E'
+				WHEN APPC.TransferredTo IS NOT NULL THEN 'T'
+				WHEN
+					COALESCE ( DECS.IsAccepted, 1 ) <> 1
+					OR COALESCE ( DECC.IsAccepted, 1 ) <> 1
+					OR COALESCE ( APPO.OfferYes, 1 ) <> 1
+					OR APPC.Withdrawn = 1
+					OR APPC.TransferredTo IS NOT NULL
+					THEN 'W'
+				ELSE 'A'
+			END,
+		ApplicationStatusName =
+			CASE
+				WHEN ENR.StudentDetailID IS NOT NULL THEN 'Enrolled'
+				WHEN APPC.TransferredTo IS NOT NULL THEN 'Transferred'
+				WHEN
+					COALESCE ( DECS.IsAccepted, 1 ) <> 1
+					OR COALESCE ( DECC.IsAccepted, 1 ) <> 1
+					OR COALESCE ( APPO.OfferYes, 1 ) <> 1
+					OR APPC.Withdrawn = 1
+					OR APPC.TransferredTo IS NOT NULL
+					THEN 'Withdrawn'
+				ELSE 'Active'
+			END
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Application APP
+		ON APP.StudentDetailID = SD.StudentDetailID
+	INNER JOIN ProSolution.dbo.ApplicationCourse APPC
+		ON APPC.ApplicationID = APP.ApplicationID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = APPC.OfferingID
+	INNER JOIN ProSolution.dbo.CollegeLevel DEPT
+		ON DEPT.SID = CRS.SID
+	INNER JOIN ProSolution.dbo.CollegeLevel CAM
+		ON CAM.SID = DEPT.ParentSID
+	INNER JOIN ProSolution.dbo.CollegeLevel DIR
+		ON DIR.SID = CAM.ParentSID
+	INNER JOIN ProSolution.dbo.CollegeLevel COL
+		ON COL.SID = DIR.ParentSID
+	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
+		ON DECS.ApplicationDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.CollegeDecision DECC
+		ON DECC.CollegeDecisionID = APP.CollegeDecisionID
+	LEFT JOIN ProSolution.dbo.ApplicationOffer APPO
+		ON APPO.ApplicationOfferID = APP.OfferID
+	LEFT JOIN #Enrols ENR
+		ON ENR.StudentDetailID = SD.StudentDetailID
+		AND ENR.OfferingID = CRS.OfferingID
+	LEFT JOIN (
+		SELECT
+			CourseID = CRS.OfferingID,
+			CourseCode = CRS.Code,
+			FeeStandard = SUM ( CASE WHEN FEE.StudentFeeTypeID = 0 THEN FEE.Amount ELSE 0 END ),
+			FeeAdvLoan = SUM ( CASE WHEN FEE.StudentFeeTypeID = 2 THEN FEE.Amount ELSE 0 END ),
+			FeeOverseas = SUM ( CASE WHEN FEE.StudentFeeTypeID = 1 THEN FEE.Amount ELSE 0 END ),
+			FeeStandardNum = SUM ( CASE WHEN FEE.StudentFeeTypeID = 0 THEN 1 ELSE 0 END ),
+			FeeAdvLoanNum = SUM ( CASE WHEN FEE.StudentFeeTypeID = 2 THEN 1 ELSE 0 END ),
+			FeeOverseasNum = SUM ( CASE WHEN FEE.StudentFeeTypeID = 1 THEN 1 ELSE 0 END )
+		FROM ProSolution.dbo.Offering CRS
+		INNER JOIN ProSolution.dbo.OfferingFee FEE
+			ON FEE.OfferingID = CRS.OfferingID
+		GROUP BY
+			CRS.OfferingID,
+			CRS.Code
+	) FEE
+		ON FEE.CourseID = CRS.OfferingID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND RTRIM ( SD.RefNo ) = COALESCE ( @StudentRef, RTRIM ( SD.RefNo ) )
+		AND APPC.ApplicationCourseID = COALESCE ( @ApplicationCourseID, APPC.ApplicationCourseID )
+	ORDER BY
+		SD.Surname,
+		SD.FirstForename,
+		SD.RefNo,
+		RTRIM ( COL.Code ),
+		RTRIM ( DIR.Code ),
+		RTRIM ( CAM.Code ),
+		RTRIM ( DEPT.Code ),
+		CRS.Code
+END

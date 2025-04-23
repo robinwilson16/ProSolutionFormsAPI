@@ -18,12 +18,16 @@ namespace ProSolutionFormsAPI.Data
         public DbSet<FundingEligibilityDeclarationModel>? FundingEligibilityDeclaration { get; set; }
         public DbSet<GraphAPIAuthorisationModel>? GraphAPIAuthorisation { get; set; }
         public DbSet<GraphAPITokenModel>? GraphAPIToken { get; set; }
+        public DbSet<InterviewHEModel> InterviewHE { get; set; }
         public DbSet<MedicalLearningSupportAndTripConsentModel>? MedicalLearningSupportAndTripConsent { get; set; }
         public DbSet<MedicalLearningSupportAndTripConsentLearningDifficultyDisabilityModel>? MedicalLearningSupportAndTripConsentLearningDifficultyDisability { get; set; }
         public DbSet<MedicalLearningSupportAndTripConsentEmergencyContactModel>? MedicalLearningSupportAndTripConsentEmergencyContact { get; set; }
         public DbSet<MedicalLearningSupportAndTripConsentMedicalConditionModel>? MedicalLearningSupportAndTripConsentMedicalCondition { get; set; }
+        public DbSet<OfferHEModel>? OfferHE { get; set; }
+        public DbSet<OfferHEAttachmentModel>? OfferHEAttachment { get; set; }
         public DbSet<StudentModel>? Student { get; set; }
         public DbSet<StudentDetailModel>? StudentDetail { get; set; }
+        public DbSet<StudentApplicationModel>? StudentApplication { get; set; }
         public DbSet<StudentUniqueReferenceModel>? StudentUniqueReference { get; set; }
         public DbSet<SystemFileModel>? SystemFile { get; set; }
         public DbSet<SystemUserModel>? SystemUser { get; set; }
@@ -33,6 +37,7 @@ namespace ProSolutionFormsAPI.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<DropDownIntModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<DropDownStringModel>().ToTable(t => t.ExcludeFromMigrations());
+            modelBuilder.Entity<StudentApplicationModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<StudentModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<StudentDetailModel>().ToTable(t => t.ExcludeFromMigrations());
             modelBuilder.Entity<SystemFileModel>().ToTable(t => t.ExcludeFromMigrations());

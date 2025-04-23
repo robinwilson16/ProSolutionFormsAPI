@@ -34,5 +34,8 @@ namespace ProSolutionFormsAPI.Services
         public StudentModel? Get(string academicYearID, Guid studentGUID) => (_context.Student!
             .FromSqlInterpolated($"EXEC SPR_GetStudentByGUID @AcademicYear = {academicYearID}, @StudentGUID = {studentGUID}").ToList())
             .FirstOrDefault();
+        public StudentModel? Get(string academicYearID, string studentRef) => (_context.Student!
+            .FromSqlInterpolated($"EXEC SPR_GetStudentByRef @AcademicYear = {academicYearID}, @StudentRef = {studentRef}").ToList())
+            .FirstOrDefault();
     }
 }

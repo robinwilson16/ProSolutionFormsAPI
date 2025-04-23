@@ -180,6 +180,7 @@ BEGIN
 		MedicalFormLatestSubmissionDate = MEDF.LatestFormCreatedDate,
 		MedicalFormNumberOfSubmissions = COALESCE ( MEDF.NumberOfSubmissions, 0 ),
 		MedicalFormCourseCode = MEDFL.CourseCode,
+		MedicalFormHasDeclaredCriminalConvictions = CAST ( CASE WHEN MEDF.HasDeclaredCriminalConvictions >= 1 THEN 1 ELSE 0 END AS BIT ),
 		CriminalConvictionFormCompleted = 
 			CAST (
 				CASE
@@ -200,6 +201,31 @@ BEGIN
 		FundingEligibilityFormLatestSubmissionID = FEDF.LatestSubmissionID,
 		FundingEligibilityFormLatestSubmissionDate = FEDF.LatestFormCreatedDate,
 		FundingEligibilityFormNumberOfSubmissions = COALESCE ( FEDF.NumberOfSubmissions, 0 ),
+		InterviewHEFormCompleted = 
+			CAST (
+				CASE
+					WHEN COALESCE ( INTH.NumberOfSubmissions, 0 ) > 0 THEN 1
+					ELSE 0
+				END
+			AS BIT ),
+		InterviewHEFormLatestSubmissionID = INTH.LatestSubmissionID,
+		InterviewHEFormLatestSubmissionDate = INTH.LatestFormCreatedDate,
+		InterviewHEFormNumberOfSubmissions = COALESCE ( INTH.NumberOfSubmissions, 0 ),
+
+
+		OfferHEFormCompleted = 
+			CAST (
+				CASE
+					WHEN COALESCE ( OFFH.NumberOfSubmissions, 0 ) > 0 THEN 1
+					ELSE 0
+				END
+			AS BIT ),
+		OfferHEFormLatestSubmissionID = OFFH.LatestSubmissionID,
+		OfferHEFormLatestSubmissionDate = OFFH.LatestFormCreatedDate,
+		OfferHEFormNumberOfSubmissions = COALESCE ( OFFH.NumberOfSubmissions, 0 ),
+
+
+
 		MedicalConsentFormReceivedCode = SD.UserDefined4,
 		MedicalConsentFormReceivedName = UDF4D.Description,
 		TripPhotographicCosentObtainedCode = SD.UserDefined5,
@@ -254,7 +280,8 @@ BEGIN
 			StudentDetailID = MEDF.StudentDetailID,
 			LatestFormCreatedDate = MAX ( MEDF.CreatedDate ),
 			NumberOfSubmissions = COUNT ( MEDF.MedicalLearningSupportAndTripConsentID ),
-			LatestSubmissionID = MAX ( MEDF.MedicalLearningSupportAndTripConsentID )
+			LatestSubmissionID = MAX ( MEDF.MedicalLearningSupportAndTripConsentID ),
+			HasDeclaredCriminalConvictions = SUM ( CASE WHEN MEDF.HasCriminalConvictions = 1 THEN 1 ELSE 0 END )
 		FROM ProSolutionForms.dbo.MedicalLearningSupportAndTripConsent MEDF
 		GROUP BY
 			MEDF.StudentDetailID
@@ -284,6 +311,28 @@ BEGIN
 			FEDF.StudentDetailID
 	) FEDF
 		ON FEDF.StudentDetailID = SD.StudentDetailID
+	LEFT JOIN (
+		SELECT
+			StudentDetailID = INTH.StudentDetailID,
+			LatestFormCreatedDate = MAX ( INTH.CreatedDate ),
+			NumberOfSubmissions = COUNT ( INTH.InterviewHEID ),
+			LatestSubmissionID = MAX ( INTH.InterviewHEID )
+		FROM ProSolutionForms.dbo.InterviewHE INTH
+		GROUP BY
+			INTH.StudentDetailID
+	) INTH
+		ON INTH.StudentDetailID = SD.StudentDetailID
+	LEFT JOIN (
+		SELECT
+			StudentDetailID = OFFH.StudentDetailID,
+			LatestFormCreatedDate = MAX ( OFFH.CreatedDate ),
+			NumberOfSubmissions = COUNT ( OFFH.OfferHEID ),
+			LatestSubmissionID = MAX ( OFFH.OfferHEID )
+		FROM ProSolutionForms.dbo.OfferHE OFFH
+		GROUP BY
+			OFFH.StudentDetailID
+	) OFFH
+		ON OFFH.StudentDetailID = SD.StudentDetailID
 	WHERE
 		SD.AcademicYearID = @AcademicYear
 		AND SD.RefNo = COALESCE ( @StudentRef, SD.RefNo )

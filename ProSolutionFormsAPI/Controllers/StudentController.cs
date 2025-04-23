@@ -46,5 +46,22 @@ namespace ProSolutionFormsAPI.Controllers
 
             return student;
         }
+
+        [HttpGet("Ref/{academicYearIDPart1}/{academicYearIDPart2}/{studentRef}")]
+        public ActionResult<StudentModel> Get(int? academicYearIDPart1, int? academicYearIDPart2, string studentRef)
+        {
+            string academicYearID;
+            if (academicYearIDPart1 != null && academicYearIDPart2 != null)
+                academicYearID = $"{academicYearIDPart1.ToString()}/{academicYearIDPart2.ToString()}";
+            else
+                return NotFound();
+
+            var student = _studentService.Get(academicYearID, studentRef);
+
+            if (student == null)
+                return NotFound();
+
+            return student;
+        }
     }
 }

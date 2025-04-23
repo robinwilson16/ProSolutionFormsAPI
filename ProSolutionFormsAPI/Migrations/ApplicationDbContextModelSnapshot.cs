@@ -17,7 +17,7 @@ namespace ProSolutionFormsAPI.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -57,6 +57,9 @@ namespace ProSolutionFormsAPI.Migrations
 
                     b.Property<bool?>("AgreeInfoIsCorrectStudent")
                         .HasColumnType("bit");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -231,6 +234,9 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<string>("AcademicYearID")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -267,6 +273,114 @@ namespace ProSolutionFormsAPI.Migrations
                     b.HasKey("FundingEligibilityDeclarationID");
 
                     b.ToTable("FundingEligibilityDeclaration");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.InterviewHEModel", b =>
+                {
+                    b.Property<int>("InterviewHEID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InterviewHEID"));
+
+                    b.Property<string>("AcademicYearID")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int?>("ApplicationCourseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DifficultiesAndOrDisabilitiesFurtherDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FinanciallySupportSelfDuringCourse")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("HasDifficultiesAndOrDisabilities")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("HeardAboutCourse")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HeardAboutCourseOther")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HighestQualOnEntryDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HighestQualOnEntryLevel")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("InEmployment")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("InterviewOutcome")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsAwareOfTuitionFee")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("LastEducationalEstablishmentAttended")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastEducationalEstablishmentAttendedOtherDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ManageDemandsOfStudyAroundJobAndFamily")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MethodOfFunding")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MotivationForStudyingCourseAndIntendedNextSteps")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OfferConditions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OfferingID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("QuestionsAskedAndAdviceGiven")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudentDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("StudentGUID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StudentRef")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("SuitabilityAndRelevantQualificationsAndExperience")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TuitionFeeAgreedTo")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.Property<bool?>("UnderstandsStructureOfCourse")
+                        .HasColumnType("bit");
+
+                    b.HasKey("InterviewHEID");
+
+                    b.ToTable("InterviewHE");
                 });
 
             modelBuilder.Entity("ProSolutionFormsAPI.Models.MedicalLearningSupportAndTripConsentEmergencyContactModel", b =>
@@ -562,6 +676,250 @@ namespace ProSolutionFormsAPI.Migrations
                     b.ToTable("MedicalLearningSupportAndTripConsent");
                 });
 
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.OfferHEAttachmentModel", b =>
+                {
+                    b.Property<int>("OfferHEAttachmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfferHEAttachmentID"));
+
+                    b.Property<byte[]>("AttachmentContent")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("AttachmentContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AttachmentFileExtension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AttachmentFileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AttachmentFilePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long?>("AttachmentFileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("AttachmentTypeID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("ImageThumbnail")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OfferHEID")
+                        .HasColumnType("int");
+
+                    b.HasKey("OfferHEAttachmentID");
+
+                    b.HasIndex("OfferHEID");
+
+                    b.ToTable("OfferHEAttachment");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.OfferHEModel", b =>
+                {
+                    b.Property<int>("OfferHEID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfferHEID"));
+
+                    b.Property<string>("AcademicYearID")
+                        .HasMaxLength(5)
+                        .HasColumnType("nvarchar(5)");
+
+                    b.Property<int?>("ApplicationCourseID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ApplicationID")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("ConfirmInformationAndAttachmentsAreAccurate")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EmployerAddress1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerAddress2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerAddress3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerPostCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployerTel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("HaveReadHEOfferTermsAndConditions")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("HighestQualOnEntryLevelID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LastEducationalEstablishmentAttendedOfferID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastUpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MethodOfFundingID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OfferingID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StudentDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("StudentGUID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("StudentRef")
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<int?>("TermTimeAccomodationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TermTimeAccomodationOtherDetail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TuitionFee")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.Property<int?>("UCASNumber")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("UnderstandTermsAndConditionsBasedOnFundingMethodSpecified")
+                        .HasColumnType("bit");
+
+                    b.HasKey("OfferHEID");
+
+                    b.ToTable("OfferHE");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.StudentApplicationModel", b =>
+                {
+                    b.Property<int>("ApplicationCourseID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ApplicationCourseID"));
+
+                    b.Property<int?>("ApplicationID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationStatusCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CAMCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CAMName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollegeCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CollegeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CourseID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeptCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeptName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DirectorateCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DirectorateName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Forename")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentDetailID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StudentRef")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("YearlyCourseFee")
+                        .HasColumnType("decimal(19,4)");
+
+                    b.HasKey("ApplicationCourseID");
+
+                    b.ToTable("StudentApplication", t =>
+                        {
+                            t.ExcludeFromMigrations();
+                        });
+                });
+
             modelBuilder.Entity("ProSolutionFormsAPI.Models.StudentDetailModel", b =>
                 {
                     b.Property<int>("StudentDetailID")
@@ -572,6 +930,15 @@ namespace ProSolutionFormsAPI.Migrations
 
                     b.Property<DateTime?>("ApplicationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ApplicationSourceCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ApplicationSourceID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ApplicationSourceName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CAMCode")
                         .HasColumnType("nvarchar(max)");
@@ -630,6 +997,18 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<int?>("FundingEligibilityFormNumberOfSubmissions")
                         .HasColumnType("int");
 
+                    b.Property<bool?>("InterviewHEFormCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("InterviewHEFormLatestSubmissionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("InterviewHEFormLatestSubmissionID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InterviewHEFormNumberOfSubmissions")
+                        .HasColumnType("int");
+
                     b.Property<string>("MedicalConsentFormReceivedCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -642,6 +1021,9 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Property<string>("MedicalFormCourseCode")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("MedicalFormHasDeclaredCriminalConvictions")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("MedicalFormLatestSubmissionDate")
                         .HasColumnType("datetime2");
 
@@ -649,6 +1031,18 @@ namespace ProSolutionFormsAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("MedicalFormNumberOfSubmissions")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("OfferHEFormCompleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("OfferHEFormLatestSubmissionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OfferHEFormLatestSubmissionID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("OfferHEFormNumberOfSubmissions")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("StudentGUID")
@@ -906,6 +1300,15 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Navigation("MedicalLearningSupportAndTripConsent");
                 });
 
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.OfferHEAttachmentModel", b =>
+                {
+                    b.HasOne("ProSolutionFormsAPI.Models.OfferHEModel", "OfferHE")
+                        .WithMany("Attachments")
+                        .HasForeignKey("OfferHEID");
+
+                    b.Navigation("OfferHE");
+                });
+
             modelBuilder.Entity("ProSolutionFormsAPI.Models.CriminalConvictionModel", b =>
                 {
                     b.Navigation("Offences");
@@ -923,6 +1326,11 @@ namespace ProSolutionFormsAPI.Migrations
                     b.Navigation("LearningDifficultiesDisabilities");
 
                     b.Navigation("MedicalConditions");
+                });
+
+            modelBuilder.Entity("ProSolutionFormsAPI.Models.OfferHEModel", b =>
+                {
+                    b.Navigation("Attachments");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,211 @@
+CREATE PROCEDURE [dbo].[SPR_GetStudentByRef]
+	@AcademicYear NVARCHAR(5),
+	@StudentRef NVARCHAR(50)
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+
+	--DECLARE @AcademicYear VARCHAR(5) = '25/26'
+	--DECLARE @StudentRef VARCHAR(50) = NULL
+
+
+	--Main Application
+	DROP TABLE IF EXISTS #MainApp
+	SELECT 
+		SD.AcademicYearID,
+		SD.StudentDetailID,
+		APP.ApplicationID,
+		APPC.ApplicationCourseID,
+		RowNum = 
+			ROW_NUMBER () OVER ( 
+				PARTITION BY
+					SD.StudentDetailID
+				ORDER BY
+					APP.Choice,
+					CASE
+						WHEN DECS.IsAccepted = 1 THEN 1
+						WHEN DECS.IsAccepted IS NULL THEN 2
+						WHEN DECS.IsAccepted = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN DECC.IsAccepted = 1 THEN 1
+						WHEN DECC.IsAccepted IS NULL THEN 2
+						WHEN DECC.IsAccepted = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN APPO.OfferYes = 1 THEN 1
+						WHEN APPO.OfferYes IS NULL THEN 2
+						WHEN APPO.OfferYes = 0 THEN 3
+						ELSE 4
+					END,
+					CASE
+						WHEN APPC.TransferredTo IS NOT NULL THEN 1
+						ELSE 0
+					END,
+					APPC.Withdrawn,
+					CRS.IncludeInReturn DESC,
+					CASE
+						--Prioritise parent codes
+						WHEN HasPar.OfferingID IS NULL THEN 1
+						ELSE 2
+					END,
+					CASE
+						WHEN CRS.QualID IS NOT NULL THEN 1
+						ELSE 2
+					END,
+					CASE
+						--In case learners in gateway so only parent active but have started something else
+						WHEN CRS.QualID = 'ZPROG001' THEN 2
+						ELSE 1
+					END,
+					COALESCE ( CRS.ProgrammeTypeID, '99' ),
+					CASE
+						WHEN AIMT.AimTypeID = 1 THEN 1 --Programme Aim
+						WHEN AIMT.AimTypeID = 5 THEN 2 --Core Aim
+						ELSE 3
+					END,
+					CASE
+						WHEN AIM.LEARNING_AIM_TYPE_CODE IN (
+							'0003', --GCSE
+							'1439' --Functional Skills
+						) THEN 2
+						ELSE 1
+					END,
+					CASE WHEN AIM.NVQLevelID_v2 = 'E' THEN ' E' WHEN AIM.NVQLevelID_v2 = 'X' THEN ' X' ELSE AIM.NVQLevelID_v2 END DESC,
+					COALESCE (
+						CASE
+							WHEN
+								CASE
+									WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+									ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+								END <= 18 THEN
+									CRS.PlannedLearningHours1618
+							ELSE CRS.PlannedLearningHours19Plus
+						END,
+						0
+					) +
+					COALESCE (
+						CASE
+							WHEN
+								CASE
+									WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+									ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+								END <= 18 THEN
+									CRS.PlannedEEPHours1618
+							ELSE CRS.PlannedEEPHours19Plus
+						END,
+						0
+					) DESC,
+					DATEDIFF ( DAY, CRS.StartDate, CRS.EndDate ),
+					CRS.StartDate,
+					APPC.ApplicationCourseID
+			)
+		INTO #MainApp
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN ProSolution.dbo.Application APP
+		ON APP.StudentDetailID = SD.StudentDetailID
+	INNER JOIN ProSolution.dbo.ApplicationCourse APPC
+		ON APPC.ApplicationID = APP.ApplicationID
+	INNER JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = APPC.OfferingID
+	LEFT JOIN ProSolution.dbo.AimType AIMT
+		ON AIMT.AimTypeID = 
+			CASE
+				WHEN
+					CASE
+						WHEN MONTH ( SD.DateOfBirth ) <= 8 THEN '20' + LEFT ( SD.AcademicYearID, 2 ) - YEAR ( SD.DateOfBirth )
+						ELSE CAST ('20' + LEFT ( SD.AcademicYearID, 2 ) AS INT ) - 1 - YEAR ( SD.DateOfBirth )
+					END <= 18 THEN
+						CRS.AimTypeID
+				ELSE CRS.AimType2ID
+			END
+	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
+		ON DECS.ApplicationDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.CollegeDecision DECC
+		ON DECC.CollegeDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.ApplicationOffer APPO
+		ON APPO.ApplicationOfferID = APP.OfferID
+	LEFT JOIN ProSolution.dbo.Learning_Aim AIM
+		ON AIM.LEARNING_AIM_REF = CRS.QualID
+	LEFT JOIN (
+		--Avoid showing parent codes as child codes
+		SELECT DISTINCT
+			OfferingID = LNK.SubOfferingID
+		FROM ProSolution.dbo.LinkedOffering LNK
+	) HasPar
+		ON HasPar.OfferingID = CRS.OfferingID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+
+
+	--Main Query
+	SELECT
+		StudentID = SD.StudentID,
+		StudentDetailID = SD.StudentDetailID,
+		StudentRef = RTRIM ( SD.RefNo ),
+		Surname = SD.Surname,
+		Forename = SD.FirstForename,
+		DateOfBirth = SD.DateOfBirth,
+		Email = SD.Email,
+		StudentGUID = S.StudentGUID,
+		AcademicYearID = SD.AcademicYearID,
+		CollegeCode = RTRIM ( COL.Code ),
+		CollegeName = COL.Name,
+		DirectorateCode = RTRIM ( DIR.Code ),
+		DirectorateName = DIR.Name,
+		CAMCode = RTRIM ( CAM.Code ),
+		CAMName = CAM.Name,
+		DeptCode = RTRIM ( DEPT.Code ),
+		DeptName = DEPT.Name,
+		CourseCode = CRS.Code,
+		CourseTitle = CRS.Name,
+		StartDate = CRS.StartDate,
+		EndDate = CRS.EndDate
+	FROM ProSolution.dbo.StudentDetail SD
+	LEFT JOIN ProSolution.dbo.Student S
+		ON S.StudentID = SD.StudentID
+	LEFT JOIN #MainApp MAPP
+		ON MAPP.StudentDetailID = SD.StudentDetailID
+		AND MAPP.RowNum = 1
+	LEFT JOIN ProSolution.dbo.ApplicationCourse APPC
+		ON APPC.ApplicationCourseID = MAPP.ApplicationCourseID
+	LEFT JOIN ProSolution.dbo.Application APP
+		ON APP.ApplicationID = APPC.ApplicationID
+	LEFT JOIN ProSolution.dbo.Offering CRS
+		ON CRS.OfferingID = APPC.OfferingID
+	LEFT JOIN ProSolution.dbo.ApplicationDecision DECS
+		ON DECS.ApplicationDecisionID = APP.DecisionID
+	LEFT JOIN ProSolution.dbo.CollegeDecision DECC
+		ON DECC.CollegeDecisionID = APP.CollegeDecisionID
+	LEFT JOIN ProSolution.dbo.ApplicationOffer APPO
+		ON APPO.ApplicationOfferID = APP.OfferID
+	LEFT JOIN ProSolution.dbo.Learning_Aim AIM
+		ON AIM.LEARNING_AIM_REF = CRS.QualID
+	LEFT JOIN (
+		--Avoid showing parent codes as child codes
+		SELECT DISTINCT
+			OfferingID = LNK.SubOfferingID
+		FROM ProSolution.dbo.LinkedOffering LNK
+	) HasPar
+		ON HasPar.OfferingID = CRS.OfferingID
+	LEFT JOIN ProSolution.dbo.OfferingType CRST
+		ON CRST.OfferingTypeID = CRS.OfferingTypeID
+	LEFT JOIN ProSolution.dbo.CollegeLevel DEPT
+		ON DEPT.SID = CRS.SID
+	LEFT JOIN ProSolution.dbo.CollegeLevel CAM
+		ON CAM.SID = DEPT.ParentSID
+	LEFT JOIN ProSolution.dbo.CollegeLevel DIR
+		ON DIR.SID = CAM.ParentSID
+	LEFT JOIN ProSolution.dbo.CollegeLevel COL
+		ON COL.SID = DIR.ParentSID
+	WHERE
+		SD.AcademicYearID = @AcademicYear
+		AND RTRIM ( SD.RefNo ) = COALESCE ( @StudentRef, RTRIM ( SD.RefNo ) )
+	ORDER BY
+		SD.Surname,
+		SD.FirstForename,
+		RTRIM ( SD.RefNo )
+END

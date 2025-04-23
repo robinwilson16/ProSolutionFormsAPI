@@ -346,7 +346,6 @@ C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\D
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Azure.Security.KeyVault.Secrets.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
-C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Bcl.TimeProvider.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Graph.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Graph.Core.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Identity.Abstractions.dll
@@ -375,3 +374,5 @@ C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\D
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\System.Formats.Asn1.dll
+C:\Users\robin.wilson\source\repos\ProSolutionFormsAPI\ProSolutionFormsAPI\bin\Debug\net9.0\System.Text.Json.dll

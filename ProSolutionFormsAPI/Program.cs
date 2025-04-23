@@ -26,10 +26,13 @@ builder.Services.AddOpenApi();
 //Forms
 builder.Services.AddScoped<CriminalConvictionService>();
 builder.Services.AddScoped<FundingEligibilityDeclarationService>();
+builder.Services.AddScoped<InterviewHEService>();
 builder.Services.AddScoped<MedicalLearningSupportAndTripConsentService>();
+builder.Services.AddScoped<OfferHEService>();
 
 //Lookups
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<StudentApplicationService>();
 
 //Drop-Downs
 builder.Services.AddScoped<AcademicYearService>();

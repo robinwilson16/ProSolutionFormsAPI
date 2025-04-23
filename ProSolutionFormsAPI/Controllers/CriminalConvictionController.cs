@@ -104,13 +104,13 @@ namespace ProSolutionFormsAPI.Controllers
         }
 
         [HttpPost("Many")]
-        public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> newcriminalConvictions)
+        public async Task<IActionResult> CreateMany(List<CriminalConvictionModel> newCriminalConvictions)
         {
-            _modelResult = await _criminalConvictionService.AddMany(newcriminalConvictions);
+            _modelResult = await _criminalConvictionService.AddMany(newCriminalConvictions);
 
-            var ids = string.Join(",", newcriminalConvictions.Select(t => t.CriminalConvictionID));
+            var ids = string.Join(",", newCriminalConvictions.Select(t => t.CriminalConvictionID));
 
-            return CreatedAtAction(nameof(Create), new { ids }, newcriminalConvictions);
+            return CreatedAtAction(nameof(Create), new { ids }, newCriminalConvictions);
         }
 
         [Authorize]

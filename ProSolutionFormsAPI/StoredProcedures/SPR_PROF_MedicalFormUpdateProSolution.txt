@@ -1,4 +1,4 @@
-CREATE PROCEDURE SPR_MedicalFormUpdateProSolution
+CREATE PROCEDURE [dbo].[SPR_PROF_MedicalFormUpdateProSolution]
 AS
 BEGIN
 	SET XACT_ABORT, NOCOUNT ON;
@@ -18,6 +18,7 @@ BEGIN
 		MED.AcademicYearID,
 		MED.StudentDetailID,
 		MED.StudentRef,
+		HasCompletedForm = 1,
 		MED.CanContactStudent18PlusNOK,
 		RowNum = 
 			ROW_NUMBER () OVER (
@@ -39,16 +40,23 @@ BEGIN
 	CREATE TABLE #UpdatedStudentDetail (
 		AcademicYearID VARCHAR(5),
 		StudentDetailID INT,
-		AcceptShareInfoConsent INT
+		OldUserDefined46 VARCHAR(50),
+		NewUserDefined46 VARCHAR(50),
+		OldAcceptShareInfoConsent INT,
+		NewAcceptShareInfoConsent INT
 	)
 	UPDATE SD
 	SET
-		SD.AcceptShareInfoConsent = 1,
+		SD.UserDefined46 = 'True',
+		SD.AcceptShareInfoConsent = COALESCE ( MED.CanContactStudent18PlusNOK, 0 ),
 		SD.LastModifiedBy = 'MedicalFormUpdateInfo',
 		SD.LastModifiedDate = GETDATE()
 	OUTPUT
 		INSERTED.AcademicYearID,
 		INSERTED.StudentDetailID,
+		DELETED.UserDefined46,
+		INSERTED.UserDefined46,
+		DELETED.AcceptShareInfoConsent,
 		INSERTED.AcceptShareInfoConsent
 	INTO #UpdatedStudentDetail
 	FROM ProSolution.dbo.StudentDetail SD
@@ -57,9 +65,17 @@ BEGIN
 		AND MED.AcademicYearID = SD.AcademicYearID
 		AND MED.RowNum = 1
 	WHERE
-		SD.AcademicYearID = @AcademicYear
-		AND MED.CanContactStudent18PlusNOK = 1
-		AND COALESCE ( SD.AcceptShareInfoConsent, 0 ) = 0
+		SD.AcademicYearID = MED.AcademicYearID
+		AND 
+			EXISTS (
+				SELECT
+					MedicalFormCompleted = SD.UserDefined46,
+					CanContactStudent18PlusNOK = SD.AcceptShareInfoConsent
+				EXCEPT
+				SELECT
+					MedicalFormCompleted = 'True',
+					COALESCE ( MED.CanContactStudent18PlusNOK, 0 )
+			)
 
 
 	--Insert Audit Trail Record
@@ -92,7 +108,17 @@ BEGIN
 		TableName = @TableName,
 		WhereClause = '[' + @RecordIDName + '] = ' + CAST ( SD.StudentDetailID AS VARCHAR(50) ),
 		RowDescription = SD.Surname + ', ' + SD.FirstForename + ' (' + RTRIM ( SD.RefNo ) + ')',
-		ChangeInfo = 'Record Updated: ' + CHAR(13) + CHAR(10) + @FieldName + ': Changed from ''' + @FieldOldValue + '''' + COALESCE ( ' (' + @FieldOldDescription + ')', '' ) + ' to ''' + @FieldNewValue + '''' + COALESCE ( ' (' + @FieldNewDescription + ')', '' ),
+		ChangeInfo = 'Record Updated: ' + 
+			CASE
+				WHEN COALESCE ( UPD.NewUserDefined46, '' ) <> COALESCE ( UPD.OldUserDefined46, '' ) THEN 
+					CHAR(13) + CHAR(10) + 'UserDefined46: Changed from ''' + COALESCE ( UPD.OldUserDefined46, '' ) + ''' to ''' + COALESCE ( UPD.NewUserDefined46, '' ) + ''''
+				ELSE '' 
+			END
+			+ CASE
+				WHEN UPD.NewAcceptShareInfoConsent <> UPD.OldAcceptShareInfoConsent THEN 
+					CHAR(13) + CHAR(10) + 'AcceptShareInfoConsent: Changed from ''' + CAST ( UPD.OldAcceptShareInfoConsent AS VARCHAR(50) ) + ''' to ''' + CAST ( UPD.NewAcceptShareInfoConsent AS VARCHAR(50) ) + ''''
+				ELSE '' 
+			END,
 		ChangeType = 2,
 		ModifiedBy = @LastModifiedBy,
 		ModifiedOn = GETDATE(),

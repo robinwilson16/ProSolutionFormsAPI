@@ -1,0 +1,112 @@
+CREATE PROCEDURE [dbo].[SPR_PROF_CriminalConvictionFormUpdateProSolution]
+AS
+BEGIN
+	SET XACT_ABORT, NOCOUNT ON;
+
+	DECLARE @AcademicYear VARCHAR(5) = (
+		SELECT
+			CFG.Value
+		FROM ProSolutionReports.dbo.Config CFG
+		WHERE
+			CFG.ConfigID = 'ENR_AcademicYearID'
+	)
+
+
+	--Latest Medical Forms
+	DROP TABLE IF EXISTS #LatestCriminalConvictionForms
+	SELECT
+		CRI.AcademicYearID,
+		CRI.StudentDetailID,
+		CRI.StudentRef,
+		HasCompletedForm = 1,
+		RowNum = 
+			ROW_NUMBER () OVER (
+				PARTITION BY
+					CRI.AcademicYearID,
+					CRI.StudentDetailID
+				ORDER BY
+					CRI.CreatedDate DESC
+			)
+		INTO #LatestCriminalConvictionForms
+	FROM ProSolutionForms.dbo.CriminalConviction CRI
+	WHERE
+		CRI.AcademicYearID >= @AcademicYear
+
+
+
+	--Insert Application
+	DROP TABLE IF EXISTS #UpdatedStudentDetail
+	CREATE TABLE #UpdatedStudentDetail (
+		AcademicYearID VARCHAR(5),
+		StudentDetailID INT,
+		OldUserDefined47 VARCHAR(50),
+		NewUserDefined47 VARCHAR(50)
+	)
+	UPDATE SD
+	SET
+		SD.UserDefined47 = 'True',
+		SD.LastModifiedBy = 'CriminalConvictionFormUpdateInfo',
+		SD.LastModifiedDate = GETDATE()
+	OUTPUT
+		INSERTED.AcademicYearID,
+		INSERTED.StudentDetailID,
+		DELETED.UserDefined47,
+		INSERTED.UserDefined47
+	INTO #UpdatedStudentDetail
+	FROM ProSolution.dbo.StudentDetail SD
+	INNER JOIN #LatestCriminalConvictionForms CRI
+		ON CRI.StudentDetailID = SD.StudentDetailID
+		AND CRI.AcademicYearID = SD.AcademicYearID
+		AND CRI.RowNum = 1
+	WHERE
+		SD.AcademicYearID = CRI.AcademicYearID
+		AND 
+			EXISTS (
+				SELECT
+					CriminalConvictionFormCompleted = SD.UserDefined47
+				EXCEPT
+				SELECT
+					CriminalConvictionFormCompleted = 'True'
+			)
+
+
+	--Insert Audit Trail Record
+	DECLARE @TableName VARCHAR(50) = 'StudentDetail'
+	DECLARE @RecordIDName VARCHAR(50) = 'StudentDetailID'
+	DECLARE @LastModifiedBy VARCHAR(50) = 'CriminalConvictionFormUpdateInfo'
+	DECLARE @Context VARCHAR(50) = 'CriminalConvictionFormUpdateInfo'
+
+	INSERT INTO ProSolution.dbo._CCC_AuditTrail
+	(
+		TableName,
+		WhereClause,
+		RowDescription,
+		ChangeInfo,
+		ChangeType,
+		ModifiedBy,
+		ModifiedOn,
+		Context,
+		ProductName,
+		AuditTrailAPILinkID
+	)
+	SELECT
+		TableName = @TableName,
+		WhereClause = '[' + @RecordIDName + '] = ' + CAST ( SD.StudentDetailID AS VARCHAR(50) ),
+		RowDescription = SD.Surname + ', ' + SD.FirstForename + ' (' + RTRIM ( SD.RefNo ) + ')',
+		ChangeInfo = 'Record Updated: ' + 
+			CASE
+				WHEN COALESCE ( UPD.NewUserDefined47, '' ) <> COALESCE ( UPD.OldUserDefined47, '' ) THEN 
+					CHAR(13) + CHAR(10) + 'UserDefined47: Changed from ''' + COALESCE ( UPD.OldUserDefined47, '' ) + ''' to ''' + COALESCE ( UPD.NewUserDefined47, '' ) + ''''
+				ELSE '' 
+			END,
+		ChangeType = 2,
+		ModifiedBy = @LastModifiedBy,
+		ModifiedOn = GETDATE(),
+		Context = @Context,
+		ProductName = 'ProSolution',
+		AuditTrailAPILinkID = NULL
+	FROM #UpdatedStudentDetail UPD
+	INNER JOIN ProSolution.dbo.StudentDetail SD
+		ON SD.StudentDetailID = UPD.StudentDetailID
+		AND SD.AcademicYearID = UPD.AcademicYearID
+END

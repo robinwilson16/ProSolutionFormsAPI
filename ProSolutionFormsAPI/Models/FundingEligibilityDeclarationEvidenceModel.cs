@@ -46,7 +46,7 @@ namespace ProSolutionFormsAPI.Models
     {
         public FundingEligibilityDeclarationEvidenceValidator()
         {
-            RuleFor(m => m.EvidenceTypeID).NotNull().WithMessage("Please confirm which type of evidence you are uploading");
+            RuleFor(m => m.EvidenceTypeID).NotEmpty().WithMessage("Please confirm which type of evidence you are uploading");
             RuleFor(m => m.EvidenceContent).NotNull().WithMessage("Please ensure you upload a file containing the evidence which should be an image, PDF or Word file");
         }
     }
