@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\services\\academicyearservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\services\\academicyearservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|c:\\users\\robin.wilson\\source\\repos\\prosolutionformsapi\\prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{64968089-EC77-4122-86F4-619531E3D873}|ProSolutionFormsAPI\\ProSolutionFormsAPI.csproj|solutionrelative:prosolutionformsapi\\appsettings - default.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -58,20 +66,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings - Default.json",
-              "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
-              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings - Default.json",
-              "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
-              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings - Default.json",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAYwDQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-23T10:50:08.311Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Program.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Program.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAAHUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T18:50:33.46Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AcademicYearService.cs",
+              "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\AcademicYearService.cs",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\AcademicYearService.cs",
+              "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\AcademicYearService.cs",
+              "RelativeToolTip": "ProSolutionFormsAPI\\Services\\AcademicYearService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T19:08:49.333Z"
             },
             {
               "$type": "Document",
@@ -81,14 +105,26 @@
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings.json",
               "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings.json",
               "RelativeToolTip": "ProSolutionFormsAPI\\appsettings.json",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAYwDQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-23T10:47:31.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
+              "Title": "appsettings - Default.json",
+              "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
+              "RelativeDocumentMoniker": "ProSolutionFormsAPI\\appsettings - Default.json",
+              "ToolTip": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\appsettings - Default.json",
+              "RelativeToolTip": "ProSolutionFormsAPI\\appsettings - Default.json",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-23T10:50:08.311Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "20250423095705_Add OfferConditions to InterviewHE.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20250423095705_Add OfferConditions to InterviewHE.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20250423095705_Add OfferConditions to InterviewHE.cs",
@@ -96,12 +132,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Migrations\\20250423095705_Add OfferConditions to InterviewHE.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:57:05.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T09:57:05.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "InterviewHEModel.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\InterviewHEModel.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\InterviewHEModel.cs",
@@ -109,12 +144,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\InterviewHEModel.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAkwCEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:52:55.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T09:52:55.404Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "InterviewHEService.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\InterviewHEService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\InterviewHEService.cs",
@@ -122,12 +156,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\InterviewHEService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T09:52:51.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-23T09:52:51.305Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "20250422161430_Minor Changes to OfferHE.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Migrations\\20250422161430_Minor Changes to OfferHE.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Migrations\\20250422161430_Minor Changes to OfferHE.cs",
@@ -138,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "OfferHEAttachmentModel.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\OfferHEAttachmentModel.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\OfferHEAttachmentModel.cs",
@@ -146,12 +179,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\OfferHEAttachmentModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T16:12:57.211Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T16:12:57.211Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "OfferHEController.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
@@ -159,12 +191,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Controllers\\OfferHEController.cs",
               "ViewState": "AgIAABcAAAAAAAAAAABQwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:55:49.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T15:55:49.216Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "OfferHEModel.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\OfferHEModel.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\OfferHEModel.cs",
@@ -172,12 +203,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\OfferHEModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:22:11.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T15:22:11.886Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "OfferHEService.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\OfferHEService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\OfferHEService.cs",
@@ -185,12 +215,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\OfferHEService.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAiwBMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T14:56:39.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T14:56:39.83Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "StudentDetailModel.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Models\\StudentDetailModel.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Models\\StudentDetailModel.cs",
@@ -198,12 +227,11 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Models\\StudentDetailModel.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAYwF4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T15:31:42.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T15:31:42.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "FundingEligibilityDeclarationService.cs",
               "DocumentMoniker": "C:\\Users\\robin.wilson\\source\\repos\\ProSolutionFormsAPI\\ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
               "RelativeDocumentMoniker": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
@@ -211,8 +239,7 @@
               "RelativeToolTip": "ProSolutionFormsAPI\\Services\\FundingEligibilityDeclarationService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T14:56:31.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-22T14:56:31.305Z"
             }
           ]
         }
