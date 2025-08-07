@@ -97,14 +97,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 
 //Allow access from another URL
-var APIEndpoint = builder.Configuration["APIEndpoint"] ?? "";
+var origins = builder.Configuration.GetSection("APIEndpoints").Get<string[]>();
 
-string? origins = "origins";
 builder.Services.AddCors(options =>
-    options.AddPolicy(origins,
+    options.AddPolicy("origins",
         policy =>
         {
-            policy.WithOrigins(APIEndpoint)
+            policy.WithOrigins(origins ?? Array.Empty<string>())
             .AllowAnyHeader()
             .AllowAnyMethod();
         })
@@ -129,7 +128,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.UseCors(origins); //Enable cors access using URLs above
+app.UseCors("origins"); //Enable cors access using URLs above
 
 app.UseAuthentication();
 
